@@ -1,0 +1,94 @@
+.pagina_Calendario {
+  background: var(--calendario-fondo);
+  border-radius: 20px;
+  padding: 80px;
+  width: 650px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  align-items: center;
+}
+
+.parte_superior_del_Calendario {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #0e1522, var(--card));
+  border: 1px solid #1e2a3a;
+  border-radius: 18px;
+  padding: 10px 12px;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.boton_meses {
+  appearance: none;
+  border: 0;
+  background: #7a7a7a;
+  color: var(--texto);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 22px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton_meses:hover {
+  background: #0f809c;
+}
+
+.boton_meses:active {
+  transform: scale(0.96);
+}
+
+.dias_semana,
+.dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.dias_semana span {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.dias div {
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dias div:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hoy {
+  background: var(--hoy);
+  color: #000;
+  font-weight: bold;
+}
+
+.boton_hoy {
+  margin-top: 1rem;
+  border: 0;
+  background: --color-cuarto;
+  color: var(--texto);
+  width: 80px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.calendario-semana{
+  margin-top: 1rem;
+}

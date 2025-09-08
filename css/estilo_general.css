@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+/* Paleta de colores */
+:root{
+    --color-primario:#91EB9C;
+    --color-secundario: #7CEBD5;
+    --color-terciario: #7CEBAF;
+    --color-cuarto: #A0EB85 ;
+    --color-quinto: #94DFEB;
+    --color-sexto: #CBEBD9;
+    --color-g1: #6B6B6B;
+    --color-g2: #8C8C8C ;
+    --color-g3: #BDBDBD;
+    --color-g4: #ececec ;
+    --color-fondo: #e4e2e2;
+    --color-texto: #212121;
+
+    --borde-carta: 2rem;
+    --borde-radio-1: 0.4rem;
+    --borde-radio-2: 0.8rem;
+    --borde-radio-3: 1.2rem;
+
+    --carta--padding: 1.8rem;
+    --pading-1: 1.2rem;
+
+    --caja-sombra: 0 2rem 3rem var(--color-g3);
+
+    --calendario-fondo: #37d4cc;
+    --accento: #3b82f6;
+    --hoy: #31b908d2;   
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Color oscuro */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.content {
+  position: relative;
+  z-index: 0;
+}
+
+/* Contenido principal separado del menú */
+.content {
+  margin-left: 160px; /* deja espacio para el menú */
+  padding: 1rem;
+}

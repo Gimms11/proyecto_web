@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Página de inscripciones para eventos universitarios"
+    />
+    <title>Inscripción a Eventos Universitarios</title>
+    <link rel="stylesheet" href="css/estilo_inscripcion.css" />
+    <link rel="stylesheet" href="css/estilo_general.css" />
+  </head>
+  <body>
+    <div id="menu"></div>
+    <!-- Aquí se carga menu.html -->
+
+    <div class="overlay"></div>
+    <!-- Capa oscura -->
+
+    <!-- Cuerpo -->
+    <main>
+      <h2>Formulario de Inscripción</h2>
+      <form>
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="correo">Correo electrónico *</label>
+        <input type="email" id="correo" name="correo" required />
+
+        <label for="evento">Selecciona un evento *</label>
+        <select id="evento" name="evento" required>
+          <option value="">-- Elige un evento --</option>
+          <option value="taller">Taller de Innovación</option>
+          <option value="feria">Feria de Ciencias</option>
+          <option value="charla">Charla Motivacional</option>
+        </select>
+
+        <label for="comentarios">Comentarios</label>
+        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+        <button type="submit">Enviar inscripción</button>
+      </form>
+
+      <!-- Tabla de próximos eventos -->
+      <h2>Próximos Eventos</h2>
+      <table>
+        <tr>
+          <th>Evento</th>
+          <th>Fecha</th>
+          <th>Lugar</th>
+        </tr>
+        <tr>
+          <td>Taller de Innovación</td>
+          <td>10/09/2025</td>
+          <td>Auditorio Principal</td>
+        </tr>
+        <tr>
+          <td>Feria de Ciencias</td>
+          <td>15/09/2025</td>
+          <td>Patio Central</td>
+        </tr>
+        <tr>
+          <td>Charla Motivacional</td>
+          <td>20/09/2025</td>
+          <td>Sala de Conferencias</td>
+        </tr>
+      </table>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>
+        &copy; 2025 Universidad Sideral Carrion |
+        <a href="#" style="color: black">Política de Privacidad</a>
+      </p>
+    </footer>
+
+    <script src="layout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+h1.encabezado{
+    font-size: 40px;
+    text-align: left;
+    max-width: 768px;
+    margin: 0 auto;
+    display: grid;
+    line-height:100px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+.evento-container {
+    font-family: "Roboto", sans-serif;
+    max-width: 768px;
+    margin: 0 auto;
+    display: grid; 
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+    row-gap: 16px;
+    column-gap: 16px;
+}
+p.subtitulo {
+    font-size: 20px;
+    text-align: left;
+    border-bottom: 1px solid #b1b1b1;
+    max-width: 768px;
+    margin: 0 auto;
+    display: grid;
+    line-height: 50px;
+}
+.evento {
+    display: flex;
+    background: #cbebd9;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    margin: 10px 0;
+    text-decoration: none;
+    color: inherit;
+} 
+.evento-container .evento-left {
+    background: #91eb9c;
+    min-width: 82px;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    color: #eee;
+    padding: 8px 48px;
+    font-weight: bold;
+    text-align: center;
+}
+.evento-container .numero_dia {
+    font-size: 56px;
+}
+.evento-container .evento .evento-left .mes{
+    font-size: 16px;
+    font-weight: normal;
+}
+.evento-container .evento-rigth {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 24px;
+    background: #7cebd5;
+}
+.tabs {
+    display: flex;
+    gap: 20px;   
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.tabs .tab {
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none; 
+    color: #000000;
+    line-height: 20px;
+    border-bottom: 1px solid #b1b1b1;
+}
+
+.buscar_evento {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 768px;
+    margin: 10px auto ;
+    padding: 0 10px ;
+}
+
+.buscar_evento input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex: 1;
+    font-size: 14px;
+}
+
+.buscar_evento .i{
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+}

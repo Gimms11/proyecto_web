@@ -1,0 +1,148 @@
+/* Contenido principal */
+.dashboard main {
+  margin-top: 1.4rem;
+}
+
+.dashboard main .date {
+  display: inline-block;
+  background: var(--color-g4);
+  border-radius: var(--borde-radio-1);
+  margin-top: 1rem;
+  padding: 0.5rem 1.6rem;
+}
+
+.dashboard main .date input[type="date"] {
+  background: transparent;
+  color: var(--color-texto);
+}
+
+.dashboard main .cuadrs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.dashboard main .cuadrs > div {
+  background: var(--color-sexto);
+  padding: var(--carta--padding);
+  border-radius: var(--borde-carta);
+  margin-top: 1rem;
+  box-shadow: var(--caja-sombra);
+  transition: all 300ms ease;
+}
+
+.dashboard main .cuadrs > div:hover {
+  box-shadow: none;
+}
+
+.dashboard main .cuadrs > div span {
+  background: var(--color-primario);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--color-g1);
+  font-size: 2rem;
+}
+
+.dashboard main .cuadrs > div .c1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard main .cuadrs > div h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1rem;
+}
+
+.dashboard main .cuadrs .porcentaje {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+
+.dashboard main .cuadrs svg {
+  width: 7rem;
+  height: 7rem;
+}
+
+.dashboard main .cuadrs svg circle {
+  fill: none;
+  stroke: var(--color-quinto);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 110;
+  stroke-dashoffset: 92;
+}
+
+.dashboard main .cuadrs .cc1 svg circle {
+  stroke-dashoffset: 35;
+  stroke-dasharray: 110;
+}
+
+.dashboard main .cuadrs .cc2 svg circle {
+  stroke-dashoffset: 20;
+  stroke-dasharray: 80;
+}
+
+.dashboard main .cuadrs .cc3 svg circle {
+  stroke-dashoffset: -30;
+  stroke-dasharray: 200;
+}
+
+.dashboard main .cuadrs .porcentaje .numero {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard main .cuadrs small {
+  margin-top: 1.3rem;
+  display: block;
+}
+
+/* Tarjetas de eventos */
+.dashboard main .descripcion {
+  margin-top: 2rem;
+}
+
+.dashboard main .descripcion h2 {
+  margin-bottom: 0.8rem;
+}
+
+.dashboard main .descripcion table {
+  background: var(--color-g4);
+  width: 100%;
+  border-radius: var(--borde-carta);
+  padding: var(--carta--padding);
+  text-align: center;
+  box-shadow: var(--caja-sombra);
+  transition: all 300ms ease;
+}
+
+.dashboard main .descripcion table:hover {
+  box-shadow: none;
+}
+
+.dashboard main table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-g3);
+  color: var(--color-g2);
+}
+
+.dashboard main table tbody tr:last-child td {
+  border: none;
+}
+
+.dashboard main .descripcion a {
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  color: var(--color-primario);
+}

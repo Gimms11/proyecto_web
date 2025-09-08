@@ -1,0 +1,71 @@
+/* Estilos básicos */
+header,
+footer {
+  background-color: #91eb9c;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+main {
+  padding: 20px;
+  padding-left: 130px;
+}
+h1,
+h2 {
+  color: black;
+}
+/* Formulario */
+form {
+  background: white;
+  padding: 50px 50px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+}
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #94dfeb;
+  border-radius: 4px;
+}
+button {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #94dfeb;
+  color: black;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #27e5f3;
+}
+/* Tabla */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #91eb9c;
+  color: black;
+}

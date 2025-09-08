@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendario</title>
+  <link rel="stylesheet" href="css/estilo_calendario.css" />
+  <link rel="stylesheet" href="css/estilo_general.css" />
+</head>
+
+<body class="Calendario">
+  <div id="menu"></div>
+  <!-- Aquí se carga menu.html -->
+  <div class="overlay"></div>
+  <!-- Capa oscura -->
+
+  <div class="content">
+    <main class="pagina_Calendario">
+      <header class="parte_superior_del_Calendario">
+        <button class="boton_meses" id="mes_anterior" aria-label="Mes anterior">
+          ‹
+        </button>
+        <h1 class="meses" id="meses">Mes Año</h1>
+        <button class="boton_meses" id="mes_posterior" aria-label="Mes siguiente">
+          ›
+        </button>
+      </header>
+
+      <div class="inferiorCalendario">
+
+        <section class="calendario-regreso">
+          <button class="boton_hoy" id="boton_hoy">Hoy</button>
+        </section>
+
+
+        <section class="calendario-semana">
+          <div class="dias_semana">
+            <span>Lu</span><span>Mar</span><span>Mié</span> <span>Jue</span><span>Vie</span><span>Sab</span>
+            <span>Dom</span>
+          </div>
+          <div class="dias" id="dias-grid" role="grid" aria-label="Calendario"></div>
+        </section>
+
+
+        <script src="scripts/principal.js"></script>
+    </main>
+  </div>
+
+  <script src="layout.js"></script>
+</body>
+
+</html>

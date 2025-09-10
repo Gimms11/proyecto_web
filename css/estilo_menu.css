@@ -1,13 +1,10 @@
-a {
-  text-decoration: none;
-}
-
 .sidebar {
   position: fixed;
   overflow-y: auto;
   background-color: rgb(255, 255, 255);
   width: max-content;
-  height: 100vh;
+  min-width: 80px;
+  height: 100%;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
   padding: 2rem 1rem;
   z-index: 20;
@@ -83,6 +80,7 @@ a {
 
 .sidebar_hide {
   overflow: hidden;
+  margin-left: 0;
   transition: margin-left 0.4s;
 }
 

@@ -1,50 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
+    <!-- Configuración inicial -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Astohuaman Espino Daniela" />
+
+    <!-- Hojas de estilo -->
     <link rel="stylesheet" href="css/estilo_eventos_seleccion.css" />
     <link rel="stylesheet" href="css/estilo_general.css" />
+
+    <!-- Iconos de Font Awesome (para el buscador) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
     <title>Document</title>
   </head>
   <body>
+    <!-- Menú (se cargará con layout.js) -->
     <div id="menu"></div>
-    <!-- Aquí se carga menu.html -->
 
+    <!-- Overlay (capa oscura para menús laterales o modales) -->
     <div class="overlay"></div>
-    <!-- Capa oscura -->
 
+    <!-- Contenido principal -->
     <div class="content">
+      <!-- Encabezado -->
       <h1 class="encabezado">Eventos</h1>
 
+      <!-- Navegación de categorías -->
       <div class="enlaces">
         <div class="tabs">
           <a href="eventos.html" class="tab active">Eventos destacados</a>
-          <a href="Academicos.html" class="tab">Academidos</a>
-          <a href="Culturales_Artisticos.html" class="tab"
-            >Culturales y artísticos</a
-          >
-          <a href="Deportivos_Recreativos.html" class="tab"
-            >Deportivos y recreativos</a
-          >
+          <a href="Academicos.html" class="tab">Académidos</a>
+          <a href="Culturales_Artisticos.html" class="tab">Culturales y artísticos</a>
+          <a href="Deportivos_Recreativos.html" class="tab">Deportivos y recreativos</a>
         </div>
       </div>
 
+      <!-- Barra de búsqueda -->
       <div class="buscar_evento">
         <input type="text" placeholder="Buscar tus eventos" />
         <button class="btn-buscar">
+          <!-- Ícono de lupa -->
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
+      <!-- Subtítulo (texto de prueba por ahora) -->
       <p class="subtitulo">lalala</p>
 
+      <!-- Contenedor de eventos -->
       <div class="evento-container">
+
+        <!-- Evento 1 -->
         <a href="../informacion_event/info5.html" class="evento">
+          <!-- Columna izquierda: fecha -->
           <div class="evento-left">
             <div class="evento-date">
               <div class="numero_dia">1</div>
@@ -52,12 +64,15 @@
             </div>
           </div>
 
+          <!-- Columna derecha: información -->
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
             <div class="hora-evento">10:00 a.m.</div>
           </div>
         </a>
+
+        <!-- Evento 2 -->
         <a href="../informacion_event/info6.html" class="evento">
           <div class="evento-left">
             <div class="evento-date">
@@ -66,15 +81,18 @@
             </div>
           </div>
 
+          <!-- Columna derecha: información -->
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
             <div class="hora-evento">10:00 a.m.</div>
           </div>
         </a>
+
       </div>
     </div>
 
+    <!-- Script para cargar funcionalidades dinámicas -->
     <script src="layout.js"></script>
   </body>
 </html>

@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="es" class="htmlIndex">
   <head>
+    <!-- Configuración básica -->
     <meta charset="UTF-8" />
+    <meta name="autor" content="Nallely Patricia Nuñez Campos" />
+
+    <!-- Título en la pestaña del navegador -->
     <title>Inicio</title>
+
+    <!-- Hojas de estilo generales e index -->
     <link rel="stylesheet" href="css/estilo_general.css" />
     <link rel="stylesheet" href="css/estilo_index.css" />
+
+    <!-- Fuente de iconos de Google (Material Symbols) -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
     />
   </head>
   <body class="dashboard">
+    <!-- Contenedor para el menú (se carga por layout.js) -->
     <div id="menu"></div>
-    <!-- Aquí se carga menu.html -->
 
+    <!-- Capa oscura superpuesta (ej. para modales o menú lateral) -->
     <div class="overlay"></div>
-    <!-- Capa oscura -->
 
+    <!-- Contenido principal -->
     <div class="content">
       <main>
+        <!-- Encabezado principal -->
         <h1>BIENVENIDO AL PORTAL DE EVENTOS</h1>
 
+        <!-- Selector de fecha -->
         <div class="date">
           <input type="date" />
         </div>
 
+        <!-- Tarjetas/resumen de estadísticas -->
         <div class="cuadrs">
+          <!-- Tarjeta 1: Evento próximo -->
           <div class="cc1">
             <span class="material-symbols-outlined">today</span>
             <div class="c1">
@@ -33,6 +46,7 @@
                 <h3>Evento próximo</h3>
                 <h1>Concierto</h1>
               </div>
+              <!-- Círculo gráfico de progreso -->
               <div class="porcentaje">
                 <svg>
                   <circle cx="38" cy="38" r="36"></circle>
@@ -45,6 +59,7 @@
             <small class="text-muted">Usted está inscrito</small>
           </div>
 
+          <!-- Tarjeta 2: Eventos inscritos -->
           <div class="cc2">
             <span class="material-symbols-outlined">check_circle</span>
             <div class="c1">
@@ -64,6 +79,7 @@
             <small class="text-muted">En los últimos 30 días</small>
           </div>
 
+          <!-- Tarjeta 3: Evento importante -->
           <div class="cc3">
             <span class="material-symbols-outlined">bookmark_heart</span>
             <div class="c1">
@@ -84,6 +100,7 @@
           </div>
         </div>
 
+        <!-- Tabla con descripción de eventos -->
         <div class="descripcion">
           <h2>Descripción de Eventos</h2>
           <table>
@@ -97,6 +114,7 @@
               </tr>
             </thead>
             <tbody>
+              <!-- Fila de ejemplo -->
               <tr>
                 <td>ExpoCiencia U</td>
                 <td>12/09/2024</td>
@@ -105,6 +123,7 @@
                 <td class="peligro">Pendiente</td>
                 <td class="primaria">Detalles</td>
               </tr>
+              <!-- Se repite la misma estructura (pueden ser distintos eventos) -->
               <tr>
                 <td>ExpoCiencia U</td>
                 <td>12/09/2024</td>
@@ -123,11 +142,13 @@
               </tr>
             </tbody>
           </table>
+          <!-- Enlace para ver más eventos -->
           <a href="#">Mostrar más</a>
         </div>
       </main>
     </div>
 
+    <!-- Script para cargar funcionalidades dinámicas -->
     <script src="layout.js"></script>
   </body>
 </html>

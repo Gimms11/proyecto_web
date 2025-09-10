@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Configuración básica -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Astohuaman Espino Daniela" />
+
+    <!-- Hojas de estilos -->
     <link rel="stylesheet" href="css/estilo_eventos.css" />
     <link rel="stylesheet" href="css/estilo_general.css" />
+
+    <!-- Título de la pestaña -->
     <title>Eventos</title>
   </head>
   <body class="eventoBody">
+    <!-- Menú (se inserta dinámicamente desde layout.js) -->
     <div id="menu"></div>
-    <!-- Aquí se carga menu.html -->
 
+    <!-- Overlay (capa oscura usada para menús laterales o modales) -->
     <div class="overlay"></div>
-    <!-- Capa oscura -->
 
+    <!-- Contenido principal -->
     <div class="content">
+      <!-- Título principal -->
       <h1 class="encabezado">Eventos</h1>
 
+      <!-- Navegación de pestañas -->
       <div class="enlaces">
         <div class="tabs">
           <a href="eventos.html" class="tab active">Eventos destacados</a>
@@ -30,9 +38,29 @@
         </div>
       </div>
 
+      <!-- Subtítulo (ahora tiene texto de prueba "lalala") -->
       <h3 class="subtitulo">lalala</h3>
 
+      <!-- Contenedor de eventos -->
       <div class="evento-container">
+        <!-- Cada evento es un enlace a inscripciones -->
+        <a href="inscripciones.html" class="evento">
+          <!-- Columna izquierda: fecha -->
+          <div class="evento-left">
+            <div class="evento-date">
+              <div class="numero_dia">1</div>
+              <div class="mes">Setiembre</div>
+            </div>
+          </div>
+          <!-- Columna derecha: información -->
+          <div class="evento-rigth">
+            <h3 class="nombre-evento">titulo1</h3>
+            <div class="descrip-evento">descripcion</div>
+            <div class="hora-evento">10:00 a.m.</div>
+          </div>
+        </a>
+
+        <!-- Cada evento es un enlace a inscripciones -->
         <a href="inscripciones.html" class="evento">
           <div class="evento-left">
             <div class="evento-date">
@@ -40,7 +68,6 @@
               <div class="mes">Setiembre</div>
             </div>
           </div>
-
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
@@ -54,7 +81,6 @@
               <div class="mes">Setiembre</div>
             </div>
           </div>
-
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
@@ -68,7 +94,6 @@
               <div class="mes">Setiembre</div>
             </div>
           </div>
-
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
@@ -82,7 +107,6 @@
               <div class="mes">Setiembre</div>
             </div>
           </div>
-
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
@@ -96,21 +120,6 @@
               <div class="mes">Setiembre</div>
             </div>
           </div>
-
-          <div class="evento-rigth">
-            <h3 class="nombre-evento">titulo1</h3>
-            <div class="descrip-evento">descripcion</div>
-            <div class="hora-evento">10:00 a.m.</div>
-          </div>
-        </a>
-        <a href="inscripciones.html" class="evento">
-          <div class="evento-left">
-            <div class="evento-date">
-              <div class="numero_dia">1</div>
-              <div class="mes">Setiembre</div>
-            </div>
-          </div>
-
           <div class="evento-rigth">
             <h3 class="nombre-evento">titulo1</h3>
             <div class="descrip-evento">descripcion</div>
@@ -120,6 +129,7 @@
       </div>
     </div>
 
+    <!-- Script para cargar funcionalidades dinámicas -->
     <script src="layout.js"></script>
   </body>
 </html>

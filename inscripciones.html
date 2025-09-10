@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- Configuración básica de la página -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Uriel Renzo Daniel Barrios Hernandez" />
     <meta
       name="description"
       content="Página de inscripciones para eventos universitarios"
     />
+
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Inscripción a Eventos Universitarios</title>
+
+    <!-- Hojas de estilo CSS -->
     <link rel="stylesheet" href="css/estilo_inscripcion.css" />
     <link rel="stylesheet" href="css/estilo_general.css" />
   </head>
   <body>
+    <!-- Menú de navegación (se cargará con JS en layout.js) -->
     <div id="menu"></div>
     <!-- Aquí se carga menu.html -->
 
+    <!-- Capa superpuesta oscura (para menús desplegables/modales) -->
     <div class="overlay"></div>
-    <!-- Capa oscura -->
 
-    <!-- Cuerpo -->
+    <!-- Contenido principal de la página -->
     <main>
+      <!-- Título del formulario -->
       <h2>Formulario de Inscripción</h2>
+
+      <!-- Formulario para inscribirse en eventos -->
       <form>
+        <!-- Campo de texto: nombre -->
         <label for="nombre">Nombre completo *</label>
         <input type="text" id="nombre" name="nombre" required />
 
+        <!-- Campo de correo electrónico -->
         <label for="correo">Correo electrónico *</label>
         <input type="email" id="correo" name="correo" required />
 
+        <!-- Lista desplegable para elegir un evento -->
         <label for="evento">Selecciona un evento *</label>
         <select id="evento" name="evento" required>
           <option value="">-- Elige un evento --</option>
@@ -36,13 +48,15 @@
           <option value="charla">Charla Motivacional</option>
         </select>
 
+        <!-- Campo de comentarios opcional -->
         <label for="comentarios">Comentarios</label>
         <textarea id="comentarios" name="comentarios" rows="4"></textarea>
 
+        <!-- Botón de envío -->
         <button type="submit">Enviar inscripción</button>
       </form>
 
-      <!-- Tabla de próximos eventos -->
+      <!-- Sección con tabla de próximos eventos -->
       <h2>Próximos Eventos</h2>
       <table>
         <tr>
@@ -68,7 +82,7 @@
       </table>
     </main>
 
-    <!-- Pie de página -->
+    <!-- Pie de página con derechos de autor y enlace -->
     <footer>
       <p>
         &copy; 2025 Universidad Sideral Carrion |
@@ -76,6 +90,7 @@
       </p>
     </footer>
 
+    <!-- Script para cargar funcionalidades dinámicas -->
     <script src="layout.js"></script>
   </body>
 </html>

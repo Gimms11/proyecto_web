@@ -2,50 +2,63 @@
 <html lang="es">
 
 <head>
+  <!-- Configuración -->
   <meta charset="UTF-8" />
+  <meta name="autor" content="Anampa Vignolo Giancarlos" />
   <title>Calendario</title>
+
+  <!-- Hojas de estilo -->
   <link rel="stylesheet" href="css/estilo_calendario.css" />
   <link rel="stylesheet" href="css/estilo_general.css" />
 </head>
 
 <body class="Calendario">
+  <!-- Menú lateral (se cargará con layout.js) -->
   <div id="menu"></div>
-  <!-- Aquí se carga menu.html -->
   <div class="overlay"></div>
-  <!-- Capa oscura -->
 
+  <!-- Contenido principal -->
   <div class="content">
     <main class="pagina_Calendario">
+
+      <!-- Encabezado del calendario -->
       <header class="parte_superior_del_Calendario">
-        <button class="boton_meses" id="mes_anterior" aria-label="Mes anterior">
-          ‹
-        </button>
+        <button class="boton_meses" id="mes_anterior" aria-label="Mes anterior">‹</button>
         <h1 class="meses" id="meses">Mes Año</h1>
-        <button class="boton_meses" id="mes_posterior" aria-label="Mes siguiente">
-          ›
-        </button>
+        <button class="boton_meses" id="mes_posterior" aria-label="Mes siguiente">›</button>
       </header>
 
+      <!-- Parte inferior -->
       <div class="inferiorCalendario">
 
+        <!-- Botón para volver al día actual -->
         <section class="calendario-regreso">
           <button class="boton_hoy" id="boton_hoy">Hoy</button>
         </section>
 
-
+        <!-- Vista de la semana y días -->
         <section class="calendario-semana">
           <div class="dias_semana">
-            <span>Lu</span><span>Mar</span><span>Mié</span> <span>Jue</span><span>Vie</span><span>Sab</span>
+            <span>Lu</span>
+            <span>Mar</span>
+            <span>Mié</span>
+            <span>Jue</span>
+            <span>Vie</span>
+            <span>Sab</span>
             <span>Dom</span>
           </div>
+
+          <!-- Aquí JS genera los días -->
           <div class="dias" id="dias-grid" role="grid" aria-label="Calendario"></div>
         </section>
 
-
+        <!-- Script del calendario -->
         <script src="scripts/principal.js"></script>
+      </div>
     </main>
   </div>
 
+    <!-- Script para cargar funcionalidades dinámicas -->
   <script src="layout.js"></script>
 </body>
 

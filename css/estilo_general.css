@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
 /* Paleta de colores */
 :root{
     --color-primario:#91EB9C;
@@ -23,10 +22,6 @@
     --pading-1: 1.2rem;
 
     --caja-sombra: 0 2rem 3rem var(--color-g3);
-
-    --calendario-fondo: #37d4cc;
-    --accento: #3b82f6;
-    --hoy: #31b908d2;   
 }
 
 html, body {

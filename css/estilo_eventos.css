@@ -1,6 +1,6 @@
 h1.encabezado{
     font-size: 40px;
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid;
     line-height:100px;
@@ -8,7 +8,7 @@ h1.encabezado{
     margin-top: 40px;
 }
 .evento-container {
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid; 
     grid-template-columns: repeat(2,1fr);
@@ -20,7 +20,7 @@ h3.subtitulo {
     font-size: 25px;
     text-align: left;
     border-bottom: 1px solid #b1b1b1;
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid;
     line-height: 70px;
@@ -35,7 +35,12 @@ h3.subtitulo {
     margin: 10px 0;
     text-decoration: none;
     color: inherit;
+    height: 150px;
 } 
+.evento:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 .evento-left {
     background: #91eb9c;
     min-width: 82px;
@@ -43,7 +48,7 @@ h3.subtitulo {
     align-items: left;
     justify-content: center;
     color: #eee;
-    padding: 8px 48px;
+    padding: 8px 8px;
     font-weight: bold;
     text-align: center;
 }
@@ -61,11 +66,35 @@ h3.subtitulo {
     justify-content: center;
     padding: 0 24px;
     background: #7CEBD5;
+
 }
+
+.evento-rigth .hora-evento{
+    line-height: 20px;
+}
+
+.evento .descrip-evento{
+    font-size: 0.9rem;
+    margin: 5px 0;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;             
+    box-orient: vertical;
+    transition: max-height 0.4s ease;
+}
+
+.evento:hover .descrip-evento {
+    line-clamp: unset;   
+    line-height: 15px;         
+    overflow: visible;
+}
+
 .tabs {
     display: flex;
     gap: 20px;   
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 10px;
 }

@@ -1,7 +1,7 @@
 h1.encabezado{
     font-size: 40px;
     text-align: left;
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid;
     line-height:100px;
@@ -10,7 +10,7 @@ h1.encabezado{
 }
 .evento-container {
     font-family: "Roboto", sans-serif;
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid; 
     grid-template-columns: repeat(2,1fr);
@@ -22,7 +22,7 @@ p.subtitulo {
     font-size: 20px;
     text-align: left;
     border-bottom: 1px solid #b1b1b1;
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     display: grid;
     line-height: 50px;
@@ -37,7 +37,12 @@ p.subtitulo {
     margin: 10px 0;
     text-decoration: none;
     color: inherit;
+    height: 150px;
 } 
+.evento:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 .evento-container .evento-left {
     background: #91eb9c;
     min-width: 82px;
@@ -45,7 +50,7 @@ p.subtitulo {
     align-items: left;
     justify-content: center;
     color: #eee;
-    padding: 8px 48px;
+    padding: 8px 8px;
     font-weight: bold;
     text-align: center;
 }
@@ -64,10 +69,33 @@ p.subtitulo {
     padding: 0 24px;
     background: #7cebd5;
 }
+
+.evento-rigth .hora-evento{
+    line-height: 20px;
+}
+
+.evento .descrip-evento{
+    font-size: 0.9rem;
+    margin: 5px 0;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;             
+    box-orient: vertical;
+    transition: max-height 0.4s ease;
+}
+
+.evento:hover .descrip-evento {
+    line-clamp: unset;   
+    line-height: 15px;         
+    overflow: visible;
+}
+
 .tabs {
     display: flex;
     gap: 20px;   
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -87,7 +115,7 @@ p.subtitulo {
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    max-width: 768px;
+    max-width: 800px;
     margin: 10px auto ;
     padding: 0 10px ;
 }

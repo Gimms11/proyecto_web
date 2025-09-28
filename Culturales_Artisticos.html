@@ -40,7 +40,7 @@
 
       <!-- Barra de búsqueda -->
       <div class="buscar_evento">
-        <input type="text" placeholder="Buscar tus eventos" />
+        <input type="search" placeholder="Buscar tus eventos" id="buscador" name="buscador"/>
         <button class="btn-buscar">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -53,43 +53,37 @@
       <div class="evento-container">
 
         <!-- Evento 1 -->
-        <a href="../informacion_event/info3.html" class="evento">
-          <!-- Lado izquierdo: fecha -->
+        <a href="inscripciones.html" class="evento">
           <div class="evento-left">
             <div class="evento-date">
-              <div class="numero_dia">1</div>
-              <div class="mes">Setiembre</div>
+              <div class="numero_dia">31</div>
+              <div class="mes">Octubre</div>
             </div>
           </div>
-
-          <!-- Lado derecho: información del evento -->
           <div class="evento-rigth">
-            <h3 class="nombre-evento">titulo1</h3>
-            <div class="descrip-evento">descripcion</div>
-            <div class="hora-evento">10:00 a.m.</div>
+            <h3 class="nombre-evento">Noche de Talentos Universitarios</h3>
+            <div class="descrip-evento">Diversión y cultura en una sola noche.</div>
+            <div class="hora-evento">19:00 p.m.</div>
           </div>
         </a>
 
         <!-- Evento 2 -->
-        <a href="../informacion_event/info4.html" class="evento">
+        <a href="inscripciones.html" class="evento">
           <div class="evento-left">
             <div class="evento-date">
-              <div class="numero_dia">1</div>
-              <div class="mes">Setiembre</div>
+              <div class="numero_dia">05</div>
+              <div class="mes">Noviembre</div>
             </div>
           </div>
-
-          <!-- Lado derecho: información del evento -->
           <div class="evento-rigth">
-            <h3 class="nombre-evento">titulo1</h3>
-            <div class="descrip-evento">descripcion</div>
+            <h3 class="nombre-evento">Festival de Teatro Universitario</h3>
+            <div class="descrip-evento">Una experiencia cultural que celebra el arte escénico</div>
             <div class="hora-evento">10:00 a.m.</div>
           </div>
         </a>
-      </div>
-    </div>
 
     <!-- Script para cargar funcionalidades dinámicas -->
     <script src="layout.js"></script>
+    <script src="scripts/buscar_evento.js"></script>
   </body>
 </html>

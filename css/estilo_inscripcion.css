@@ -1,7 +1,7 @@
 /* Estilos básicos */
 header,
 footer {
-  background-color: #91eb9c;
+  background-color: #7CEBAF;
   color: black;
   text-align: center;
   padding: 10px;
@@ -21,7 +21,7 @@ h2 {
 }
 /* Formulario */
 form {
-  background: white;
+  background: #94DFEB;
   padding: 50px 50px;
   border-radius: 8px;
   max-width: 500px;
@@ -38,7 +38,7 @@ textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  border: 1px solid #94dfeb;
+  border: 2px solid #31b908d2;
   border-radius: 4px;
 }
 button {
@@ -46,12 +46,12 @@ button {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #94dfeb;
+  background-color: #31b908d2;
   color: black;
   cursor: pointer;
 }
 button:hover {
-  background-color: #27e5f3;
+  background-color: #3b82f6;
 }
 /* Tabla */
 table {
@@ -66,6 +66,9 @@ td {
   text-align: center;
 }
 th {
-  background-color: #91eb9c;
+  background-color: #94DFEB;
   color: black;
 }
+.fila1 {background-color: #4784ff}
+.fila2 {background-color: #2fffe0}
+.fila3 {background-color: #f6ff47}

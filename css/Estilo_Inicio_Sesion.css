@@ -1,0 +1,233 @@
+:root {
+  --color-primario: #91EB9C;
+  --color-secundario: #7CEBD5;
+  --color-terciario: #7CEBAF;
+  --color-cuarto: #A0EB85;
+  --color-quinto: #94DFEB;
+  --color-sexto: #CBEBD9;
+
+  --color-g1: #000000; /* texto principal en negro */
+  --color-g2: #333333;
+  --color-g3: #BDBDBD;
+  --color-g4: #ECECEC;
+
+  --borde-radio-1: 0.4rem;
+  --borde-radio-2: 0.8rem;
+  --borde-radio-3: 1.2rem;
+
+  --caja-sombra: 0 10px 30px rgba(0,0,0,0.15);
+  --fuente-principal: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(-45deg, var(--color-quinto), var(--color-sexto), var(--color-cuarto), var(--color-terciario));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--color-g1);
+  transition: background 0.5s ease;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  color: var(--color-g1);
+  text-align: center;
+  padding: 25px 10px;
+  border-bottom: 3px solid var(--color-g3);
+  box-shadow: var(--caja-sombra);
+  position: relative;
+  z-index: 100;
+  border-radius: var(--borde-radio-2);
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  animation: slideDown 0.8s ease forwards;
+  color: var(--color-g1); /* negro */
+}
+
+/* ===== NAV LOGIN/REG ===== */
+nav.Registro {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+nav.Registro a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-g1); /* negro */
+  padding: 8px 16px;
+  border-radius: var(--borde-radio-2);
+  background: linear-gradient(135deg, var(--color-terciario), var(--color-quinto));
+  box-shadow: var(--caja-sombra);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+nav.Registro a:hover {
+  background: linear-gradient(135deg, var(--color-cuarto), var(--color-primario));
+  transform: scale(1.05);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  display: none;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 35px 30px;
+  border-radius: var(--borde-radio-3);
+  box-shadow: var(--caja-sombra);
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.6s ease forwards;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  color: var(--color-g1); /* negro */
+}
+
+section.active {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+section h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  color: var(--color-g1); /* negro */
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: var(--color-g1); /* negro */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 12px;
+  border-radius: var(--borde-radio-2);
+  border: 1px solid var(--color-g3);
+  outline: none;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--color-sexto), var(--color-quinto));
+  color: var(--color-g1); /* negro */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--color-terciario);
+  box-shadow: 0 0 12px var(--color-terciario);
+  transform: scale(1.02);
+}
+
+/* ===== BUTTONS ===== */
+button {
+  padding: 12px 0;
+  border: none;
+  border-radius: var(--borde-radio-2);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-cuarto));
+  color: var(--color-g1); /* negro */
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: var(--caja-sombra);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--color-terciario), var(--color-quinto));
+  color: var(--color-g1); /* negro */
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* ===== AYUDA ===== */
+nav.Ayuda ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  text-align: center;
+}
+
+nav.Ayuda a {
+  display: block;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-g1); /* negro */
+  transition: color 0.3s ease;
+}
+
+nav.Ayuda a:hover {
+  color: var(--color-terciario);
+}
+
+/* ===== AUDIO CONTROLS ===== */
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.audio-controls button {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--color-terciario), var(--color-quinto));
+  color: var(--color-g1); /* negro */
+  font-weight: 600;
+}
+
+.audio-controls button:hover {
+  background: linear-gradient(135deg, var(--color-cuarto), var(--color-primario));
+  color: var(--color-g1); /* negro */
+}
+
+#audio-controls input[type="range"] {
+  width: 150px;
+  accent-color: var(--color-terciario);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+

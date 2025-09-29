@@ -33,7 +33,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   /*animation: --color-fondo 10s infinite alternate;*/
-  background-color: var(--color-fondo);
+  background: radial-gradient(ellipse at top left, var(--color-quinto), var(--color-sexto));
   color: var(--color-texto);
 }
 
@@ -76,4 +76,3 @@ body {
   margin-left: 160px; /* deja espacio para el menú */
   padding: 1rem;
 }
-

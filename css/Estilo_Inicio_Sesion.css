@@ -89,7 +89,8 @@ nav.Registro a:hover {
 /* ===== SECTIONS ===== */
 section {
   display: none;
-  max-width: 400px;
+  width: 400px;
+  max-width: 600px;
   margin: 40px auto;
   padding: 35px 30px;
   border-radius: var(--borde-radio-3);
@@ -231,3 +232,9 @@ nav.Ayuda a:hover {
   100% { background-position: 0% 50%; }
 }
 
+
+
+
+li{
+  margin-top: 1rem;
+}

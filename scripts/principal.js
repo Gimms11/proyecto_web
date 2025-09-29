@@ -1,72 +1,113 @@
-// --- Nombres de los meses ---
 const mesesNombres = [
   "Enero","Febrero","Marzo","Abril","Mayo","Junio",
   "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
+const eventos = [
+  { fecha: '2025-09-29', titulo: 'Conferencia de Fracasados', hora: '10:00' },
+  { fecha: '2025-09-30', titulo: 'Entrega de droga', hora: '15:00' },
+  { fecha: '2025-10-01', titulo: 'Clases de Extorsion', hora: '18:00' },
+  { fecha: '2025-10-01', titulo: 'Clases de Extorsion', hora: '18:00' },
+];
 
-// --- Fecha actual ---
 let FechaActual = new Date();
-let mes = FechaActual.getMonth();  // 0-11
+let mes = FechaActual.getMonth();
 let Año = FechaActual.getFullYear();
 
-// --- Referencias a elementos del DOM ---
-const tituloMes = document.getElementById("meses");       // <h1> que muestra el mes y año
-const contenedorDias = document.getElementById("dias-grid"); // Contenedor de los días
-const boton_hoy = document.getElementById("boton_hoy");  // Botón "Hoy"
-const btnMesAnterior = document.getElementById("mes_anterior"); // Botón mes anterior
-const btnMesPosterior = document.getElementById("mes_posterior"); // Botón mes siguiente
+const tituloMes = document.getElementById("meses");
+const contenedorDias = document.getElementById("dias-grid");
+const boton_hoy = document.getElementById("boton_hoy");
+const btnMesAnterior = document.getElementById("mes_anterior");
+const btnMesPosterior = document.getElementById("mes_posterior");
+const seleccionDia = document.getElementById("seleccion_dia");
 
-// --- Función principal para dibujar el calendario ---
+const vistaMensual = document.getElementById("vista-mensual");
+const vistaSemanal = document.getElementById("vista-semanal");
+const semanaGrid = document.getElementById("semana-grid");
+const toggleVista = document.getElementById("toggleVista");
+const btnVolver = document.getElementById("btnVolver");
+
+let diaSeleccionado = null;
+
+// ------------------ RENDER CALENDARIO -------------------
 function renderizarCalendario(mes, Año) {
-  // Actualiza el título con el mes y año
   tituloMes.textContent = `${mesesNombres[mes]} ${Año}`;
-  
-  // Limpiar días anteriores
   contenedorDias.innerHTML = "";
 
-  // Obtener el primer día de la semana del mes y el último día
-  const PrimerDia = new Date(Año, mes, 1).getDay(); // 0-domingo, 1-lunes...
+  const PrimerDia = new Date(Año, mes, 1).getDay();
   const UltimoDia = new Date(Año, mes + 1, 0).getDate();
 
-  // Ajustar inicio: queremos que lunes=0, domingo=6
   let inicio = PrimerDia === 0 ? 6 : PrimerDia - 1;
 
-  // Crear celdas vacías para alinear el primer día
-  for(let i = 0; i < inicio; i++){
+  for (let i = 0; i < inicio; i++) {
     const celda = document.createElement("div");    
     celda.classList.add("vacio");
     contenedorDias.appendChild(celda);
   }
 
-  // Crear celdas para cada día del mes
-  for(let dia = 1; dia <= UltimoDia; dia++){
+  for (let dia = 1; dia <= UltimoDia; dia++) {
     const celda = document.createElement("div");
     celda.textContent = dia;   
     celda.classList.add("dia");
 
-    // Marcar el día actual
-    if(
+    if (
       dia === FechaActual.getDate() &&
       mes === FechaActual.getMonth() &&
       Año === FechaActual.getFullYear()
-    ){
+    ) {
       celda.classList.add("hoy");
     }
 
     // Evento al hacer clic en un día
     celda.addEventListener("click", () => {
-      document.getElementById("seleccion_dia").textContent =
-        `Día seleccionado: ${dia} de ${mesesNombres[mes]} ${Año}`;
+      seleccionDia.textContent = `Día seleccionado: ${dia} de ${mesesNombres[mes]} ${Año}`;
+      diaSeleccionado = dia;
+      renderizarSemana(dia, mes, Año);
     });
 
     contenedorDias.appendChild(celda);
   }
 }
 
-// --- Botones para cambiar de mes ---
+// ------------------ RENDER SEMANA -------------------
+function renderizarSemana(dia, mes, Año) {
+  semanaGrid.innerHTML = "";
+  const fecha = new Date(Año, mes, dia);
+  const diaSemana = fecha.getDay() === 0 ? 7 : fecha.getDay();
+  const inicioSemana = new Date(Año, mes, dia - diaSemana + 1);
+
+  for (let i = 0; i < 7; i++) {
+    let fechaDia = new Date(inicioSemana);
+    fechaDia.setDate(inicioSemana.getDate() + i);
+
+    let contenedorDia = document.createElement("div");
+    contenedorDia.classList.add("dia-semana");
+
+    let titulo = document.createElement("h3");
+    titulo.textContent = `${fechaDia.getDate()} ${mesesNombres[fechaDia.getMonth()]}`;
+    contenedorDia.appendChild(titulo);
+
+    const fechaStr = fechaDia.toISOString().split('T')[0];
+    const eventosDelDia = eventos.filter(ev => ev.fecha === fechaStr);
+
+    eventosDelDia.forEach(ev => {
+      const eventoEl = document.createElement('div');
+      eventoEl.classList.add('evento');
+      eventoEl.textContent = `${ev.hora} - ${ev.titulo}`;
+      contenedorDia.appendChild(eventoEl);
+    });
+
+    semanaGrid.appendChild(contenedorDia);
+  }
+
+  // Mostrar la vista semanal
+  vistaMensual.classList.remove("activo");
+  vistaSemanal.classList.add("activo");
+}
+
+// ------------------ BOTONES -------------------
 btnMesAnterior.addEventListener("click", () => {
   mes--;
-  if(mes < 0){
+  if (mes < 0) {
     mes = 11;
     Año--;
   }
@@ -75,14 +116,13 @@ btnMesAnterior.addEventListener("click", () => {
 
 btnMesPosterior.addEventListener("click", () => {
   mes++;
-  if(mes > 11){
+  if (mes > 11) {
     mes = 0;
     Año++;
   }  
   renderizarCalendario(mes, Año);  
 });
 
-// --- Botón "Hoy" ---
 boton_hoy.addEventListener("click", () => {
   FechaActual = new Date();
   mes = FechaActual.getMonth();
@@ -90,5 +130,22 @@ boton_hoy.addEventListener("click", () => {
   renderizarCalendario(mes, Año);    
 });
 
-// --- Renderizar calendario al cargar ---
+// Botón vista semanal (desde mensual)
+toggleVista.addEventListener("click", () => {
+  if (diaSeleccionado) {
+    renderizarSemana(diaSeleccionado, mes, Año);
+  } else {
+    alert("Selecciona un día primero para ver la semana");
+  }
+});
+
+// Botón volver (en vista semanal)
+btnVolver.addEventListener("click", () => {
+  vistaSemanal.classList.remove("activo");
+  vistaMensual.classList.add("activo");
+});
+
+// ------------------ INICIALIZAR -------------------
 renderizarCalendario(mes, Año);
+vistaMensual.classList.add("activo");
+vistaSemanal.classList.remove("activo");

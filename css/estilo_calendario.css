@@ -29,7 +29,6 @@
 */
 
 .bodyCalendar {
-  background: radial-gradient(ellipse at top left, var(--color-quinto), var(--color-sexto));
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -42,9 +41,10 @@
   margin-left: 160px; /* deja espacio para el menú */
   width: calc(100% - 300px);
   height: 89%;
+  /*
   background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
-  /*background: var(--color-primario);*/
   border-radius: var(--borde-radio-3);
+  */
   padding: 40px;
   overflow-y: auto;
   z-index: 0;
@@ -57,31 +57,43 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  /*
   background: linear-gradient(to right, var(--color-terciario), var(--color-quinto));
+  */
+  background: var(--color-sexto);
   border-radius: var(--borde-radio-2);
   padding: 10px 12px;
   position: sticky;
   top: 0;
   z-index: 1;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  box-shadow: var(--caja-sombra);
 }
 
 /* ⬅️➡️ Botones Mes anterior / Mes siguiente */
 .boton_meses {
+  /*
   background: linear-gradient(135deg, var(--color-secundario), var(--color-cuarto));
+  */
+  line-height: 10px;
+
+  background: var(--color-g3);
   padding: 10px 20px;
   border-radius: var(--borde-radio-2);
   font-weight: bold;
+  font-size: x-large;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
   color: var(--color-texto);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: var(--caja-sombra);
 }
 
 .boton_meses:hover {
   transform: translateY(-3px) scale(1.05);
+  /*
   background: linear-gradient(135deg, var(--color-primario), var(--color-terciario));
+  */
+  background: var(--color-primario);
   box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
 
@@ -93,9 +105,10 @@
 
 /* Botones */
 .boton_hoy, .boton_toggle, #btnVolver {
-  background: var(--color-cuarto);
+  background: var(--color-terciario);
   padding: 8px 16px;
   border-radius: var(--borde-radio-1);
+  border: none;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -138,7 +151,7 @@
   background: var(--color-g3);
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 0 12px var(--color-primario);
+  box-shadow: 0 0 12px var(--color-g3);
 }
 
 /* 📆 Vista semanal */

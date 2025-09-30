@@ -27,6 +27,7 @@
 
 html, body {
   height: 100%;
+  overflow-y: hidden;
 }
 
 body {
@@ -73,6 +74,7 @@ body {
 
 /* Contenido principal separado del menú */
 .content {
+  margin-top: 30px;
   margin-left: 160px; /* deja espacio para el menú */
   padding: 1rem;
 }

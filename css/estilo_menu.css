@@ -1,33 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
-/* Paleta de colores */
-:root{
-    --color-primario:#91EB9C;
-    --color-secundario: #7CEBD5;
-    --color-terciario: #7CEBAF;
-    --color-cuarto: #A0EB85 ;
-    --color-quinto: #94DFEB;
-    --color-sexto: #CBEBD9;
-    --color-g1: #6B6B6B;
-    --color-g2: #8C8C8C ;
-    --color-g3: #BDBDBD;
-    --color-g4: #ececec ;
-    --color-fondo: #e4e2e2;
-    --color-texto: #212121;
-
-    --borde-carta: 2rem;
-    --borde-radio-1: 0.4rem;
-    --borde-radio-2: 0.8rem;
-    --borde-radio-3: 1.2rem;
-
-    --carta--padding: 1.8rem;
-    --pading-1: 1.2rem;
-
-    --caja-sombra: rgba(0, 0, 0, 0.1) 0 2rem 3rem;
-
-    --calendario-fondo: #37d4cc;
-    --accento: #3b82f6;
-    --hoy: #31b908d2;
-}
 
 .sidebar {
   position: fixed;

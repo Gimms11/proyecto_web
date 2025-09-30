@@ -21,19 +21,19 @@
 
   --carta--padding: 1.8rem;
   --pading-1: 1.2rem;
-
+  
   --caja-sombra: 0 2rem 3rem var(--color-g3);
 }
 
 html, body {
   height: 100%;
+  background: radial-gradient(var(--color-quinto), var(--color-sexto));
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   /*animation: --color-fondo 10s infinite alternate;*/
-  background: radial-gradient(ellipse at top left, var(--color-quinto), var(--color-sexto));
   color: var(--color-texto);
 }
 

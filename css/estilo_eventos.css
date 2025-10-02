@@ -25,7 +25,8 @@ h3.subtitulo {
     display: grid;
     line-height: 70px;
 }
-.evento {
+
+.eventoAcademico, .eventoDeportivo, .eventoCultural  {
     display: flex;
     background: #cbebd9;
     border-radius: 5px;
@@ -37,10 +38,14 @@ h3.subtitulo {
     color: inherit;
     height: 150px;
 } 
-.evento:hover{
+
+.eventoAcademico:hover,
+.eventoDeportivo:hover,
+.eventoCultural:hover{
     transform: scale(1.1);
     transition: 0.5s;
 }
+
 .evento-left {
     background: #91eb9c;
     min-width: 82px;
@@ -55,39 +60,37 @@ h3.subtitulo {
 .evento-left .numero_dia {
     font-size: 56px;
 }
-.evento .evento-left .mes{
+.evento-left .mes{
     font-size: 16px;
     font-weight: normal;
 }
+
 .evento-rigth {
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     padding: 0 24px;
-    background: #7CEBD5;
-
+    background: #7cebd5;
+    line-height: 1.02rem;
 }
 
 .evento-rigth .hora-evento{
-    line-height: 20px;
+    line-height: 1.5rem;
 }
 
-.evento .descrip-evento{
+.descrip-evento{
     font-size: 0.9rem;
     margin: 5px 0;
     height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    line-clamp: 2;             
-    box-orient: vertical;
     transition: max-height 0.4s ease;
 }
 
-.evento:hover .descrip-evento {
-    line-clamp: unset;   
-    line-height: 15px;         
+.eventoAcademico:hover .descrip-evento,
+.eventoDeportivo:hover .descrip-evento,
+.eventoClutural:hover .descrip-evento {         
     overflow: visible;
 }
 

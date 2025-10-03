@@ -79,6 +79,7 @@ body {
 
 /* Contenido principal separado del menú */
 .content {
-  margin-left:7rem; /* deja espacio para el menú */
-  padding: 3rem;
+  margin-left: 8rem; /* deja espacio para el menú */
+  padding-top: 3rem;
+  padding-right: 1rem;
 }

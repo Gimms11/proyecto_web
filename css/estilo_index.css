@@ -164,6 +164,7 @@
 /* Columna derecha */
 .derecha {
   margin-top: 1.4rem;
+  animation: fadeInSlideUp 0.5s ease-out forwards;
 }
 
 .derecha .top button {
@@ -209,6 +210,8 @@
 
 .derecha .actualizaciones-recientes h2 {
   margin-bottom: 0.8rem;
+  animation: fadeInSlideUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
 }
 
 .derecha .actualizaciones-recientes .actualizaciones {
@@ -228,11 +231,47 @@
   grid-template-columns: 2.6rem auto;
   gap: 1rem;
   margin-bottom: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: var(--borde-radio-1);
+  padding: 0.5rem;
 }
 
-.Foto-perfil img {
+.derecha .actualizaciones-recientes .actualizacion:hover {
+    transform: scale(1.05);
+    background: var(--color-g4);
+    cursor: pointer;
+}
+
+.Foto-perfiles img {
   width: 45px;
   height: auto;
   border-radius: 50%;
   overflow: hidden;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+.Foto-perfiles img:hover {
+    transform: scale(1.15);
+}
+
+.Nombre-notifi{
+ font-size: large;
+ margin-bottom: 2px;
+}
+
+.Linea-act{
+  border-color: #000;
+  margin-top: 2px;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

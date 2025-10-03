@@ -27,7 +27,13 @@
 
 html, body {
   height: 100%;
-  background: radial-gradient(var(--color-quinto), var(--color-sexto));
+  background: linear-gradient(
+    to bottom right,
+    #d1f9fb,
+    #c0dad4,
+    #dfdfc8,
+    #efdfc9
+  );
 }
 
 body {

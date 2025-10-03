@@ -1,205 +1,191 @@
 <!DOCTYPE html>
 <html lang="es" class="htmlIndex">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="autor" content="Nallely Patricia Nuñez Campos" />
-    <title>Inicio</title>
 
-    <link rel="stylesheet" href="css/estilo_general.css" />
-    <link rel="stylesheet" href="css/estilo_index.css" />
+<head>
+  <!-- Configuración básica -->
+  <meta charset="UTF-8" />
+  <meta name="autor" content="Nallely Patricia Nuñez Campos" />
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    />
-    <style>
-      /* Contenedor principal en 2 columnas */
-      .contenedor {
-        display: flex;
-        width: 100%;
-        gap: 15px; /* espacio entre columnas */
-      }
+  <!-- Título en la pestaña del navegador -->
+  <title>Inicio</title>
 
-      /* Columna izquierda (main) */
-      .col-izquierda {
-        flex: 4; /* más ancha */
-      }
+  <!-- Hojas de estilo generales e index -->
+  <link rel="stylesheet" href="css/estilo_general.css" />
+  <link rel="stylesheet" href="css/estilo_index.css" />
 
-      /* Columna derecha (perfil + actualizaciones) */
-      .col-derecha {
-        flex: 1; /* más angosta */
-        min-width: 220px; /* para que no se achique demasiado */
-      }
-    </style>
-  </head>
-  <body class="dashboard">
-    <div id="menu"></div>
-    <div class="overlay"></div>
+  <!-- Fuente de iconos de Google (Material Symbols) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
 
-    <!-- Contenedor principal -->
-    <div class="contenedor">
+<body class="dashboard">
+  <!-- Contenedor para el menú (se carga por layout.js) -->
+  <div id="menu"></div>
 
-      <!-- Columna izquierda -->
-      <div class="col-izquierda">
-        <main>
-          <h1>BIENVENIDO AL PORTAL DE EVENTOS</h1>
+  <!-- Capa oscura superpuesta (ej. para modales o menú lateral) -->
+  <div class="overlay"></div>
 
-          <div class="date">
-            <input type="date" />
-          </div>
+  <!-- Contenido principal -->
+  <div class="content">
+    <main>
+      <!-- Encabezado principal -->
+      <h1>BIENVENIDO AL PORTAL DE EVENTOS</h1>
 
-          <div class="cuadrs">
-            <div class="cc1">
-              <span class="material-symbols-outlined">today</span>
-              <div class="c1">
-                <div class="iz">
-                  <h3>Evento próximo</h3>
-                  <h1>Concierto</h1>
-                </div>
-                <div class="porcentaje">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="numero"><p>65%</p></div>
-                </div>
-              </div>
-              <small class="text-muted">Usted está inscrito</small>
-            </div>
-
-            <div class="cc2">
-              <span class="material-symbols-outlined">check_circle</span>
-              <div class="c1">
-                <div class="iz">
-                  <h3>Eventos inscritos</h3>
-                  <h1>Mis Eventos</h1>
-                </div>
-                <div class="porcentaje">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="numero"><p>12</p></div>
-                </div>
-              </div>
-              <small class="text-muted">En los últimos 30 días</small>
-            </div>
-
-            <div class="cc3">
-              <span class="material-symbols-outlined">bookmark_heart</span>
-              <div class="c1">
-                <div class="iz">
-                  <h3>Eventos Importantes</h3>
-                  <h1>InnovaFest</h1>
-                </div>
-                <div class="porcentaje">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="numero"><p>84%</p></div>
-                </div>
-              </div>
-              <small class="text-muted">Evento del bimestre</small>
-            </div>
-          </div>
-
-          <div class="descripcion">
-            <h2>Descripción de Eventos</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre del Evento</th>
-                  <th>Fecha</th>
-                  <th>Aula</th>
-                  <th>Participantes</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ExpoCiencia U</td>
-                  <td>12/09/2024</td>
-                  <td>Aula 101</td>
-                  <td>47</td>
-                  <td class="peligro">Pendiente</td>
-                  <td class="primaria">Detalles</td>
-                </tr>
-                <tr>
-                  <td>ExpoCiencia U</td>
-                  <td>12/09/2024</td>
-                  <td>Aula 101</td>
-                  <td>47</td>
-                  <td class="peligro">Pendiente</td>
-                  <td class="primaria">Detalles</td>
-                </tr>
-                <tr>
-                  <td>ExpoCiencia U</td>
-                  <td>12/09/2024</td>
-                  <td>Aula 101</td>
-                  <td>47</td>
-                  <td class="peligro">Pendiente</td>
-                  <td class="primaria">Detalles</td>
-                </tr>
-              </tbody>
-            </table>
-            <a href="#">Mostrar más</a>
-          </div>
-        </main>
+      <!-- Selector de fecha -->
+      <div class="date">
+        <input type="date" />
       </div>
 
-      <!-- Columna derecha -->
-      <div class="col-derecha">
-        <div class="top">
-          <button id="menu-btn">
-            <span class="material-symbols-outlined">menu</span>
-          </button>
-          <div class="Selector-tema"></div>
-          <div class="perfil">
-            <div class="info">
-              <p>Hola, <b>Mijael</b></p>
-              <small class="text-muted">Estudiante</small>
+      <!-- Tarjetas/resumen de estadísticas -->
+      <div class="cuadrs">
+        <!-- Tarjeta 1: Evento próximo -->
+        <div class="cc1">
+          <span class="material-symbols-outlined">today</span>
+          <div class="c1">
+            <div class="iz">
+              <h3>Evento próximo</h3>
+              <h1>Concierto</h1>
             </div>
+            <!-- Círculo gráfico de progreso -->
+            <div class="porcentaje">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="numero">
+                <p>65%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Usted está inscrito</small>
+        </div>
+
+        <!-- Tarjeta 2: Eventos inscritos -->
+        <div class="cc2">
+          <span class="material-symbols-outlined">check_circle</span>
+          <div class="c1">
+            <div class="iz">
+              <h3>Eventos inscritos</h3>
+              <h1>Mis Eventos</h1>
+            </div>
+            <div class="porcentaje">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="numero">
+                <p>12</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">En los últimos 30 días</small>
+        </div>
+
+        <!-- Tarjeta 3: Evento importante -->
+        <div class="cc3">
+          <span class="material-symbols-outlined">bookmark_heart</span>
+          <div class="c1">
+            <div class="iz">
+              <h3>Eventos Importantes</h3>
+              <h1>InnovaFest</h1>
+            </div>
+            <div class="porcentaje">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="numero">
+                <p>84%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">Evento del bimestre</small>
+        </div>
+      </div>
+
+      <!-- Tabla con descripción de eventos -->
+      <div class="descripcion">
+        <h2>Descripción de Eventos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre del Evento</th>
+              <th>Fecha</th>
+              <th>Aula</th>
+              <th>Participantes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila de ejemplo -->
+            <tr>
+              <td>ExpoCiencia U</td>
+              <td>12/09/2024</td>
+              <td>Aula 101</td>
+              <td>47</td>
+              <td class="peligro">Pendiente</td>
+              <td class="primaria">Detalles</td>
+            </tr>
+            <!-- Se repite la misma estructura (pueden ser distintos eventos) -->
+            <tr>
+              <td>ExpoCiencia U</td>
+              <td>12/09/2024</td>
+              <td>Aula 101</td>
+              <td>47</td>
+              <td class="peligro">Pendiente</td>
+              <td class="primaria">Detalles</td>
+            </tr>
+            <tr>
+              <td>ExpoCiencia U</td>
+              <td>12/09/2024</td>
+              <td>Aula 101</td>
+              <td>47</td>
+              <td class="peligro">Pendiente</td>
+              <td class="primaria">Detalles</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Enlace para ver más eventos -->
+        <a href="#">Mostrar más</a>
+      </div>
+    </main>
+    <!-- Cierre del contenedor principal -->
+    <div class="derecha">
+      <div class="actualizaciones-recientes">
+        <h2>Actualizaciones Recientes</h2>
+        <div class="actualizaciones">
+          <div class="actualizacion">
             <div class="Foto-perfil">
-              <img src="assets/perrin.jpg" style="width:50px; height:50px; border-radius:50%;" alt="Foto de perfil" />
+              <img src="assets/perrin.jpg">
+            </div>
+            <div class="mensaje">
+              <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
+              <small class="text-muted">Hace 2 minutos</small>
             </div>
           </div>
-        </div>
-
-        <div class="actualizaciones-recientes">
-          <h2>Actualizaciones Recientes</h2>
-          <div class="actualizaciones">
-            <div class="actualizacion">
-              <div class="Foto-perfil">
-                <img src="assets/perrin.jpg" style="width:50px; height:50px; border-radius:50%;" >
-              </div>
-              <div class="mensaje">
-                <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
-                <small class="text-muted">Hace 2 minutos</small>
-              </div>
+          <div class="actualizacion">
+            <div class="Foto-perfil">
+              <img src="assets/perrin2.jpg">
             </div>
-
-            <div class="actualizacion">
-              <div class="Foto-perfil">
-                <img src="assets/perrin2.jpg" style="width:50px; height:50px; border-radius:50%;" >
-              </div>
-              <div class="mensaje">
-                <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
-                <small class="text-muted">Hace 2 minutos</small>
-              </div>
+            <div class="mensaje">
+              <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
+              <small class="text-muted">Hace 2 minutos</small>
             </div>
-
-            <div class="actualizacion">
-              <div class="Foto-perfil">
-                <img src="assets/perrin3.jpg" style="width:50px; height:50px; border-radius:50%;" >
-              </div>
-              <div class="mensaje">
-                <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
-                <small class="text-muted">Hace 2 minutos</small>
-              </div>
+          </div>
+          <div class="actualizacion">
+            <div class="Foto-perfil">
+              <img src="assets/perrin3.jpeg">
+            </div>
+            <div class="mensaje">
+              <p><b>Nallely Nuñez</b> se ha inscrito en el evento <b>ExpoCiencia U</b></p>
+              <small class="text-muted">Hace 2 minutos</small>
             </div>
           </div>
         </div>
       </div>
+      <!
     </div>
+  </div>
 
-    <script src="layout.js"></script>
-  </body>
+
+  <!-- Script para cargar funcionalidades dinámicas -->
+  <script src="layout.js"></script>
+</body>
+
 </html>

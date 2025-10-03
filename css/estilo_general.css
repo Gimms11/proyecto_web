@@ -22,7 +22,7 @@
   --carta--padding: 1.8rem;
   --pading-1: 1.2rem;
   
-  --caja-sombra: 0 2rem 3rem var(--color-g3);
+  --caja-sombra: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 html, body {
@@ -73,6 +73,6 @@ body {
 
 /* Contenido principal separado del menú */
 .content {
-  margin-left: 160px; /* deja espacio para el menú */
-  padding: 1rem;
+  margin-left:7rem; /* deja espacio para el menú */
+  padding: 3rem;
 }

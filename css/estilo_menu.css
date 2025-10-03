@@ -7,7 +7,7 @@
   width: max-content;
   min-width: 80px;
   height: 100%;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0);
   padding: 2rem 1rem;
   z-index: 20;
 }
@@ -43,8 +43,19 @@
   transition: grid-template-columns 0.4s;
 }
 
-.sidebar_element:not(:has(.sidebar__icon--logo)):hover {
+.sidebar_element:not(:has(.sidebar__icon--logo, .sidebar_text--logout)):hover {
   background-color: var(--color-cuarto);
+  cursor: pointer;
+  fill: #fff;
+  color: #fff;
+}
+
+.sidebar_element--logout {
+    margin-top: auto;
+}
+
+.sidebar_element--logout:hover {
+  background-color: rgb(255, 117, 117); /* Light red */
   cursor: pointer;
   fill: #fff;
   color: #fff;
@@ -68,6 +79,7 @@
 
 .sidebar_text {
   margin-left: 1rem;
+  text-wrap: nowrap;
 }
 
 .sidebar__icon--avatar {
@@ -91,6 +103,8 @@
   text-wrap: nowrap;
   text-align: left;
 }
+
+
 
 .sidebar_title,
 .sidebar_info {
@@ -118,12 +132,13 @@
   left: 0;
   right: 0;
   height: 60px;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255,0);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 2rem;
-  z-index: 21; /* Ensure it's above the sidebar */
+  padding: 0.5rem 2rem;
+  z-index: 19;
 }
 
 /* Estilos del interruptor de tema */
@@ -199,4 +214,58 @@
 .theme-toggle:checked + .theme-label .moon {
   opacity: 1;
   color: #050846;
+}
+
+.top-perfil .perfil {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-perfil .info {
+  text-align: right;
+}
+
+.top-perfil .Foto-perfil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.top-perfil .Foto-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sidebar .top .perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar .top .Foto-perfil {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sidebar .top .Foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar .top .info {
+    text-align: center;
 }

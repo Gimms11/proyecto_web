@@ -158,7 +158,7 @@
   text-align: center;
   display: block;
   margin: 1rem auto;
-  color: var(--color-primario);
+  color: var(--color-texto);
 }
 
 /* Columna derecha */

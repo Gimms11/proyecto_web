@@ -1,11 +1,11 @@
 /* Paleta de colores */
 :root{
-  --color-primario:#91EB9C;
-  --color-secundario: #7CEBD5;
-  --color-terciario: #7CEBAF;
-  --color-cuarto: #A0EB85 ;
+  --color-primario:#80e98c;
+  --color-secundario: #6edbec;
+  --color-terciario: #6feeaa;
+  --color-cuarto: #93f071 ;
   --color-quinto: #94DFEB;
-  --color-sexto: #CBEBD9;
+  --color-sexto: #a8edb8;
 
   --color-fondo: #e4e2e2; 
 

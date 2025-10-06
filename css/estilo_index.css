@@ -206,7 +206,7 @@
 
 /* Actualizaciones recientes */
 .derecha .actualizaciones-recientes {
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 .derecha .actualizaciones-recientes h2 {
@@ -216,7 +216,7 @@
 }
 
 .derecha .actualizaciones-recientes .actualizaciones {
-  background: var(--color-sexto);
+  background: var(--color-g4);
   padding: var(--carta--padding);
   border-radius: var(--borde-carta);
   box-shadow: var(--caja-sombra);
@@ -229,17 +229,17 @@
 
 .derecha .actualizaciones-recientes .actualizacion {
   display: grid;
-  grid-template-columns: 2.6rem auto;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: 1em auto;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
   transition: transform 0.3s ease, background-color 0.3s ease;
   border-radius: var(--borde-radio-1);
-  padding: 0.5rem;
+  padding: 0.5px;
 }
 
 .derecha .actualizaciones-recientes .actualizacion:hover {
-    transform: scale(1.05);
-    background: var(--color-g4);
+    transform: scale(1.03);
+    background: rgba(144, 216, 193, 0.567);
     cursor: pointer;
 }
 

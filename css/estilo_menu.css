@@ -82,7 +82,7 @@
 }
 
 .sidebar_element--logout:hover {
-  background-color: rgb(255, 117, 117); /* Light red */
+  background-color: rgb(251, 65, 65); /* Light red */
   cursor: pointer;
   fill: #fff;
   color: #fff;

@@ -24,20 +24,20 @@
 
 /* Tema oscuro */
 [data-theme="dark"] {
-  --color-primario: #4a90e2;
-  --color-secundario: #5b9be6;
+  --color-primario: #2ecc75;
+  --color-secundario: #083363;
   --color-terciario: #68a4e8;
   --color-cuarto: #3f85d8;
-  --color-quinto: #77b5ff;
-  --color-sexto: #5d9cec;
+  --color-quinto: #2f51cc;
+  --color-sexto: #064c9b;
   --color-fondo: #1a1f2e;
   --color-g1: #a8b6cc;
-  --color-g2: #7a8599;
+  --color-g2: #ccb8b8;
   --color-g3: #2d3546;
   --color-g4: #151b2d;
   --color-texto: #e8f1ff;
   --caja-sombra: 0 0.5rem 1rem rgba(0, 0, 20, 0.3);
-  --bg-gradient: linear-gradient(135deg, #1a1f2e, #232a3d, #2c354c, #343e5c);
+  --bg-gradient: linear-gradient(135deg, #2b2e38, #282f41, #172342, #0a1639);
 }
 
 html {

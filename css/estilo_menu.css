@@ -12,6 +12,33 @@
   z-index: 20;
 }
 
+[data-theme="dark"] .sidebar {
+  background-color: var(--color-fondo);
+}
+
+/* Estilos del logo para tema oscuro */
+[data-theme="dark"] .sidebar__icon_logo {
+  filter: brightness(0.8) sepia(1) saturate(5) hue-rotate(180deg);
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .sidebar__icon--text {
+  filter: brightness(100) contrast(1) invert(1);
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .top-bar {
+  background: linear-gradient(to bottom, var(--color-fondo), transparent);
+}
+
+[data-theme="dark"] .sidebar_element:not(:has(.sidebar__icon--logo, .sidebar_text--logout)):hover {
+  background-color: var(--color-secundario);
+}
+
+[data-theme="dark"] .top-perfil .info {
+  color: var(--color-texto);
+}
+
 .sidebar:hover .sidebar_element {
   grid-template-columns: 40px 1fr;
 }
@@ -59,6 +86,10 @@
   cursor: pointer;
   fill: #fff;
   color: #fff;
+}
+
+.sidebar_element--logout:hover .sidebar__icon{
+  animation: wobble 0.5s ease-in-out infinite;
 }
 
 .sidebar__icon_logo {
@@ -132,13 +163,12 @@
   left: 0;
   right: 0;
   height: 60px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, var(--color-fondo), transparent);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 1rem;
-  padding-bottom: 1rem;
   z-index: 19;
   gap: 1rem;
 }
@@ -220,12 +250,19 @@
 
 .top-perfil .perfil {
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: 0.5rem;
 }
 
 .top-perfil .info {
   text-align: right;
+  line-height: 1.2;
+}
+
+.top-perfil .info p,
+.top-perfil .info small {
+  margin: 0;
+  padding: 0;
 }
 
 .top-perfil .Foto-perfil {

@@ -1,3 +1,9 @@
+// Función para manejar el tema
+function handleTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
 // Cargar el contenido del menú desde menu.html
 fetch("menu.html")
   .then((res) => res.text()) // Convertimos la respuesta a texto
@@ -5,10 +11,26 @@ fetch("menu.html")
     // Insertamos el HTML del menú dentro del contenedor con id="menu"
     document.getElementById("menu").innerHTML = data;
 
+    // Aplicar el tema guardado
+    handleTheme();
+
     // Creamos un MutationObserver para detectar cuando el DOM del menú se haya cargado
     const observer = new MutationObserver(() => {
       const sidebar = document.querySelector(".sidebar"); // Sidebar del menú
       const overlay = document.querySelector(".overlay"); // Capa oscura
+      const themeToggle = document.getElementById('theme-toggle'); // Switch de tema
+
+      // Configurar el switch de tema
+      if (themeToggle) {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        themeToggle.checked = currentTheme === 'dark';
+        
+        themeToggle.addEventListener('change', () => {
+          const newTheme = themeToggle.checked ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
 
       // Solo si ambos elementos existen
       if (sidebar && overlay) {

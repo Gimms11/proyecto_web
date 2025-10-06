@@ -75,6 +75,6 @@ fetch("menu.html")
     // Observamos cambios en los hijos del contenedor #menu
     observer.observe(document.getElementById("menu"), {
       childList: true, // Detecta si se agregan o eliminan nodos hijos
-      subtree: true,   // Detecta cambios en todos los descendientes
+      subtree: true,   // Detecta cambios en todos los descendientes a
     });
   });

@@ -1,7 +1,7 @@
 function buscarEventos() {
   const texto = document.getElementById('buscador').value.toLowerCase();
   
-  document.querySelectorAll('.evento').forEach(evento => {
+  document.querySelectorAll('.eventoAcademico, .eventoDeportivo, .eventoCultural ').forEach(evento => {
     const titulo = evento.querySelector('.nombre-evento').textContent.toLowerCase();
     if (titulo.includes(texto)) {
       evento.style.display = "flex"; 

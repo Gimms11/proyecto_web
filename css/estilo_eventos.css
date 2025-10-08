@@ -47,7 +47,7 @@ h3.subtitulo {
 }
 
 .evento-left {
-    background: #91eb9c;
+    background:var(--color-sexto);
     min-width: 82px;
     display: flex;
     align-items: left;
@@ -73,6 +73,7 @@ h3.subtitulo {
     padding: 0 24px;
     background: #7cebd5;
     line-height: 1.02rem;
+    color: #111827;
 }
 
 .evento-rigth .hora-evento{
@@ -109,4 +110,32 @@ h3.subtitulo {
     color: #000000;
     line-height: 20px;
     border-bottom: 1px solid #b1b1b1;
+}
+
+/*imagenes de eventos.....}°-°{*/
+.eventoDeportivo .evento-rigth {
+    background-image: 
+        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        url("../assets/fondo_deportivo.png"); 
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.eventoCultural .evento-rigth {
+    background-image: 
+        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        url("../assets/fondo_cultural.png"); 
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.eventoAcademico .evento-rigth {
+    background-image: 
+        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        url("../assets/fondo_academico.png"); 
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
 }

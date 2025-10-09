@@ -9,7 +9,6 @@ h1.encabezado{
     margin-top: 40px;
 }
 .evento-container {
-    font-family: "Roboto", sans-serif;
     max-width: 800px;
     margin: 0 auto;
     display: grid; 
@@ -18,14 +17,35 @@ h1.encabezado{
     row-gap: 16px;
     column-gap: 16px;
 }
+
+@media (max-width: 800px) {
+    .evento-container {
+    grid-template-columns: 1fr;
+    }
+}
+
 p.subtitulo {
-    font-size: 20px;
+    font-size: 16px;
+    color: var(--color-g1);
     text-align: left;
     border-bottom: 1px solid #b1b1b1;
     max-width: 800px;
     margin: 0 auto;
     display: grid;
     line-height: 50px;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.subtitulo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 4px;
+    height: 1.2rem;
+    background: var(--color-primario);
+    border-radius: 2px;
 }
 
 .eventoAcademico, .eventoDeportivo, .eventoCultural  {
@@ -44,8 +64,17 @@ p.subtitulo {
 .eventoAcademico:hover,
 .eventoDeportivo:hover,
 .eventoCultural:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    background: linear-gradient(90deg, #e0e0e0 25%, #ace3ed 50%, #9cfce7 75%);
+    background-size: 200% 100%;
+    animation: opalite 1.8s infinite;
+}
+
+@keyframes opalite {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 .evento-container .evento-left {
@@ -103,6 +132,7 @@ p.subtitulo {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 10px;
+    border-bottom: 1px solid #b1b1b1;
 }
 
 .tabs .tab {
@@ -111,9 +141,31 @@ p.subtitulo {
     text-decoration: none; 
     color: #000000;
     line-height: 20px;
-    border-bottom: 1px solid #b1b1b1;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
+.tabs .tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #09b800;
+    transition: width 0.1s ease;
+}
+
+.tabs .tab:hover::after {
+    width: 100%;
+}
+
+.tab:hover{
+    background:rgba(125, 232, 130, 0.1);
+    transform: translatey(1px);
+    color: #02b360;
+}
 .buscar_evento {
     display: flex;
     align-items: center;

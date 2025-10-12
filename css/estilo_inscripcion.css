@@ -1,74 +1,182 @@
-/* Estilos básicos */
-header,
-footer {
-  background-color: #7CEBAF;
-  color: black;
+h1.encabezado {
   text-align: center;
-  padding: 10px;
-}
-nav a {
-  color: black;
-  text-decoration: none;
-  margin: 0 10px;
-}
-main {
-  padding: 20px;
-  padding-left: 130px;
-}
-h1,
-h2 {
-  color: black;
-}
-/* Formulario */
-form {
-  background: #94DFEB;
-  padding: 50px 50px;
-  border-radius: 8px;
-  max-width: 500px;
+  font-size: 40px;
+  max-width: 800px;
   margin: auto;
+  display: grid;
+  line-height: 100px;
+  font-weight: 700;
+  margin-top: 40px;
+  transform: scale(1);
+  transition: transform 0.4s ease;
 }
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
+
+.encabezado:hover {
+  transform: scale(1.2) rotate(3deg);
+  animation: TituloAnimado 10s infinite alternate;
 }
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 2px solid #31b908d2;
-  border-radius: 4px;
+@keyframes TituloAnimado {
+  0% { color: var(--color-g4); }
+  20% { color: var(--color-terciario); }
+  40% { color: var(--color-quinto); }
+  60% { color: var(--color-cuarto); }
+  80% { color: var(--color-secundario); }
+  100% { color: var(--color-g3); }
 }
-button {
-  margin-top: 15px;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #31b908d2;
+
+.subtitulo {
+  text-align: center;
+  font-size: 18px;
+  color: var(--color-g1);
+  margin-bottom: 20px;
+}
+
+/* Sección formulario */
+.formulario-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inscripcion {
+  flex: 1 1 400px;
+  background: rgba(163, 228, 215, 0.9);
+  padding: 20px;
+  border-radius: var(--borde-radio-3);
+  box-shadow: var(--caja-sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* efecto visual al moverse (clase que añadiremos por JS si el navegador no soporta :has) */
+.form-inscripcion.moved {
+  transform: translateX(210px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.btn-atras {
+  background: rgba(163, 228, 215, 0.9);
   color: black;
+  border: none;
+  padding: 12px;
+  border-radius: var(--borde-radio-2);
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-button:hover {
-  background-color: #3b82f6;
+
+.btn-atras:hover {
+  background: var(--color-secundario);
+  transform: translateY(1px);
 }
-/* Tabla */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 20px;
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
 }
-th,
-td {
-  border: 1px solid black;
-  padding: 8px;
+
+.form-grupo label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  padding: 10px;
+  border: 1px solid var(--color-g3);
+  border-radius: var(--borde-radio-1);
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+  border-color: var(--color-primario);
+}
+
+.btn-enviar {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: var(--borde-radio-2);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background: var(--color-secundario);
+  transform: translateY(1px);
+}
+
+/* Imagen al costado del formulario */
+.form-img {
+  flex: 1 1 300px;
   text-align: center;
 }
-th {
-  background-color: #94DFEB;
-  color: black;
+
+.form-img img {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--borde-radio-2);
+  transition: opacity .28s ease;
+  opacity: 1;
 }
-.fila1 {background-color: #4784ff}
-.fila2 {background-color: #2fffe0}
-.fila3 {background-color: #f6ff47}
+
+/* Tabla de inscritos */
+.tabla-section {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.tabla-titulo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.tabla-inscritos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: var(--caja-sombra);
+  border-radius: var(--borde-radio-2);
+  overflow: hidden;
+}
+
+.tabla-inscritos th,
+.tabla-inscritos td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-g3);
+}
+
+.tabla-inscritos th {
+  background: var(--color-primario);
+  color: white;
+}
+
+.tabla-inscritos tr:hover {
+  background: #f0f0f0;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  .formulario-section {
+    flex-direction: column;
+  }
+
+  h1.encabezado {
+    font-size: 28px;
+    line-height: 60px;
+  }
+}

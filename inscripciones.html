@@ -22,6 +22,142 @@
     <link rel="stylesheet" href="css/estilo_inscripcion.css" />
     <link rel="stylesheet" href="css/estilo_general.css" />
   </head>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // elementos
+    const form = document.querySelector('.form-inscripcion');
+    const btn = form?.querySelector('.btn-enviar');
+    const selector = document.getElementById('evento');
+    const img = document.querySelector('.form-img img');
+    const tablaBody = document.querySelector('.tabla-inscritos tbody');
+    const imagenIlustrativa = document.querySelector('.form-img img');
+    
+    // --- Datos simulados de inscritos por evento ---
+    const inscritosPorEvento = {
+      ia: [
+        { nombre: 'Ana Torres', correo: 'ana@example.com' },
+        { nombre: 'Luis Mendoza', correo: 'luis.m@example.com' }
+      ],
+      ajedrez: [
+        { nombre: 'Carlos López', correo: 'carlos@example.com' },
+        { nombre: 'Lucía Ramos', correo: 'lucia.r@example.com' }
+      ],
+      voley: [],
+      teatro: [],
+      talentos: [],
+      egresados: []
+    };
+    
+    // rutas de imágenes por valor del select (ajusta nombres/paths según tu carpeta /assets)
+    const defaultSrc = 'assets/inscripcion.png';
+    const images = {
+      ia: 'assets/inscripcion_ia.png',
+      ajedrez: 'assets/inscripcion_ajedrez.png',
+      voley: 'assets/inscripcion_voley.png',
+      teatro: 'assets/inscripcion_teatro.png',
+      talentos: 'assets/inscripcion_talentos.png',
+      egresados: 'assets/inscripcion_egresados.png'
+    };
+    
+    /* ---------- Fallback: mover el form cuando el puntero está sobre el botón ---------- */
+    if (btn && form) {
+      // mouse
+      btn.addEventListener('mouseenter', () => form.classList.add('moved'));
+      btn.addEventListener('mouseleave', () => form.classList.remove('moved'));
+      
+      // teclado (accesibilidad)
+      btn.addEventListener('focus', () => form.classList.add('moved'));
+      btn.addEventListener('blur', () => form.classList.remove('moved'));
+    }
+    
+    /* ---------- Cambio de imagen con fade ---------- */
+    function changeImageTo(src, altText = 'Imagen de inscripción') {
+      if (!img) return;
+      const newSrc = src || defaultSrc;
+      
+      // si la imagen ya es la misma, no hacemos nada
+      // // comparación simple: comprueba si la ruta final coincide (evita problemas con url absoluta)
+      if (img.getAttribute('src') === newSrc) return;
+      img.style.transition = 'opacity .28s ease';
+      img.style.opacity = '0';
+
+      // cuando termine el fade out (o tras 280ms) cambiamos el src
+      setTimeout(() => {
+        img.setAttribute('src', newSrc);
+        img.setAttribute('alt', altText);
+        img.style.opacity = '1';
+      }, 300);
+    }
+    
+    if (selector) {
+      selector.addEventListener('change', (e) => {
+        const val = e.target.value;
+        const src = images[val] || defaultSrc;
+        const altText = selector.options[selector.selectedIndex]?.text || 'Imagen de inscripción';
+        changeImageTo(src, altText);
+      });
+      
+      // Si hay un valor ya seleccionado al cargar, ajustar la imagen al inicio
+      if (selector.value) {
+        const v = selector.value;
+        const src = images[v] || defaultSrc;
+        changeImageTo(src, selector.options[selector.selectedIndex]?.text || 'Imagen de inscripción');
+      }
+    }
+    
+    // --- Función: renderizar tabla según evento seleccionado ---
+    function renderTablaInscritos(eventoClave) {
+      tablaBody.innerHTML = '';
+      const inscritos = inscritosPorEvento[eventoClave] || [];
+      
+      if (inscritos.length === 0) {
+        const fila = document.createElement('tr');
+        const celda = document.createElement('td');
+        celda.colSpan = 4;
+        celda.textContent = 'No hay inscritos para este evento aún.';
+        celda.style.textAlign = 'center';
+        fila.appendChild(celda);
+        tablaBody.appendChild(fila);
+        return;
+      }
+      
+      inscritos.forEach((persona, index) => {
+        const fila = document.createElement('tr');
+        
+        const c1 = document.createElement('td');
+        c1.textContent = index + 1;
+        
+        const c2 = document.createElement('td');
+        c2.textContent = persona.nombre;
+        
+        const c3 = document.createElement('td');
+        c3.textContent = persona.correo;
+        
+        const c4 = document.createElement('td');
+        c4.textContent = selector.options[selector.selectedIndex].text;
+        
+        fila.append(c1, c2, c3, c4);
+        tablaBody.appendChild(fila);
+      });
+    }
+    
+    // --- Evento: al cambiar la selección del evento ---
+    selector.addEventListener('change', (e) => {
+      const clave = e.target.value;
+      const src = images[clave] || defaultSrc;
+      const altText = selector.options[selector.selectedIndex]?.text || 'Imagen de inscripción';
+      
+      changeImageTo(src, altText);
+      renderTablaInscritos(clave);
+    });
+    
+    // --- Inicializar al cargar ---
+    if (selector.value) {
+      changeImageTo(images[selector.value] || defaultSrc, selector.options[selector.selectedIndex]?.text);
+      renderTablaInscritos(selector.value);
+    }
+  });
+  </script>
   <body>
     <!-- Menú de navegación (se cargará con JS en layout.js) -->
     <div id="menu"></div>
@@ -30,63 +166,88 @@
     <!-- Capa superpuesta oscura (para menús desplegables/modales) -->
     <div class="overlay"></div>
 
-    <!-- Contenido principal de la página -->
-    <main>
-      <!-- Título del formulario -->
-      <h2>Formulario de Inscripción</h2>
+    <!-- Contenido principal -->
+    <div class="content">
+      <header>
+        <!-- Título del formulario -->
+        <h1 class="encabezado">Formulario de Inscripción</h1>
+        <p class="subtitulo">Regístrate para participar en nuestros eventos</p>
+      </header>
 
       <!-- Formulario para inscribirse en eventos -->
-      <form>
-        <!-- Campo de texto: nombre -->
-        <label for="nombre">Nombre completo *</label>
-        <input type="text" id="nombre" name="nombre" required />
+      <section class="formulario-section">
+        <form class="form-inscripcion">
+          <!-- Botón de atras -->
+           <nav class="tabs">
+            <a href="eventos.html" class="btn-atras">
+              <img src="assets/icono_atras.png" alt="Icono" width="20" height="20">
+              Atrás
+            </a>
+          </nav>
+          <div class="form-grupo">
+            <!-- Campo de texto: nombre -->
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required />
+          </div>
 
-        <!-- Campo de correo electrónico -->
-        <label for="correo">Correo electrónico *</label>
-        <input type="email" id="correo" name="correo" required />
+          <div class="form-grupo">
+            <!-- Campo de correo electrónico -->
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required />
+          </div>
 
-        <!-- Lista desplegable para elegir un evento -->
-        <label for="evento">Selecciona un evento *</label>
-        <select id="evento" name="evento" required>
-          <option value="">-- Elige un evento --</option>
-          <option value="taller">Taller de Innovación</option>
-          <option value="feria">Feria de Ciencias</option>
-          <option value="charla">Charla Motivacional</option>
-        </select>
+          <div class="form-grupo">
+            <!-- Lista desplegable para elegir un evento -->
+            <label for="evento">Selecciona el evento</label>
+            <select id="evento" name="evento" required>
+              <option value="">-- Selecciona --</option>
+              <option value="ia">Conferencia de Inteligencia Artificial</option>
+              <option value="ajedrez">Campeonato de Ajedrez</option>
+              <option value="voley">Torneo Relámpago de Vóley</option>
+              <option value="teatro">Festival de Teatro Universitario</option>
+              <option value="talentos">Noche de Talentos Universitarios</option>
+              <option value="egresados">Charla con Egresados Exitosos</option>
+            </select>
+          </div>
 
-        <!-- Campo de comentarios opcional -->
-        <label for="comentarios">Comentarios</label>
-        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+          <div class="form-grupo">
+            <!-- Campo de comentarios opcional -->
+            <label for="mensaje">Comentarios (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus comentarios..."></textarea>
+          </div>
 
-        <!-- Botón de envío -->
-        <button type="submit">Enviar inscripción</button>
-      </form>
+          <!-- Botón de envío -->
+          <button type="submit" class="btn-enviar">Enviar inscripción</button>
+        </form>
 
-      <!-- Sección con tabla de próximos eventos -->
-      <h2>Próximos Eventos</h2>
-      <table>
-        <tr>
-          <th>Evento</th>
-          <th>Fecha</th>
-          <th>Lugar</th>
-        </tr>
-        <tr class="fila1">
-          <td> <a href=" ">Taller de Innovación</a></td>
-          <td>10/09/2025</td>
-          <td>Auditorio Principal</td>
-        </tr>
-        <tr class="fila2">
-          <td>Feria de Ciencias</td>
-          <td>15/09/2025</td>
-          <td>Patio Central</td>
-        </tr>
-        <tr class="fila3">
-          <td>Charla Motivacional</td>
-          <td>20/09/2025</td>
-          <td>Sala de Conferencias</td>
-        </tr>
-      </table>
-    </main>
+        <!-- Imagen ilustrativa -->
+        <div class="form-img">
+          <img src="assets/inscripcion.png" alt="Imagen de inscripción" />
+        </div>
+      </section>
+
+      <!-- Tabla de inscritos -->
+      <section class="tabla-section">
+        <h2 class="tabla-titulo">Lista de inscritos</h2>
+        <table class="tabla-inscritos">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Evento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4" style="text-align:center">
+                Selecciona un evento para ver los inscritos
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
 
     <!-- Pie de página con derechos de autor y enlace -->
     <footer>

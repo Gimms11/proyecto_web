@@ -11,6 +11,7 @@
   --color-g2: #8C8C8C;
   --color-g3: #BDBDBD;
   --color-g4: #ececec;
+  --color-trans: rgba(0, 0, 0, 0.5);
   --color-texto: #212121;
   --borde-carta: 2rem;
   --borde-radio-1: 0.4rem;
@@ -35,6 +36,7 @@
   --color-g2: #ccb8b8;
   --color-g3: #2d3546;
   --color-g4: #151b2d;
+  --color-trans: rgba(255, 255, 255, 0.5);
   --color-texto: #e8f1ff;
   --caja-sombra: 0 0.5rem 1rem rgba(0, 0, 20, 0.3);
   --bg-gradient: linear-gradient(135deg, #2b2e38, #282f41, #172342, #0a1639);

@@ -1,9 +1,12 @@
 /* Estilos para el contenedor principal */
 .content {
+  display: block;
+}
+
+.main-container {
   display: grid;
-  grid-template-columns: 1fr 0.25fr; /* Divide en 2 columnas: la primera ocupa el espacio restante, la segunda 0.25fr */
-  gap: 1rem;
-  margin-right: 0px;
+  grid-template-columns: 1fr 300px; /* main content and right sidebar */
+  gap: 2rem;
 }
 
 .Foto-perfil{
@@ -13,24 +16,25 @@
 
 /* Contenido principal */
 .dashboard main {
-  margin-top: 1.4rem;
+  margin-top: 1rem;
 }
 
 .dashboard main .date {
   display: inline-block;
-  background: var(--color-g4);
-  border-radius: var(--borde-radio-1);
-  margin-top: 1rem;
+  border-radius: var(--color-g4);
+  margin-top: 0rem;
   padding: 0.5rem 1.6rem;
 }
 
 .dashboard main .date input[type="date"] {
+  
   background: transparent;
   color: var(--color-texto);
 }
 
 /* Tarjetas de resumen */
 .dashboard main .cuadrs {
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
@@ -40,7 +44,7 @@
   background: var(--color-sexto);
   padding: var(--carta--padding);
   border-radius: var(--borde-carta);
-  margin-top: 1rem;
+  margin-top: 1px;
   box-shadow: var(--caja-sombra);
   transition: all 300ms ease;
 }
@@ -162,10 +166,15 @@
   color: var(--color-texto);
 }
 
+.Inicio{
+  margin-bottom: 0.8rem;
+  animation: fadeInSlideUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
 /* Columna derecha */
 .derecha {
-  margin-top: 1.4rem;
-  animation: fadeInSlideUp 0.5s ease-out forwards;
+  margin-top: 1.7rem;
 }
 
 .derecha .top button {
@@ -206,7 +215,7 @@
 
 /* Actualizaciones recientes */
 .derecha .actualizaciones-recientes {
-  margin-top: 5rem;
+  margin-top: 0;
 }
 
 .derecha .actualizaciones-recientes h2 {
@@ -238,22 +247,25 @@
 }
 
 .derecha .actualizaciones-recientes .actualizacion:hover {
-    transform: scale(1.03);
-    background: rgba(144, 216, 193, 0.567);
+    transform: scale(1.12);
+    background: rgba(222, 234, 239, 0.5);
     cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .Foto-perfiles img {
   width: 45px;
-  height: auto;
-  border-radius: 50%;
+  height: 45px;           /* cuadrado para mantener forma circular */
+  border-radius: 50%;     /* círculo perfecto */
+  object-fit: cover;       /* recorta la imagen sin deformarla */
   overflow: hidden;
   margin-top: 20px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .Foto-perfiles img:hover {
-    transform: scale(1.15);
+    transform: scale(1);
 }
 
 .Nombre-notifi{
@@ -269,7 +281,7 @@
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1px);
   }
   to {
     opacity: 1;

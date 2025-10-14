@@ -1,67 +1,38 @@
-h1.encabezado {
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+  background-color: var(--color-terciario);
+  color: var(--color-texto);
   text-align: center;
-  font-size: 40px;
+  padding: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+/* Tarjeta del evento */
+.tarjeta-evento {
+  background: #7cebd5;
   max-width: 800px;
-  margin: auto;
-  display: grid;
-  line-height: 100px;
-  font-weight: 700;
-  margin-top: 40px;
-  transform: scale(1);
-  transition: transform 0.4s ease;
-}
-
-.encabezado:hover {
-  transform: scale(1.2) rotate(3deg);
-  animation: TituloAnimado 10s infinite alternate;
-}
-@keyframes TituloAnimado {
-  0% { color: var(--color-g4); }
-  20% { color: var(--color-terciario); }
-  40% { color: var(--color-quinto); }
-  60% { color: var(--color-cuarto); }
-  80% { color: var(--color-secundario); }
-  100% { color: var(--color-g3); }
-}
-
-.subtitulo {
-  text-align: center;
-  font-size: 18px;
-  color: var(--color-g1);
-  margin-bottom: 20px;
-}
-
-/* Sección formulario */
-.formulario-section {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-inscripcion {
-  flex: 1 1 400px;
-  background: rgba(163, 228, 215, 0.9);
-  padding: 20px;
-  border-radius: var(--borde-radio-3);
-  box-shadow: var(--caja-sombra);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* efecto visual al moverse (clase que añadiremos por JS si el navegador no soporta :has) */
-.form-inscripcion.moved {
-  transform: translateX(210px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .btn-atras {
-  background: rgba(163, 228, 215, 0.9);
   color: black;
   border: none;
   padding: 12px;
@@ -76,36 +47,97 @@ h1.encabezado {
   transform: translateY(1px);
 }
 
-.form-grupo {
-  display: flex;
-  flex-direction: column;
+.etiqueta-destacado {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background-color: #34a853;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
 }
 
-.form-grupo label {
+.categoria {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.titulo-evento {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.detalles-evento p {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.descripcion {
+  margin-top: 1.5rem;
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.descripcion h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.aviso {
+  margin-top: 1rem;
+  background: #eef4fa;
+  padding: 0.8rem;
+  border-left: 4px solid #4a90e2;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.ubicacion {
+  margin-top: 1.5rem;
+}
+
+.ubicacion h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.formulario-inscripcion {
+  background: var(--color-fondo);
+  margin: 2rem auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: var(--borde-radio-3);
+  box-shadow: var(--caja-sombra);
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.formulario-inscripcion form .campo {
+  margin-bottom: 1rem;
+}
+
+.formulario-inscripcion label {
+  display: block;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
-.form-grupo input,
-.form-grupo select,
-.form-grupo textarea {
-  padding: 10px;
-  border: 1px solid var(--color-g3);
-  border-radius: var(--borde-radio-1);
-  font-size: 14px;
-  outline: none;
-  transition: border 0.3s ease;
+.formulario-inscripcion input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.form-grupo input:focus,
-.form-grupo select:focus,
-.form-grupo textarea:focus {
-  border-color: var(--color-primario);
-}
-
-.btn-enviar {
+.btn-inscribirse {
   background: var(--color-primario);
-  color: white;
+  color: var(--color-texto);
   border: none;
   padding: 12px;
   border-radius: var(--borde-radio-2);
@@ -114,69 +146,57 @@ h1.encabezado {
   transition: all 0.3s ease;
 }
 
-.btn-enviar:hover {
+.btn-inscribirse:hover {
   background: var(--color-secundario);
   transform: translateY(1px);
 }
 
-/* Imagen al costado del formulario */
-.form-img {
-  flex: 1 1 300px;
+/* Eventos recomendados */
+.eventos-recomendados {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.eventos-recomendados h2 {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.form-img img {
-  display: block;
-  max-width: 100%;
-  border-radius: var(--borde-radio-2);
-  transition: opacity .28s ease;
-  opacity: 1;
+.tarjetas-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
-/* Tabla de inscritos */
-.tabla-section {
-  max-width: 800px;
-  margin: 40px auto;
-}
-
-.tabla-titulo {
+.tarjeta {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
   text-align: center;
-  margin-bottom: 15px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 }
 
-.tabla-inscritos {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  box-shadow: var(--caja-sombra);
-  border-radius: var(--borde-radio-2);
-  overflow: hidden;
+.tarjeta h3 {
+  margin-bottom: 0.5rem;
 }
 
-.tabla-inscritos th,
-.tabla-inscritos td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid var(--color-g3);
+.tarjeta p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
 }
 
-.tabla-inscritos th {
-  background: var(--color-primario);
-  color: white;
+.btn-evento {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background-color: #4a90e2;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
-.tabla-inscritos tr:hover {
-  background: #f0f0f0;
-}
-
-/* Diseño responsivo */
-@media (max-width: 768px) {
-  .formulario-section {
-    flex-direction: column;
-  }
-
-  h1.encabezado {
-    font-size: 28px;
-    line-height: 60px;
-  }
+.btn-evento:hover {
+  background-color: #357ac8;
 }

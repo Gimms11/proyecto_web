@@ -177,6 +177,10 @@ button:hover {
   text-decoration: underline;
 }
 
+button{
+  color: white;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .container {

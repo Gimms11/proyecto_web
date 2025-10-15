@@ -3,10 +3,10 @@ const mesesNombres = [
   "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
 const eventos = [
-  { fecha: '2025-09-29', titulo: 'Conferencia de Fracasados', hora: '10:00' },
-  { fecha: '2025-09-30', titulo: 'Entrega de droga', hora: '15:00' },
-  { fecha: '2025-10-01', titulo: 'Clases de Extorsion', hora: '18:00' },
-  { fecha: '2025-10-01', titulo: 'Clases de Extorsion', hora: '18:00' },
+  { fecha: '2025-09-29', titulo: 'Conferencia de Exitosos', hora: '10:00' },
+  { fecha: '2025-09-30', titulo: 'Entrega de viveres', hora: '15:00' },
+  { fecha: '2025-10-01', titulo: 'Clases de negocios', hora: '18:00' },
+  { fecha: '2025-10-01', titulo: 'Clases de negocios', hora: '18:00' },
 ];
 
 let FechaActual = new Date();

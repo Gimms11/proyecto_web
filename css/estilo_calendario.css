@@ -131,7 +131,7 @@
 .calendario-semanal {
   display: none;
   position: fixed;
-  top: 3.5em;
+  top: 0em;
   left: 7rem;
   width: 88%;
   height: 87%;
@@ -156,7 +156,7 @@
 #btnVolver {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 4.8rem;
   left: 320px;
   z-index: 2100;
 }

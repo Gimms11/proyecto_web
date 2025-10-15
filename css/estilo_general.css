@@ -46,6 +46,10 @@ html {
   height: 100%;
 }
 
+a{
+  text-decoration: none;
+}
+
 body {
   min-height: 100%;
   margin: 0;
@@ -110,6 +114,6 @@ body {
 /* Contenido principal separado del menú */
 .content {
   margin-left: 8rem; /* deja espacio para el menú */
-  padding-top: 3rem;
+  padding-top: 4rem;
   padding-right: 1rem;
 }

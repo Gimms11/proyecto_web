@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <!-- Configuración básica de la página -->
-    <meta charset="UTF-8" />
-    <meta name="autor" content="Uriel Renzo Daniel Barrios Hernandez" />
-    <meta
-      name="descripción"
-      content="Página de inscripciones para eventos universitarios"
-    />
+<head>
+  <!-- 🔧 Configuración básica -->
+  <meta charset="UTF-8" />
+  <meta name="author" content="Uriel Renzo Daniel Barrios Hernandez" />
+  <meta name="description" content="Página de inscripciones para eventos universitarios" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fuente de iconos de Google (Material Symbols) -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    />
+  <!-- 🎨 Fuente de iconos -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
-    <!-- Título que aparece en la pestaña del navegador -->
-    <title>Inscripción a Eventos Universitarios</title>
+  <title>Inscripción a Eventos Universitarios</title>
 
-    <!-- Hojas de estilo CSS -->
-    <link rel="stylesheet" href="css/estilo_inscripcion.css" />
-    <link rel="stylesheet" href="css/estilo_general.css" />
-  </head>
-  <body>
+  <!-- 🧩 Hojas de estilo -->
+  <link rel="stylesheet" href="css/estilo_general.css" />
+  <link rel="stylesheet" href="css/estilo_inscripcion.css" />
+</head>
+
+<body>
+  <!-- 🧭 Menú (cargado dinámicamente) -->
+  <div id="menu"></div>
+  <div class="overlay"></div>
+
+  <div class="content">
     <header>
-      <h2>
-        <p>Una oportunidad para poner a prueba la estrategia y concentración.</p>
-      </h2>
+      <h2>Una oportunidad para poner a prueba la estrategia y concentración.</h2>
     </header>
-    <!-- Botón de atras -->
+
+    <!-- 🔙 Botón de regreso -->
     <nav class="tabs">
       <a href="eventos.html" class="btn-atras">
-        <img src="assets/icono_atras.png" alt="Icono" width="20" height="20">
+        <img src="assets/icono_atras.png" alt="Volver" width="20" height="20" />
         Atrás
       </a>
     </nav>
 
     <main>
+      <!-- 🏆 Información principal del evento -->
       <section class="tarjeta-evento">
-        <div class="etiqueta-destacado">Destacado</div>
+        <span class="etiqueta-destacado">Destacado</span>
         <p class="categoria">Deportivos y Recreativos</p>
         <h2 class="titulo-evento">Campeonato de Ajedrez</h2>
-        
+
         <div class="detalles-evento">
           <p><strong>Inicia:</strong> 24 nov. 2025 &nbsp; | &nbsp; <strong>Finaliza:</strong> 21 dic. 2025</p>
-          <p><strong>Día:</strong> Lun &nbsp; | &nbsp; <strong>Hora:</strong> 10:00 a.m. - 14:00 p.m.</p>
+          <p><strong>Día:</strong> Lunes &nbsp; | &nbsp; <strong>Hora:</strong> 10:00 a.m. - 2:00 p.m.</p>
           <p><strong>Duración:</strong> 4 semanas &nbsp; | &nbsp; <strong>Sesiones por semana:</strong> 1</p>
-          <p><strong>Docente:</strong> ---- </p>
+          <p><strong>Docente:</strong> —</p>
           <p><strong>Vacantes:</strong> 26</p>
         </div>
-        
-        <div class="descripcion">
-          
+
+        <article class="descripcion">
           <h3>Descripción</h3>
-          <p>
-            • Puedes inscribirte en máximo 2 talleres presenciales.<br>
-            • Si tienes 2 inasistencias, perderás tu cupo.<br>
-            • No podrás inscribirte en otro taller presencial en este ciclo.<br>
-            • En el siguiente ciclo, no podrás inscribirte a talleres presenciales.
-          </p>
-        </div>
-        
+          <ul>
+            <li>Puedes inscribirte en máximo 2 talleres presenciales.</li>
+            <li>Si tienes 2 inasistencias, perderás tu cupo.</li>
+            <li>No podrás inscribirte en otro taller presencial en este ciclo.</li>
+            <li>En el siguiente ciclo, no podrás inscribirte a talleres presenciales.</li>
+          </ul>
+        </article>
+
         <div class="aviso">
-          Al inscribirse, el estudiante declara y garantiza que se encuentra en un estado de salud óptimo que le permite participar en nuestros talleres presenciales.
+          Al inscribirse, el estudiante declara y garantiza que se encuentra en un estado de salud óptimo
+          que le permite participar en nuestros talleres presenciales.
         </div>
-        
+
         <div class="ubicacion">
           <h3>¿Cómo llegar?</h3>
-          <p><strong>Ambiente:</strong> --- </p>
-          <p><strong>Piso:</strong> - </p>
-          <p><strong>Ubicación:</strong> ------ </p>
+          <p><strong>Ambiente:</strong> —</p>
+          <p><strong>Piso:</strong> —</p>
+          <p><strong>Ubicación:</strong> ———</p>
         </div>
-        
+
+        <!-- 📝 Formulario -->
         <section class="formulario-inscripcion">
-          <form>
+          <form id="form-inscripcion">
             <div class="campo">
               <label for="nombre">Nombre Completo:</label>
-              <input type="text" id="nombre" name="nombre" required>
+              <input type="text" id="nombre" name="nombre" required />
             </div>
+
+            <div class="campo">
+              <label for="correo">Correo Electrónico:</label>
+              <input type="email" id="correo" name="correo" required />
+            </div>
+
+            <button type="submit" class="btn-inscribirse">Inscribirme</button>
           </form>
-
-          <div class="campo">
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-          </div>
         </section>
-
-        <button class="btn-inscribirse">Inscribirme</button>
       </section>
-      
-      <!-- Sección de eventos recomendados -->
+
+      <!-- 📅 Eventos recomendados -->
       <section class="eventos-recomendados">
         <h2>Próximos Eventos</h2>
         <div class="tarjetas-eventos">
@@ -98,13 +99,13 @@
             <p>20 de enero - Parque Tecnológico</p>
             <a href="#" class="btn-evento">Ver más</a>
           </article>
-          
+
           <article class="tarjeta">
             <h3>Maratón Escolar 5K</h3>
             <p>15 de diciembre - Estadio Central</p>
             <a href="#" class="btn-evento">Ver más</a>
           </article>
-          
+
           <article class="tarjeta">
             <h3>Campeonato de Matemáticas</h3>
             <p>10 de febrero - Universidad Nacional</p>
@@ -113,12 +114,17 @@
         </div>
       </section>
     </main>
-    
+
     <footer>
       <p>
-        &copy; 2025 Universidad Sideral Carrion |
-        <a href="#" style="color: black">Política de Privacidad</a>
+        &copy; 2025 Universidad Sideral Carrión |
+        <a href="#" class="link-privacidad">Política de Privacidad</a>
       </p>
     </footer>
-  </body>
+  </div>
+
+  <!-- ⚙️ Scripts -->
+  <script src="layout.js"></script>
+  <script src="scripts/slideshow.js"></script>
+</body>
 </html>

@@ -247,10 +247,11 @@
 }
 
 .derecha .actualizaciones-recientes .actualizacion:hover {
-    transform: scale(1.12);
+    transform: scale(1.24);
     background: rgba(222, 234, 239, 0.5);
     cursor: pointer;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
 }
 
 .Foto-perfiles img {
@@ -265,7 +266,7 @@
 }
 
 .Foto-perfiles img:hover {
-    transform: scale(1);
+  transform: scale(1.2); /* Aumenta el tamaño al 110% al pasar el cursor */
 }
 
 .Nombre-notifi{

@@ -239,19 +239,20 @@
 .derecha .actualizaciones-recientes .actualizacion {
   display: grid;
   grid-template-columns: 1em auto;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 0.5rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: all 0.3s ease, background-color 0.3s ease;
   border-radius: var(--borde-radio-1);
-  padding: 0.5px;
+  padding: 0.5em;
 }
 
 .derecha .actualizaciones-recientes .actualizacion:hover {
-    transform: scale(1.24);
-    background: rgba(222, 234, 239, 0.5);
-    cursor: pointer;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 1rem;
+  transform: scale(1.15);
+  background: rgba(222, 234, 239, 0.5);
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 0 0.5rem;
 }
 
 .Foto-perfiles img {

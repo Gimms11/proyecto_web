@@ -178,9 +178,9 @@ p.subtitulo {
     align-items: center;
     border-radius: 8px;
     overflow: hidden;
-    max-width: 1050px;
-    margin: 10px auto ;
+    margin: 10px;
     padding: 0 10px ;
+    width: 750px;
 }
 
 .buscar_evento input {
@@ -240,4 +240,25 @@ p.subtitulo {
     background: var(--color-secundario);
     box-shadow: 0 6px 12px rgba(110, 219, 236, 0.5);
     transform: translatey(1px);
+}
+
+.filtro-eventos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.filtar-vacantes{
+    color: var(--color-texto);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check-vacantes input{
+    accent-color: var(--color-cuarto);
+    cursor: pointer;
 }

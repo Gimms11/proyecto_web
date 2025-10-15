@@ -1,7 +1,15 @@
-document.getElementById("btnVolver").addEventListener("click", () => {
-      window.history.back();
-      });
-document.querySelector('assets/perrin').addEventListener('click', () => {
-  document.getElementById('menu').classList.remove('activa');
-  document.getElementById('Usuario').classList.add('activa');
+document.addEventListener("DOMContentLoaded", () => {
+  const btnVolver = document.querySelector(".btn-volver");
+  if (btnVolver) {
+    btnVolver.addEventListener("click", () => {
+      window.history.back(); 
+    });
+  }
+
+  const fotoPerfil = document.querySelector(".Foto-perfil");
+  if (fotoPerfil) {
+    fotoPerfil.addEventListener("click", () => {
+      window.location.href = "Usuario.html";
+    });
+  }
 });

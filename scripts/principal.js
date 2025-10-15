@@ -102,6 +102,7 @@ function renderizarSemana(dia, mes, Año) {
   // Mostrar la vista semanal
   vistaMensual.classList.remove("activo");
   vistaSemanal.classList.add("activo");
+  document.body.classList.add("no-scroll");
 }
 
 // ------------------ BOTONES -------------------
@@ -143,6 +144,7 @@ toggleVista.addEventListener("click", () => {
 btnVolver.addEventListener("click", () => {
   vistaSemanal.classList.remove("activo");
   vistaMensual.classList.add("activo");
+  document.body.classList.remove("no-scroll");
 });
 
 // ------------------ INICIALIZAR -------------------

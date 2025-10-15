@@ -173,7 +173,7 @@ h3.subtitulo::before {
         linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
         url("../assets/fondo_deportivo.png"); 
     background-position: center;
-    background-size:cover;
+    background-size:cover; 
     background-repeat: no-repeat;
 }
 

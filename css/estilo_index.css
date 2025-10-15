@@ -1,15 +1,19 @@
-/* Estilos para el contenedor principal */
+/* ────────────────────────────────────────────── */
+/* 🧩 ESTILOS BASE */
+/* ────────────────────────────────────────────── */
+
+/* Contenedor principal */
 .content {
   display: block;
 }
 
 .main-container {
   display: grid;
-  grid-template-columns: 1fr 300px; /* main content and right sidebar */
+  grid-template-columns: 1fr 300px; /* main content y panel derecho */
   gap: 2rem;
 }
 
-.Foto-perfil{
+.Foto-perfil {
   width: 20%;
   height: 20%;
 }
@@ -27,12 +31,14 @@
 }
 
 .dashboard main .date input[type="date"] {
-  
   background: transparent;
   color: var(--color-texto);
 }
 
-/* Tarjetas de resumen */
+/* ────────────────────────────────────────────── */
+/* 📊 TARJETAS DE RESUMEN */
+/* ────────────────────────────────────────────── */
+
 .dashboard main .cuadrs {
   margin-top: 2rem;
   display: grid;
@@ -44,13 +50,13 @@
   background: var(--color-sexto);
   padding: var(--carta--padding);
   border-radius: var(--borde-carta);
-  margin-top: 1px;
   box-shadow: var(--caja-sombra);
-  transition: all 300ms ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dashboard main .cuadrs > div:hover {
-  box-shadow: none;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard main .cuadrs > div span {
@@ -72,7 +78,7 @@
   font-size: 1rem;
 }
 
-/* Círculos de porcentaje */
+/* Círculos porcentuales */
 .dashboard main .cuadrs .porcentaje {
   position: relative;
   width: 92px;
@@ -93,7 +99,7 @@
   transform: translate(5px, 5px);
 }
 
-/* Valores de los círculos (ejemplos) */
+/* Ejemplos de valores de progreso */
 .dashboard main .cuadrs .cc1 svg circle {
   stroke-dashoffset: 35;
   stroke-dasharray: 110;
@@ -112,10 +118,7 @@
 /* Número dentro del círculo */
 .dashboard main .cuadrs .porcentaje .numero {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,7 +129,10 @@
   display: block;
 }
 
-/* Tabla de descripción de eventos */
+/* ────────────────────────────────────────────── */
+/* 📅 TABLA DE DESCRIPCIÓN */
+/* ────────────────────────────────────────────── */
+
 .dashboard main .descripcion {
   margin-top: 2rem;
 }
@@ -166,19 +172,37 @@
   color: var(--color-texto);
 }
 
-.Inicio{
+/* ────────────────────────────────────────────── */
+/* 🏠 ENCABEZADO Y ANIMACIÓN */
+/* ────────────────────────────────────────────── */
+
+.Inicio {
   margin-bottom: 0.8rem;
   animation: fadeInSlideUp 0.5s ease-out 0.2s forwards;
   opacity: 0;
 }
 
-/* Columna derecha */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ────────────────────────────────────────────── */
+/* 📱 COLUMNA DERECHA Y NOTIFICACIONES */
+/* ────────────────────────────────────────────── */
+
 .derecha {
   margin-top: 1.7rem;
 }
 
 .derecha .top button {
-  display: none; /* Oculto por defecto en escritorio */
+  display: none;
 }
 
 .derecha .Selector-tema {
@@ -213,7 +237,7 @@
   text-align: right;
 }
 
-/* Actualizaciones recientes */
+/* Actualizaciones */
 .derecha .actualizaciones-recientes {
   margin-top: 0;
 }
@@ -241,9 +265,9 @@
   grid-template-columns: 1em auto;
   gap: 2.5rem;
   margin-bottom: 0.5rem;
-  transition: all 0.3s ease, background-color 0.3s ease;
   border-radius: var(--borde-radio-1);
   padding: 0.5em;
+  transition: all 0.3s ease;
 }
 
 .derecha .actualizaciones-recientes .actualizacion:hover {
@@ -255,38 +279,236 @@
   padding: 0 0.5rem;
 }
 
+/* Fotos de perfil */
 .Foto-perfiles img {
   width: 45px;
-  height: 45px;           /* cuadrado para mantener forma circular */
-  border-radius: 50%;     /* círculo perfecto */
-  object-fit: cover;       /* recorta la imagen sin deformarla */
-  overflow: hidden;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-top: 20px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
 .Foto-perfiles img:hover {
-  transform: scale(1.2); /* Aumenta el tamaño al 110% al pasar el cursor */
+  transform: scale(1.2);
 }
 
-.Nombre-notifi{
- font-size: large;
- margin-bottom: 2px;
+.Nombre-notifi {
+  font-size: large;
+  margin-bottom: 2px;
 }
 
-.Linea-act{
+.Linea-act {
   border-color: #000;
   margin-top: 2px;
 }
 
-@keyframes fadeInSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(1px);
+/* ────────────────────────────────────────────── */
+/* 🧠 MEDIA QUERIES RESPONSIVAS */
+/* ────────────────────────────────────────────── */
+
+/* Laptops pequeñas */
+@media screen and (max-width: 992px) {
+  .main-container {
+    grid-template-columns: 1fr;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .dashboard main .cuadrs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .derecha {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .derecha {
+    display: none;
+  }
+
+  .dashboard main {
+    margin: 0 1rem;
+  }
+
+  .dashboard main .cuadrs {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dashboard main .descripcion {
+    margin-top: 3rem;
+  }
+
+  .dashboard main .descripcion table thead {
+    display: none;
+  }
+
+  .dashboard main .descripcion table tbody tr {
+    display: block;
+    border: 1px solid var(--color-g3);
+    border-radius: var(--borde-carta);
+    margin-bottom: 1rem;
+    background: var(--color-g4);
+    padding: 0.5rem;
+  }
+
+  .dashboard main .descripcion table tbody td {
+    display: block;
+    border: none;
+    text-align: right;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .dashboard main .descripcion table tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    color: var(--color-texto);
+  }
+
+  /* Fotos */
+  .Foto-perfiles img {
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+  }
+
+  .Nombre-notifi {
+    font-size: medium;
+  }
+
+  /* Slideshow */
+  .slideshow-container {
+    border-radius: 20px;
+  }
+
+  .text-container {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .text-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .prev, .next {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+  }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 480px) {
+  :root {
+    --caja-sombra: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dashboard main .cuadrs > div {
+    padding: 1rem;
+  }
+
+  .dashboard main .descripcion table tbody tr {
+    margin-bottom: 0.8rem;
+  }
+
+  .dashboard main .descripcion table tbody td {
+    font-size: 0.8rem;
+  }
+
+  .text-container h3 {
+    font-size: 1rem;
+  }
+
+  .text-container p {
+    font-size: 0.8rem;
+  }
+}
+/* ────────────────────────────────────────────── */
+/* 🧩 CORRECCIÓN: TABLA "DESCRIPCIÓN DE EVENTOS" */
+/* ────────────────────────────────────────────── */
+
+/* Estilo base (pantallas grandes) */
+.dashboard main .descripcion table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-g4);
+  border-radius: var(--borde-carta);
+  overflow: hidden;
+  text-align: center;
+}
+
+.dashboard main .descripcion table th,
+.dashboard main .descripcion table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--color-g3);
+  color: var(--color-texto);
+}
+
+/* Evitar que los textos se peguen a la derecha */
+.dashboard main .descripcion table td {
+  text-align: center !important;
+}
+
+/* Evitar que se desborde */
+.dashboard main .descripcion {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ────────────────────────────────────────────── */
+/* 🔧 MOSTRAR “ACTUALIZACIONES RECIENTES” EN MÓVIL */
+/* ────────────────────────────────────────────── */
+
+@media screen and (max-width: 768px) {
+  .derecha {
+    display: block !important; /* volver a mostrar el panel lateral */
+    margin-top: 2rem;
+  }
+
+  .derecha .actualizaciones {
+    display: block;
+    background: var(--color-g4);
+    border-radius: var(--borde-carta);
+    box-shadow: var(--caja-sombra);
+    padding: 1rem;
+  }
+
+  .derecha .actualizaciones h2 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  .derecha .actualizaciones .update {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .derecha .actualizaciones .update img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .derecha .actualizaciones .update .info {
+    flex: 1;
+    font-size: 0.85rem;
   }
 }

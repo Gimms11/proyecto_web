@@ -21,15 +21,15 @@
 
     <div class="form-side">
       <div class="form-box">
-        <h2>Bienvenido de nuevo </h2>
+        <h2>Bienvenido de nuevo</h2>
         <p class="intro">Por favor, ingresa tus credenciales para continuar.</p>
 
-        <form>
+        <form id="formLogin">
           <label>Usuario</label>
-          <input type="text" placeholder="Ingrese su usuario">
+          <input type="text" id="usuario" placeholder="Ingrese su usuario" required>
 
           <label>Contraseña</label>
-          <input type="password" placeholder="Ingrese su contraseña">
+          <input type="password" id="contraseña" placeholder="Ingrese su contraseña" required>
 
           <button type="submit">Iniciar Sesión</button>
         </form>
@@ -39,5 +39,6 @@
     </div>
   </div>
 
+  <script src="scripts/Login_Funcionalidad.js"></script>
 </body>
 </html>

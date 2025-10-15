@@ -1,35 +1,79 @@
-// ==== Audio ====
-const audio = document.getElementById("miAudio");
-const sliderVolumen = document.getElementById("volumen");
+// ==== Registro con soporte para varios usuarios ====
+document.addEventListener("DOMContentLoaded", () => {
+  const formRegistro = document.getElementById("formRegistro");
 
-function playAudio() {
-    audio.play();
-}
+  if (formRegistro) {
+    formRegistro.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-function pauseAudio() {
-    audio.pause();
-}
+      const usuario = document.getElementById("usuario").value.trim();
+      const pass = document.getElementById("contraseña").value.trim();
+      const confirmar = document.getElementById("confirmar").value.trim();
 
-sliderVolumen.addEventListener("input", () => {
-    audio.volume = sliderVolumen.value / 100;
+      if (pass !== confirmar) {
+        alert("❌ Las contraseñas no coinciden");
+        return;
+      }
+
+      // Obtener lista actual de usuarios (si existe)
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      // Verificar si el usuario ya existe
+      const usuarioExistente = usuarios.find(u => u.usuario === usuario);
+      if (usuarioExistente) {
+        alert("⚠️ Este usuario ya está registrado.");
+        return;
+      }
+
+      // Agregar nuevo usuario
+      usuarios.push({ usuario: usuario, contraseña: pass });
+
+      // Guardar lista actualizada en localStorage
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      alert("✅ Registro exitoso. ¡Ya puedes iniciar sesión!");
+
+      console.log("Usuarios registrados:", usuarios);
+
+      window.location.href = "login.html";
+    });
+  }
 });
 
-// ==== Validación de registro ====
-const formRegistro = document.getElementById("formRegistro");
+// ==== Login con soporte para varios usuarios ====
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formLogin");
 
-if (formRegistro) {
-    formRegistro.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const pass = document.getElementById("contraseña").value;
-        const confirmar = document.getElementById("confirmar").value;
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-        if (pass !== confirmar) {
-            alert("❌ Las contraseñas no coinciden");
-            return;
-        }
+      const usuario = document.getElementById("usuario").value.trim();
+      const contraseña = document.getElementById("contraseña").value.trim();
 
-        alert("✅ Registro exitoso. ¡Bienvenido!");
-        formRegistro.reset();
+      // === 1️⃣ Usuario fijo (admin) ===
+      const usuarioFijo = "Mijael";
+      const contraseñaFija = "Gimms";
+
+      // === 2️⃣ Lista de usuarios registrados ===
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      // Buscar si existe el usuario en la lista
+      const usuarioEncontrado = usuarios.find(
+        (u) => u.usuario === usuario && u.contraseña === contraseña
+      );
+
+      if (
+        (usuario === usuarioFijo && contraseña === contraseñaFija) ||
+        usuarioEncontrado
+      ) {
+        alert("✅ Inicio de sesión exitoso");
+        window.location.href = "index.html"; // o Usuario.html
+      } else {
+        alert("❌ Usuario o contraseña incorrectos");
+      }
+
+      console.log("Usuarios registrados actualmente:", usuarios);
     });
-}
-
+  }
+});

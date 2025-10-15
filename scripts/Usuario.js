@@ -6,10 +6,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const avatar = document.querySelector(".wobble-on-hover");
-  avatar.addEventListener("click", () => {
-    window.location.href = "Usuario.html";
-  });
-});

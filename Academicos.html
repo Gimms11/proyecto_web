@@ -22,7 +22,7 @@
     />
 
     <!-- Título de la pestaña del navegador -->
-    <title>Document</title>
+    <title>Evento Academicos</title>
   </head>
   <body>
     <!-- Contenedor vacío para el menú (probablemente cargado por JS) -->
@@ -51,12 +51,22 @@
       </div>
 
       <!-- Barra de búsqueda de eventos -->
+      <div class="filtro-eventos">
       <div class="buscar_evento">
         <input type="search" placeholder="Buscar tus eventos" id="buscador" name="buscador"/>
         <button class="btn-buscar">
+          <!-- Ícono de lupa -->
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
+
+      <div class="filtar-vacantes">
+        <label class="check-vacantes">
+          <input type="checkbox" id="soloVacantes">
+            Solo eventos con vacantes disponibles
+        </label>
+      </div>
+    </div>
 
       <!-- Subtítulo o texto adicional -->
       <p class="subtitulo">Charlas, talleres y conferencias para potenciar tu aprendizaje</p>
@@ -64,7 +74,7 @@
       <!-- Contenedor de la lista de eventos -->
       <div class="evento-container">
         <!-- Evento 1 -->
-        <a href="inscripciones.html" class="eventoAcademico">
+        <a href="inscripciones.html" class="eventoAcademico"  vacantes="true">
           <div class="evento-left">
             <div class="evento-date">
               <div class="numero_dia">25</div>

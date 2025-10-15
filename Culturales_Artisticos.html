@@ -23,7 +23,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <title>Document</title>
+    <title>Eventos Culturales y Artisticos</title>
   </head>
   <body>
     <!-- Menú (se cargará con layout.js) -->
@@ -47,12 +47,22 @@
       </div>
 
       <!-- Barra de búsqueda -->
+      <div class="filtro-eventos">
       <div class="buscar_evento">
         <input type="search" placeholder="Buscar tus eventos" id="buscador" name="buscador"/>
         <button class="btn-buscar">
+          <!-- Ícono de lupa -->
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
+
+      <div class="filtar-vacantes">
+        <label class="check-vacantes">
+          <input type="checkbox" id="soloVacantes">
+            Solo eventos con vacantes disponibles
+        </label>
+      </div>
+    </div>
 
       <!-- Subtítulo (ahora es texto de prueba) -->
       <p class="subtitulo">Celebra la creatividad, el arte y nuestras tradiciones</p>

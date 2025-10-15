@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
     />
 
-    <title>Document</title>
+    <title>Eventos Deportivos y Recreativos</title>
   </head>
   <body>
     <!-- Menú (se cargará con layout.js) -->
@@ -46,6 +46,7 @@
       </div>
 
       <!-- Barra de búsqueda -->
+      <div class="filtro-eventos">
       <div class="buscar_evento">
         <input type="search" placeholder="Buscar tus eventos" id="buscador" name="buscador"/>
         <button class="btn-buscar">
@@ -53,6 +54,14 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
+
+      <div class="filtar-vacantes">
+        <label class="check-vacantes">
+          <input type="checkbox" id="soloVacantes">
+            Solo eventos con vacantes disponibles
+        </label>
+      </div>
+    </div>
 
       <!-- Subtítulo (texto de prueba por ahora) -->
       <p class="subtitulo">Compite, participa y vive el espíritu deportivo</p>

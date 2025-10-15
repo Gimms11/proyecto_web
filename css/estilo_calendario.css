@@ -227,3 +227,61 @@
   margin-top: 50px;
   font-size: large;
 }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .meses {
+    font-size: 1.5rem;
+  }
+
+  .dias {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina_Calendario {
+    padding: 15px;
+  }
+
+  .parte_superior_del_Calendario {
+    flex-direction: column;
+  }
+
+  .boton_meses {
+    width: 35px;
+    height: 35px;
+  }
+
+  .meses {
+    font-size: 1.4rem;
+  }
+
+  .dias_semana {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dias {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .boton_hoy,
+  .boton_toggle {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .dias_semana {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .meses {
+    font-size: 1.2rem;
+  }
+}

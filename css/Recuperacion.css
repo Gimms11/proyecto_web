@@ -1,0 +1,128 @@
+:root {
+  --color-primario: #91EB9C;
+  --color-secundario: #7CEBD5;
+  --color-terciario: #7CEBAF;
+  --color-cuarto: #A0EB85;
+  --color-quinto: #94DFEB;
+  --color-sexto: #CBEBD9;
+
+  --color-g1: #000000;
+  --color-g3: #BDBDBD;
+
+  --borde-radio-1: 0.4rem;
+  --borde-radio-2: 0.8rem;
+  --borde-radio-3: 1.2rem;
+
+  --caja-sombra: 0 10px 30px rgba(0,0,0,0.15);
+  --fuente-principal: 'Poppins', sans-serif;
+}
+
+/* Estilos generales */
+body {
+  font-family: var(--fuente-principal);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--color-secundario), var(--color-cuarto));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  background-color: var(--color-primario);
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  box-shadow: var(--caja-sombra);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--color-g1);
+}
+
+/* Botón regresar */
+.contenedor-boton {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+
+.boton-regresar {
+  background-color: var(--color-terciario);
+  border: none;
+  color: var(--color-g1);
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--borde-radio-2);
+  cursor: pointer;
+  box-shadow: var(--caja-sombra);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-regresar:hover {
+  background-color: var(--color-cuarto);
+  transform: scale(1.05);
+}
+
+/* Secciones */
+main {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: var(--borde-radio-3);
+  box-shadow: var(--caja-sombra);
+  width: 90%;
+  max-width: 500px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+input[type="email"] {
+  padding: 0.8rem;
+  border-radius: var(--borde-radio-1);
+  border: 1px solid var(--color-g3);
+  font-size: 1rem;
+}
+
+.boton-enviar,
+.boton-aceptar {
+  background-color: var(--color-secundario);
+  color: var(--color-g1);
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--borde-radio-2);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-enviar:hover,
+.boton-aceptar:hover {
+  background-color: var(--color-terciario);
+  transform: scale(1.05);
+}
+
+h2 {
+  text-align: center;
+  color: var(--color-g1);
+}

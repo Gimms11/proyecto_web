@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Contraseña</title>
+    <link rel="stylesheet" href="Recuperacion.css">
+</head>
+<body>
+<header>
+    <h1>Universidad Sideral Carreón</h1>
+</header>
+
+<!-- Botón de regresar -->
+<div class="contenedor-boton">
+    <button id="btnRegresar" class="boton-regresar">← Regresar</button>
+</div>
+
+<main>
+    <section id="Panel_De_Recuperacion" class="active">
+        <h2>Recuperación de Contraseña</h2>
+        <form id="formRecuperacion">
+            <label for="email_recuperacion">Ingrese su correo:</label>
+            <input type="email" id="email_recuperacion" name="email_recuperacion" required>
+            <button type="submit" class="boton-enviar">Enviar</button>
+        </form>    
+    </section>
+
+    <section id="Mensaje_Aceptado">
+        <h2>Enviamos un código a su correo para cambiar su contraseña</h2>
+        <button type="button" class="boton-aceptar">Aceptar</button>
+    </section>
+
+    <section id="Mensaje_Rechazado">
+        <h2>Correo no válido, vuelva a ingresar un correo</h2>
+        <form>
+            <label for="email_recuperacion_invalido">Ingrese su correo:</label>
+            <input type="email" id="email_recuperacion_invalido" name="email_recuperacion_invalido">
+            <button type="submit" class="boton-aceptar">Aceptar</button>
+        </form>  
+    </section>
+</main>
+
+<script src="Recuperacion.js"></script>
+</body>
+</html>

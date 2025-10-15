@@ -1,88 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/Estilo_Inicio_Sesion.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Universidad Sideral Carreon</title>
+  <link rel="stylesheet" href="Estilo_Inicio_Sesion.css">
 </head>
 <body>
 
-<header>
-<h1> Universidad Sideral Carreon</h1>    
-<nav class="Registro">
-<a id="btnIngresar">Ingresar</a>
-<a id="btnRegistrarse">Registrarse</a>
-</nav>
-</header>
+  <header class="topbar">
+    <h1>Universidad Sideral Carreon</h1>
+    <nav>
+      <a href="login.html" class="activo">Iniciar Sesión</a>
+      <a href="login_registro.html">Registrarse</a>
+    </nav>
+  </header>
 
-<section id="Registrarse">
-<h2>Registrarse</h2>
-<form>
-<label for="nombres"> Nombres:
-<input type="text" id="nombres" name="nombres">
-</label>
+  <div class="container">
+    <div class="image-side" style="background-image: url('universidad.jpg');"></div>
 
-<label for="apellidos">Apellidos:
-<input type="text" id="apellidos" name="apellidos">
-</label>
+    <div class="form-side">
+      <div class="form-box">
+        <h2>Bienvenido de nuevo </h2>
+        <p class="intro">Por favor, ingresa tus credenciales para continuar.</p>
 
-<label for="correo_electronico_Registro">Correo Electronico:
-<input type="text" id="correo_electronico_Registro" name="Correo_Electronico_Registro">
-</label>
+        <form>
+          <label>Usuario</label>
+          <input type="text" placeholder="Ingrese su usuario">
 
-<label>Contraseña:
-<input type="password" id="contraseña" name="Contraseña">    
-</label>
+          <label>Contraseña</label>
+          <input type="password" placeholder="Ingrese su contraseña">
 
-<label>Confirmar Contraseña 
-<input type="password" id="confirmar" name="Confirmacion_Contraseña">
-</label>
+          <button type="submit">Iniciar Sesión</button>
+        </form>
 
-<button type="submit">Registrar</button>
-</form>
-<nav class="Ayuda">
-<ul>
-<li><a href="#">Olvidaste tu contraseña?</a></li>
-<li><a href="#">Necesitas Ayuda?</a></li>
-</ul>
-</nav>
-
-</section>
-
-<section id="Ingresar" class="active">
-<h2>Ingresar</h2>
-<form>
-<label for="correo_electronico"> Correo Electronico:
-<input type="email" id="correo_electronico" name="Correo_Electronico">    
-</label>
-<label for="contraseña_Ingresar"> Contraseña:
-<input type="password" id="contraseña_Ingresar" name="Contraseña_Ingresar">
-</label>
-<button type="submit">Ingresar</button>   
-</form>
-
-<nav class="Ayuda">
-<ul>
-<li><a href="#">Olvidaste tu contraseña?</a></li>
-<li><a href="#">Necesitas Ayuda?</a></li>
-</ul>
-</nav>
-</section>
-
- <div class="audio-controls">
-    <button onclick="playAudio()">Play</button>
-    <button onclick="pauseAudio()">Pause</button>
-    <label for="volumen">Volumen:</label>
-    <input type="range" id="volumen" min="0" max="100" value="50">
+        <a href="Recuperacion_Contraseña.html" class="link">¿Olvidaste tu contraseña?</a>
+      </div>
     </div>
-
- <audio id="miAudio">
-<source src="Soy Dibujito De Corazón  Homenaje a Franco Vidal.mp3" type="audio/mpeg">
-Tu navegador no soporta audio en HTML5.
-</audio>
-        
-    <script src="scripts/Login_Funcionalidad.js"></script>
+  </div>
 
 </body>
 </html>

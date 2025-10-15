@@ -21,6 +21,11 @@
   --pading-1: 1.2rem;
   --caja-sombra: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bg-gradient: linear-gradient(135deg, #d1f9fb, #c0dad4, #dfdfc8, #efdfc9);
+  --bg-gradient-evento: linear-gradient(90deg, #e0e0e0 25%, #ace3ed 50%, #9cfce7 75%);
+  --fondo-evento: rgba(163, 228, 215, 0.9);
+  --tab-acento: #09b800;
+  --tab-hover-bg: rgba(125, 232, 130, 0.1);
+  --tab-hover-text: #02b360;
 }
 
 /* Tema oscuro */
@@ -40,6 +45,11 @@
   --color-texto: #e8f1ff;
   --caja-sombra: 0 0.5rem 1rem rgba(0, 0, 20, 0.3);
   --bg-gradient: linear-gradient(135deg, #2b2e38, #282f41, #172342, #0a1639);
+  --bg-gradient-evento: linear-gradient(90deg, #2c2c2c 25%, #1f5567 50%, #1b6b84 75%);
+  --fondo-evento: rgba(14, 143, 198, 0.85);
+  --tab-acento: #5ebaf0;
+  --tab-hover-bg: rgba(4, 88, 141, 0.2);
+  --tab-hover-text: #5ebaf0;
 }
 
 html {

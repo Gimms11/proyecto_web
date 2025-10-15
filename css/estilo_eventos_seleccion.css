@@ -1,7 +1,7 @@
 h1.encabezado{
     font-size: 40px;
     text-align: left;
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     display: grid;
     line-height:100px;
@@ -9,7 +9,7 @@ h1.encabezado{
     margin-top: 40px;
 }
 .evento-container {
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     display: grid; 
     grid-template-columns: repeat(2,1fr);
@@ -18,7 +18,7 @@ h1.encabezado{
     column-gap: 16px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .evento-container {
     grid-template-columns: 1fr;
     }
@@ -28,8 +28,8 @@ p.subtitulo {
     font-size: 16px;
     color: var(--color-g1);
     text-align: left;
-    border-bottom: 1px solid #b1b1b1;
-    max-width: 800px;
+    border-bottom: 1px solid var(--color-g3);
+    max-width: 1050px;
     margin: 0 auto;
     display: grid;
     line-height: 50px;
@@ -44,21 +44,21 @@ p.subtitulo {
     top: 1rem;
     width: 4px;
     height: 1.2rem;
-    background: var(--color-primario);
+    background: var(--color-cuarto);
     border-radius: 2px;
 }
 
 .eventoAcademico, .eventoDeportivo, .eventoCultural  {
     display: flex;
-    background: #cbebd9;
-    border-radius: 5px;
-    padding: 5px;
+    background: var(--color-fondo);
+    border-radius: 15px;
+    padding: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
     margin: 10px 0;
     text-decoration: none;
     color: inherit;
-    height: 150px;
+    height: 180px;
 } 
 
 .eventoAcademico:hover,
@@ -67,9 +67,9 @@ p.subtitulo {
     transform: translateY(-6px) scale(1.03);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     transition: all 0.4s ease;
-    background: linear-gradient(90deg, #e0e0e0 25%, #ace3ed 50%, #9cfce7 75%);
+    background: var(--bg-gradient-evento);
     background-size: 200% 100%;
-    animation: opalite 1.8s infinite;
+    animation: opalite 1.5s infinite;
 }
 
 @keyframes opalite {
@@ -77,17 +77,20 @@ p.subtitulo {
     100% { background-position: -200% 0; }
 }
 
-.evento-container .evento-left {
-    background: var(--color-sexto);
+.evento-left {
+    background:var(--color-terciario);
     min-width: 82px;
     display: flex;
     align-items: left;
+    flex-direction: column;
     justify-content: center;
-    color: #eee;
+    color: var(--color-g4);
     padding: 8px 8px;
     font-weight: bold;
     text-align: center;
-    border: white;
+    border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+    -moz-border-radius: 20px 0px 0px 20px;
 }
 .evento-container .numero_dia {
     font-size: 56px;
@@ -103,8 +106,12 @@ p.subtitulo {
     flex-direction: column;
     justify-content: center;
     padding: 0 24px;
-    background: #7cebd5;
+    background: var(--color-terciario);
     line-height: 1.02rem;
+    color: var(--color-texto);
+    border-radius: 0px 20px 20px 0px;
+    -webkit-border-radius: 0px 20px 20px 0px;
+    -moz-border-radius: 0px 20px 20px 0px;
 }
 
 .evento-rigth .hora-evento{
@@ -129,17 +136,17 @@ p.subtitulo {
 .tabs {
     display: flex;
     gap: 20px;   
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 0 10px;
-    border-bottom: 1px solid #b1b1b1;
+    border-bottom: 1px solid var(--color-g3);
 }
 
 .tabs .tab {
     cursor: pointer;
     font-weight: 500;
     text-decoration: none; 
-    color: #000000;
+    color: var(--color-texto);
     line-height: 20px;
     position: relative;
     padding-bottom: 4px;
@@ -153,7 +160,7 @@ p.subtitulo {
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: #09b800;
+    background-color:var(--tab-acento);
     transition: width 0.1s ease;
 }
 
@@ -162,17 +169,16 @@ p.subtitulo {
 }
 
 .tab:hover{
-    background:rgba(125, 232, 130, 0.1);
+    background:var(--tab-hover-bg);
     transform: translatey(1px);
-    color: #02b360;
+    color: var(--tab-hover-text);
 }
 .buscar_evento {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    max-width: 800px;
+    max-width: 1050px;
     margin: 10px auto ;
     padding: 0 10px ;
 }
@@ -183,20 +189,23 @@ p.subtitulo {
     padding: 10px;
     flex: 1;
     font-size: 14px;
+    border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+    -moz-border-radius: 20px 0px 0px 20px;
 }
 
 .eventoDeportivo .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_deportivo.png"); 
     background-position: center;
-    background-size:cover;
+    background-size:cover; 
     background-repeat: no-repeat;
 }
 
 .eventoCultural .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_cultural.png"); 
     background-position: center;
     background-size:cover;
@@ -205,7 +214,7 @@ p.subtitulo {
 
 .eventoAcademico .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_academico.png"); 
     background-position: center;
     background-size:cover;
@@ -213,15 +222,18 @@ p.subtitulo {
 }
 
 .btn-buscar {
-    background: var(--color-primario); 
+    background: var(--color-terciario); 
     color: white;
     border: none;
-    padding: 0.8rem 1.6rem;
+    padding: 0.71rem 1.6rem;
     border-radius: var(--borde-radio-2);
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(128, 233, 140, 0.4);
     transition: all 0.3s ease;
+    border-radius: 0px 20px 20px 0px;
+    -webkit-border-radius: 0px 20px 20px 0px;
+    -moz-border-radius: 0px 20px 20px 0px;
 }
 
 .btn-buscar:hover {

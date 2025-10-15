@@ -1,6 +1,6 @@
 h1.encabezado{
     font-size: 40px;
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     display: grid;
     line-height:100px;
@@ -8,7 +8,7 @@ h1.encabezado{
     margin-top: 40px;
 }
 .evento-container {
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     display: grid; 
     grid-template-columns: repeat(2,1fr);
@@ -28,7 +28,7 @@ h3.subtitulo {
     font-size: 20px;
     text-align: left;
     border-bottom: 1px solid var(--color-g3);
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto 1rem auto;
     display: block;
     line-height: 70px;
@@ -44,21 +44,21 @@ h3.subtitulo::before {
     top: 1.3rem;
     width: 4px;
     height: 2rem;
-    background: var(--color-primario);
+    background: var(--color-cuarto);
     border-radius: 2px;
 }
 
 .eventoAcademico, .eventoDeportivo, .eventoCultural  {
     display: flex;
-    background: #cbebd9;
-    border-radius: 5px;
-    padding: 5px;
+    background: var(--color-fondo);
+    border-radius: 15px;
+    padding: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
     margin: 10px 0;
     text-decoration: none;
     color: inherit;
-    height: 150px;
+    height: 180px;
 } 
 
 .eventoAcademico:hover,
@@ -67,9 +67,9 @@ h3.subtitulo::before {
     transform: translateY(-6px) scale(1.03);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     transition: all 0.4s ease;
-    background: linear-gradient(90deg, #e0e0e0 25%, #ace3ed 50%, #9cfce7 75%);
+    background: var(--bg-gradient-evento);
     background-size: 200% 100%;
-    animation: opalite 1.8s infinite;
+    animation: opalite 1.5s infinite;
 }
 
 @keyframes opalite {
@@ -78,15 +78,19 @@ h3.subtitulo::before {
 }
 
 .evento-left {
-    background:var(--color-sexto);
+    background:var(--color-terciario);
     min-width: 82px;
     display: flex;
     align-items: left;
+    flex-direction: column;
     justify-content: center;
-    color: #eee;
+    color: var(--color-g4);
     padding: 8px 8px;
     font-weight: bold;
     text-align: center;
+    border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+    -moz-border-radius: 20px 0px 0px 20px;
 }
 .evento-left .numero_dia {
     font-size: 56px;
@@ -102,9 +106,12 @@ h3.subtitulo::before {
     flex-direction: column;
     justify-content: center;
     padding: 0 24px;
-    background: #7cebd5;
+    background: var(--color-terciario);
     line-height: 1.02rem;
-    color: #111827;
+    color:var(--color-texto);
+    border-radius: 0px 20px 20px 0px;
+    -webkit-border-radius: 0px 20px 20px 0px;
+    -moz-border-radius: 0px 20px 20px 0px;
 }
 
 .evento-rigth .hora-evento{
@@ -129,17 +136,17 @@ h3.subtitulo::before {
 .tabs {
     display: flex;
     gap: 20px;   
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 0 10px;
-    border-bottom: 1px solid #b1b1b1;
+    border-bottom: 1px solid var(--color-g3);
 }
 
 .tabs .tab {
     cursor: pointer;
     font-weight: 500;
     text-decoration: none; 
-    color: #000000;
+    color: var(--color-texto);
     line-height: 20px;
     position: relative;
     padding-bottom: 4px;
@@ -153,7 +160,7 @@ h3.subtitulo::before {
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: #09b800;
+    background-color:var(--tab-acento);
     transition: width 0.1s ease;
 }
 
@@ -162,15 +169,15 @@ h3.subtitulo::before {
 }
 
 .tab:hover{
-    background:rgba(125, 232, 130, 0.1);
+    background:var(--tab-hover-bg);
     transform: translatey(1px);
-    color: #02b360;
+    color: var(--tab-hover-text);
 }
 
 /*imagenes de eventos.....}°-°{*/
 .eventoDeportivo .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_deportivo.png"); 
     background-position: center;
     background-size:cover; 
@@ -179,7 +186,7 @@ h3.subtitulo::before {
 
 .eventoCultural .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_cultural.png"); 
     background-position: center;
     background-size:cover;
@@ -188,7 +195,7 @@ h3.subtitulo::before {
 
 .eventoAcademico .evento-rigth {
     background-image: 
-        linear-gradient(rgba(163, 228, 215, 0.9), rgba(163, 228, 215, 0.9)), 
+        linear-gradient(var(--fondo-evento), var(--fondo-evento)), 
         url("../assets/fondo_academico.png"); 
     background-position: center;
     background-size:cover;

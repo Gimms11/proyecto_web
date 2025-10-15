@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnVolver) {
     btnVolver.addEventListener("click", () => {
       window.history.back(); 
-    });
+    })
   }
+});
 
-  const fotoPerfil = document.querySelector(".Foto-perfil");
-  if (fotoPerfil) {
-    fotoPerfil.addEventListener("click", () => {
-      window.location.href = "Usuario.html";
-    });
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const avatar = document.querySelector(".wobble-on-hover");
+  avatar.addEventListener("click", () => {
+    window.location.href = "Usuario.html";
+  });
 });

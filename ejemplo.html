@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda Clásica</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #eee; padding: 10px; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Productos</h1>
+  <ul id="lista-productos"></ul>
+  <button id="agregar">Agregar producto</button>
+
+  <script>
+    const productos = ["Laptop", "Mouse", "Teclado"];
+    const lista = document.getElementById("lista-productos");
+    const boton = document.getElementById("agregar");
+
+    function renderLista() {
+      lista.innerHTML = "";
+      productos.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        lista.appendChild(li);
+      });
+    }
+
+    boton.addEventListener("click", () => {
+      productos.push("Nuevo producto " + (productos.length + 1));
+      renderLista();
+    });
+
+    renderLista();
+  </script>
+</body>
+</html>

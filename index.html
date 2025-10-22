@@ -82,171 +82,174 @@
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
       <div class="line-container">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
       </div>
     </div>
-    
+
     <div class="main-container">
       <main>
         <br>
-              <!-- Selector de fecha -->
-              <div class="date">
-                <input type="date" />
+        <!-- Selector de fecha -->
+        <div class="date">
+          <input type="date" />
+        </div>
+        <div class="Inicio">
+          <h2> Binvenido, </h2>
+        </div>
+        <!-- Tarjetas/resumen de estadísticas -->
+        <div class="cuadrs">
+          <!-- Tarjeta 1: Evento próximo -->
+          <div class="cc1">
+            <span class="material-symbols-outlined">today</span>
+            <div class="c1">
+              <div class="iz">
+                <h3>Evento próximo</h3>
+                <h1>Concierto</h1>
               </div>
-              <div class="Inicio">
-                <h2> Binvenido,  </h2>
+              <!-- Círculo gráfico de progreso -->
+              <div class="porcentaje">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="numero">
+                  <p>65%</p>
+                </div>
               </div>
-              <!-- Tarjetas/resumen de estadísticas -->
-              <div class="cuadrs">
-                  <!-- Tarjeta 1: Evento próximo -->
-                  <div class="cc1">
-                    <span class="material-symbols-outlined">today</span>
-                    <div class="c1">
-                      <div class="iz">
-                        <h3>Evento próximo</h3>
-                        <h1>Concierto</h1>
-                      </div>
-                      <!-- Círculo gráfico de progreso -->
-                      <div class="porcentaje">
-                        <svg>
-                          <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="numero">
-                          <p>65%</p>
-                        </div>
-                      </div>
-                    </div>
-                    <small class="text-muted">Usted está inscrito</small>
-                  </div>
+            </div>
+            <small class="text-muted">Usted está inscrito</small>
+          </div>
 
-                  <!-- Tarjeta 2: Eventos inscritos -->
-                  <div class="cc2">
-                    <span class="material-symbols-outlined">check_circle</span>
-                    <div class="c1">
-                      <div class="iz">
-                        <h3>Eventos inscritos</h3>
-                        <h1>Mis Eventos</h1>
-                      </div>
-                      <div class="porcentaje">
-                        <svg>
-                          <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="numero">
-                          <p>12</p>
-                        </div>
-                      </div>
-                    </div>
-                    <small class="text-muted">En los últimos 30 días</small>
-                  </div>
-
-                  <!-- Tarjeta 3: Evento importante -->
-                  <div class="cc3">
-                    <span class="material-symbols-outlined">bookmark_heart</span>
-                    <div class="c1">
-                      <div class="iz">
-                        <h3>Eventos Importantes</h3>
-                        <h1>InnovaFest</h1>
-                      </div>
-                      <div class="porcentaje">
-                        <svg>
-                          <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="numero">
-                          <p>84%</p>
-                        </div>
-                      </div>
-                    </div>
-                    <small class="text-muted">Evento del bimestre</small>
-                  </div>
+          <!-- Tarjeta 2: Eventos inscritos -->
+          <div class="cc2">
+            <span class="material-symbols-outlined">check_circle</span>
+            <div class="c1">
+              <div class="iz">
+                <h3>Eventos inscritos</h3>
+                <h1>Mis Eventos</h1>
               </div>
-
-                <!-- Tabla con descripción de eventos -->
-              <div class="descripcion">
-                  <h2>Descripción de Eventos</h2>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Nombre del Evento</th>
-                        <th>Fecha</th>
-                        <th>Aula</th>
-                        <th>Participantes</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Fila de ejemplo -->
-                      <tr>
-                        <td>ExpoCiencia U</td>
-                        <td>12/09/2024</td>
-                        <td>Aula 101</td>
-                        <td>47</td>
-                        <td class="peligro">Pendiente</td>
-                        <td class="primaria">Detalles</td>
-                      </tr>
-                      <!-- Se repite la misma estructura (pueden ser distintos eventos) -->
-                      <tr>
-                        <td>ExpoCiencia U</td>
-                        <td>12/09/2024</td>
-                        <td>Aula 101</td>
-                        <td>47</td>
-                        <td class="peligro">Pendiente</td>
-                        <td class="primaria">Detalles</td>
-                      </tr>
-                      <tr>
-                        <td>ExpoCiencia U</td>
-                        <td>12/09/2024</td>
-                        <td>Aula 101</td>
-                        <td>47</td>
-                        <td class="peligro">Pendiente</td>
-                        <td class="primaria">Detalles</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!-- Enlace para ver más eventos -->
-                  <a href="#">Volver al inicio</a>
+              <div class="porcentaje">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="numero">
+                  <p>12</p>
+                </div>
               </div>
+            </div>
+            <small class="text-muted">En los últimos 30 días</small>
+          </div>
+
+          <!-- Tarjeta 3: Evento importante -->
+          <div class="cc3">
+            <span class="material-symbols-outlined">bookmark_heart</span>
+            <div class="c1">
+              <div class="iz">
+                <h3>Eventos Importantes</h3>
+                <h1>InnovaFest</h1>
+              </div>
+              <div class="porcentaje">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="numero">
+                  <p>84%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Evento del bimestre</small>
+          </div>
+        </div>
+
+        <!-- Tabla con descripción de eventos -->
+        <div class="descripcion">
+          <h2>Descripción de Eventos</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre del Evento</th>
+                <th>Fecha</th>
+                <th>Aula</th>
+                <th>Participantes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Fila de ejemplo -->
+              <tr>
+                <td>ExpoCiencia U</td>
+                <td>12/09/2024</td>
+                <td>Aula 101</td>
+                <td>47</td>
+                <td class="peligro">Pendiente</td>
+                <td class="primaria">Detalles</td>
+              </tr>
+              <!-- Se repite la misma estructura (pueden ser distintos eventos) -->
+              <tr>
+                <td>ExpoCiencia U</td>
+                <td>12/09/2024</td>
+                <td>Aula 101</td>
+                <td>47</td>
+                <td class="peligro">Pendiente</td>
+                <td class="primaria">Detalles</td>
+              </tr>
+              <tr>
+                <td>ExpoCiencia U</td>
+                <td>12/09/2024</td>
+                <td>Aula 101</td>
+                <td>47</td>
+                <td class="peligro">Pendiente</td>
+                <td class="primaria">Detalles</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Enlace para ver más eventos -->
+          <a href="#">Volver al inicio</a>
+        </div>
       </main>
       <!-- Cierre del contenedor principal -->
       <div class="derecha">
-          <div class="actualizaciones-recientes">
-              <h2>Actualizaciones Recientes</h2>
-              <div class="actualizaciones">
-                  <div class="actualizacion">
-                  <div class="Foto-perfiles">
-                      <img src="assets/perrin.jpg">
-                  </div>
-                  <div class="mensaje">
-                      <p class="Nombre-notifi"><b>Paco Yunke</b></p>
-                      <hr class="Linea-act">
-                      <p>Se ha inscrito en el evento</p> <b>Noche de Talentos</b> <p><small class="text-muted">Hace 5 minutos</small></p>
-                  </div>
-                  </div>
-                  <div class="actualizacion">
-                  <div class="Foto-perfiles">
-                      <img src="assets/perrin2.jpg">
-                  </div>
-                  <div class="mensaje">
-                      <p class="Nombre-notifi"><b>Mario LLosa</b></p>
-                      <hr class="Linea-act">
-                      <p>Se ha inscrito en el evento</p> <b>Noche de Talentos</b> <p><small class="text-muted">Hace 20 minutos</small></p>
-                  </div>
-                  </div>
-                  <div class="actualizacion">
-                  <div class="Foto-perfiles">
-                      <img src="assets/perrin3.jpeg">
-                  </div>
-                  <div class="mensaje">
-                      <p class="Nombre-notifi"><b>Jennifer joles</b></p>
-                      <hr class="Linea-act">
-                      <p>Se ha inscrito en el evento</p> <b>SustoOlimpiadas</b> <p><small class="text-muted">Hace 5 horas</small></p>
-                  </div>
-                  </div>
+        <div class="actualizaciones-recientes">
+          <h2>Actualizaciones Recientes</h2>
+          <div class="actualizaciones">
+            <div class="actualizacion">
+              <div class="Foto-perfiles">
+                <img src="assets/perrin.jpg">
               </div>
+              <div class="mensaje">
+                <p class="Nombre-notifi"><b>Paco Yunke</b></p>
+                <hr class="Linea-act">
+                <p>Se ha inscrito en el evento</p> <b>Noche de Talentos</b>
+                <p><small class="text-muted">Hace 5 minutos</small></p>
+              </div>
+            </div>
+            <div class="actualizacion">
+              <div class="Foto-perfiles">
+                <img src="assets/perrin2.jpg">
+              </div>
+              <div class="mensaje">
+                <p class="Nombre-notifi"><b>Mario LLosa</b></p>
+                <hr class="Linea-act">
+                <p>Se ha inscrito en el evento</p> <b>Noche de Talentos</b>
+                <p><small class="text-muted">Hace 20 minutos</small></p>
+              </div>
+            </div>
+            <div class="actualizacion">
+              <div class="Foto-perfiles">
+                <img src="assets/perrin3.jpeg">
+              </div>
+              <div class="mensaje">
+                <p class="Nombre-notifi"><b>Jennifer joles</b></p>
+                <hr class="Linea-act">
+                <p>Se ha inscrito en el evento</p> <b>SustoOlimpiadas</b>
+                <p><small class="text-muted">Hace 5 horas</small></p>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda con Tailwind</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-6 rounded-2xl shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center mb-4">🛍️ Tienda con Tailwind</h1>
+    <ul id="lista" class="space-y-2 mb-4"></ul>
+    <button id="agregar" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar producto</button>
+  </div>
+
+  <script>
+    const productos = ["Laptop", "Mouse", "Teclado"];
+    const lista = document.getElementById("lista");
+    const btn = document.getElementById("agregar");
+
+    function render() {
+      lista.innerHTML = "";
+      productos.forEach(p => {
+        const li = document.createElement("li");
+        li.className = "bg-gray-200 p-3 rounded-md flex justify-between items-center";
+        li.textContent = p;
+        lista.appendChild(li);
+      });
+    }
+
+    btn.addEventListener("click", () => {
+      productos.push("Nuevo producto " + (productos.length + 1));
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

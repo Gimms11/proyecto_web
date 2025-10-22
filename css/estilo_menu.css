@@ -77,6 +77,10 @@
   color: #fff;
 }
 
+.sidebar_element:not(:has(.sidebar__icon--logo, .sidebar_text--logout)):hover .sidebar__icon{
+  animation: wobble 0.5s ease-in-out infinite;
+}
+
 .sidebar_element--logout {
     margin-top: auto;
 }

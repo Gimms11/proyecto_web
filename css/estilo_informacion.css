@@ -1,0 +1,144 @@
+.titulo {
+  text-align: left;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 20px 0 24px;
+  color: var(--color-texto);
+}
+
+.info-container {
+  background: #f6f9f7;
+  border-radius: 12px;
+  padding: 22px;
+  max-width: 880px;
+  margin: 0 auto 40px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* fila del botón atrás */
+
+.btn-atras {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  border:1px solid var(--color-g3);
+  color:var(--color-texto);
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition:all .18s ease;
+}
+
+.btn-atras:hover {
+  transform:translateY(-3px);
+  background:var(--color-primario);
+  color:#fff;
+}
+
+/* campo */
+.campo { margin-bottom: 14px; }
+
+.campo label {
+  display:block;
+  font-weight:600;
+  margin-bottom:6px;
+  color:#333;
+}
+
+/* contenedor valor */
+.valor {
+  display:flex;
+  align-items:center;
+  background:#fff;
+  border-radius:8px;
+  border:1px solid #ddd;
+  padding:10px 12px;
+  gap:10px;
+  transition: all .18s ease;
+}
+
+.valor:hover { border-color: var(--color-primario); }
+
+/* texto visible */
+.texto {
+  flex:1;
+  font-size:15px;
+  color:#222;
+}
+
+/* inputs / selects */
+input, select {
+  flex:1;
+  padding:8px;
+  font-size:15px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  outline:none;
+}
+
+input:focus, select:focus {
+  border-color:var(--color-primario);
+  box-shadow:0 0 6px rgba(0,128,64,0.12);
+}
+
+/* radios wrapper */
+.contacto-radios { display:flex; gap:10px; align-items:center; }
+
+/* boton editar (icono) */
+.editar {
+  background:none;
+  border:none;
+  color:var(--color-primario);
+  cursor:pointer;
+  font-size:20px;
+  padding:6px;
+  border-radius:6px;
+  transition:transform .12s ease;
+}
+
+.editar:hover { transform:scale(1.1); }
+
+/* acciones (guardar/cancelar) */
+.acciones {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:6px;
+}
+
+.btn-guardar, .btn-cancel {
+  padding:10px 16px;
+  border-radius:8px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .18s ease;
+}
+
+.btn-guardar {
+  background:var(--color-primario);
+  color:#fff;
+}
+
+.btn-guardar:hover { background:var(--color-secundario); transform:translateY(-2px); }
+
+.btn-cancel {
+  background:#fff;
+  border:1px solid var(--color-g3);
+  color:var(--color-texto);
+}
+
+.btn-cancel:hover { transform:translateY(-2px); }
+
+/* utilidad para ocultar */
+.oculto { display:none !important; }
+
+/* responsive */
+@media (max-width:640px) {
+  .info-container { padding:16px; }
+  .valor { flex-direction:column; align-items:stretch; gap:8px; }
+  .contacto-radios { flex-direction:column; align-items:flex-start; }
+  .back-row { margin-bottom:8px; }
+}

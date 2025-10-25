@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página de Usuario</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  />
   <link rel="stylesheet" href="css/Usuario.css" />
+  <link rel="stylesheet" href="css/estilo_general.css" />
 </head>
 <body>
   <main class="contenedor">
@@ -13,30 +18,37 @@
          <button class="btn-volver">← Volver</button>
         <img src="usuario.jpeg" alt="Foto del usuario" class="foto-usuario" />
         <h2 class="nombre-usuario">Marx Anthony Loayza</h2>
-        <p class="codigo">Código: U2394823</p>
+        <button class="btn-actualizar">Actualizar foto</button>
       </div>
 
       <div class="info-usuario">
         <h2>Datos del Estudiante</h2>
+        <p><strong>Código:</strong> U2394823</p>
         <p><strong>Correo:</strong> goglosor@gmail.com</p>
-        <p><strong>Teléfono:</strong> 917381931</p>
         <p><strong>Ciclo:</strong> 5</p>
         <p><strong>Campus:</strong> ICA</p>
         <p><strong>Carrera:</strong> Ciencias del Fracaso</p>
         <p><strong>Modalidad:</strong> Presencial</p>
-        <h3>Eventos Inscritos</h3>
-        <ul>
-          <li>Campeonato de Volleybal</li>
-          <li>Conferencia de Inteligencia Artificial</li>
-          <li>Noche de Talentos Universitarios</li>
-          <li>Herramientas Informáticas con IA</li>
-          <li>Análisis Exponencial de las Empresas</li>
-        </ul>
       </div>
+      <div class="info-section">
+          <div class="info-imagen">
+            <img src="imagen decorativa.jpeg" alt="Ilustración estudiante" class="img-ilustracion">
+          </div>
 
-      <div class="ilustracion-container">
-        <img src="imagen decorativa.jpeg" alt="Ilustración estudiante" class="img-ilustracion">
-      </div>
+          <a href="informacion.html" class="info-boton" title="Ver información personal">
+            <div class="info-icono">
+              <span class="material-symbols-outlined">person</span>
+            </div>
+            <div class="info-texto">
+              <h3>Información personal</h3>
+              <p>Agrega tus datos personales e indícanos cómo mantenernos en contacto.</p>
+            </div>
+            <div class="info-flecha">
+              <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+          </a>
+        </div>
+      
     </section>
   </main>
 <script src="scripts/Usuario.js"></script>

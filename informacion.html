@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Información Personal</title>
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/estilo_general.css" />
+    <link rel="stylesheet" href="css/estilo_informacion.css" />
+  </head>
+
+  <body class="infoBody">
+    <div id="menu"></div>
+    <div class="overlay"></div>
+
+    <div class="content">
+      <h1 class="titulo">Información Personal</h1>
+
+      <div class="info-container">
+        <!-- Botón 'Atrás' -->
+         <a href="usuario.html" class="btn-atras">← Atras</a>
+
+        <form id="form-info">
+          <!-- Nombre completo -->
+          <div class="campo">
+            <label>Nombre completo</label>
+            <div class="valor">
+              <span class="texto" id="nombre-texto"></span>
+              <input type="text" id="nombre-input" class="oculto" />
+              <button type="button" class="editar" data-campo="nombre"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- DNI -->
+          <div class="campo">
+            <label>DNI</label>
+            <div class="valor">
+              <span class="texto" id="dni-texto"></span>
+              <input type="text" id="dni-input" class="oculto" />
+              <button type="button" class="editar" data-campo="dni"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Fecha de nacimiento -->
+          <div class="campo">
+            <label>Fecha de nacimiento</label>
+            <div class="valor">
+              <span class="texto" id="fecha-texto"></span>
+              <input type="date" id="fecha-input" class="oculto" />
+              <button type="button" class="editar" data-campo="fecha"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Género (select) -->
+          <div class="campo">
+            <label>Género</label>
+            <div class="valor">
+              <span class="texto" id="genero-texto"></span>
+              <select id="genero-input" class="oculto">
+                <option value="">-- Seleccionar --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="No binario">No binario</option>
+                <option value="Prefiero no decir">Prefiero no decir</option>
+              </select>
+              <button type="button" class="editar" data-campo="genero"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Estado civil (select) -->
+          <div class="campo">
+            <label>Estado civil</label>
+            <div class="valor">
+              <span class="texto" id="civil-texto"></span>
+              <select id="civil-input" class="oculto">
+                <option>Soltero(a)</option>
+                <option>Casado(a)</option>
+                <option>Conviviente</option>
+                <option>Divorciado(a)</option>
+                <option>Viudo(a)</option>
+              </select>
+              <button type="button" class="editar" data-campo="civil"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="campo">
+            <label>Dirección</label>
+            <div class="valor">
+              <span class="texto" id="direccion-texto"></span>
+              <input type="text" id="direccion-input" class="oculto" />
+              <button type="button" class="editar" data-campo="direccion"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="campo">
+            <label>Teléfono</label>
+            <div class="valor">
+              <span class="texto" id="telefono-texto"></span>
+              <input type="tel" id="telefono-input" class="oculto" />
+              <button type="button" class="editar" data-campo="telefono"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Correo personal -->
+          <div class="campo">
+            <label>Correo personal</label>
+            <div class="valor">
+              <span class="texto" id="correo-texto"></span>
+              <input type="email" id="correo-input" class="oculto" />
+              <button type="button" class="editar" data-campo="correo"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Preferencia de contacto (radios) -->
+          <div class="campo">
+            <label>Preferencia de contacto</label>
+            <div class="valor">
+              <span class="texto" id="contacto-texto"></span>
+
+              <div id="contacto-input" class="oculto contacto-radios">
+                <label><input type="radio" name="contacto" value="Correo" checked /> Correo</label>
+                <label><input type="radio" name="contacto" value="Teléfono" /> Teléfono</label>
+                <label><input type="radio" name="contacto" value="WhatsApp" /> WhatsApp</label>
+              </div>
+
+              <button type="button" class="editar" data-campo="contacto"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Nacionalidad (select) -->
+          <div class="campo">
+            <label>Nacionalidad</label>
+            <div class="valor">
+              <span class="texto" id="nacion-texto"></span>
+              <select id="nacion-input" class="oculto">
+                <option>Peruana</option>
+                <option>Boliviana</option>
+                <option>Colombiana</option>
+                <option>Argentina</option>
+                <option>Otra</option>
+              </select>
+              <button type="button" class="editar" data-campo="nacion"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+          </div>
+
+          <!-- Botones acciones -->
+          <div class="acciones">
+            <button type="button" id="btn-cancel" class="oculto btn-cancel">Cancelar</button>
+            <button type="submit" id="btn-guardar" class="oculto btn-guardar">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="scripts/Informacion.js"></script>
+  </body>
+</html>

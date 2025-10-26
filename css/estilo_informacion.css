@@ -136,7 +136,7 @@ input:focus, select:focus {
 .oculto { display:none !important; }
 
 /* responsive */
-@media (max-width:640px) {
+@media (max-width:900px) {
   .info-container { padding:16px; }
   .valor { flex-direction:column; align-items:stretch; gap:8px; }
   .contacto-radios { flex-direction:column; align-items:flex-start; }

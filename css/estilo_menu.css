@@ -420,7 +420,7 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .menu-toggle {
     display: block;
     z-index: 30;

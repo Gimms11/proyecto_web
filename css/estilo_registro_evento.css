@@ -207,7 +207,7 @@ html, body {
 }
 
 /* En pantallas menores a 992px (laptops pequeñas o tablets) */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 900px) {
   .form-container {
     max-width: 90%;
     padding: 1.5rem;
@@ -237,7 +237,7 @@ html, body {
 }
 
 /* En pantallas menores a 768px (tablets y móviles grandes) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .form-container {
     padding: 1rem;
   }

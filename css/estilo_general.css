@@ -128,7 +128,7 @@ body {
   padding-right: 1rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .content {
     margin-left: 0rem; /* deja espacio para el menú */
     padding-top: 4rem;

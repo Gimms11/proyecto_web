@@ -247,7 +247,7 @@
 }
 
 /* ====== RESPONSIVE ====== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* 📆 Vista semanal */
   .calendario-semanal {
     top: 0em;

@@ -350,7 +350,7 @@
 }
 
 /* Laptops pequeñas */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 900px) {
   .main-container {
     grid-template-columns: 1fr;
   }
@@ -366,7 +366,7 @@
 }
 
 /* Tablets */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .main-container {
     grid-template-columns: 1fr;
   }
@@ -508,7 +508,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .derecha {
     display: block !important; 
     margin-top: 2rem;

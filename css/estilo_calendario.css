@@ -291,3 +291,40 @@
   overflow: hidden;
   height: 100vh;
 }
+
+/* ────────────────────────────────────────────── */
+/* 🚀 ANIMACIONES DE ENTRADA */
+/* ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.parte_superior_del_Calendario,
+.calendario-regreso,
+#vista-mensual,
+#seleccion_dia {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Retrasos escalonados */
+.parte_superior_del_Calendario {
+    animation-delay: 0.1s;
+}
+.calendario-regreso {
+    animation-delay: 0.3s;
+}
+#vista-mensual {
+    animation-delay: 0.5s;
+}
+#seleccion_dia {
+    animation-delay: 0.7s;
+}

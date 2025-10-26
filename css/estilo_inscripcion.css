@@ -226,3 +226,36 @@ footer {
 #form-inscripcion{
   padding-right: 1rem;
 }
+
+/* ────────────────────────────────────────────── */
+/* 🚀 ANIMACIONES DE ENTRADA */
+/* ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header,
+.tarjeta-evento,
+.eventos-recomendados {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Retrasos escalonados */
+header {
+    animation-delay: 0.1s;
+}
+.tarjeta-evento {
+    animation-delay: 0.3s;
+}
+.eventos-recomendados {
+    animation-delay: 0.5s;
+}

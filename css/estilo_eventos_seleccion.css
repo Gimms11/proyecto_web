@@ -266,3 +266,44 @@ p.subtitulo {
     accent-color: var(--color-cuarto);
     cursor: pointer;
 }
+
+/* ────────────────────────────────────────────── */
+/* 🚀 ANIMACIONES DE ENTRADA */
+/* ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.encabezado,
+.tabs,
+.filtro-eventos,
+.subtitulo,
+.evento-container {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Retrasos escalonados */
+.encabezado {
+    animation-delay: 0.1s;
+}
+.tabs {
+    animation-delay: 0.2s;
+}
+.filtro-eventos {
+    animation-delay: 0.3s;
+}
+.subtitulo {
+    animation-delay: 0.4s;
+}
+.evento-container {
+    animation-delay: 0.5s;
+}

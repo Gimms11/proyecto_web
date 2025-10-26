@@ -2,6 +2,7 @@
 .content {
   padding-right: 0;
   margin-left: 7rem;
+  overflow-x: hidden;
 }
 
 a {
@@ -10,12 +11,16 @@ a {
 }
 
 /* === Encabezado === */
-header {
+.cabezera {
+  position: absolute;
+  margin-left: 8px; /* deja espacio para el menú */
+  top:0;
+  width: 100%;
   background-color: var(--color-terciario);
-  color: var(--color-texto);
-  text-align: center;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+    color: var(--color-texto);
+    text-align: center;
+    padding: 1.5rem;
+    padding-top: 3em;
 }
 
 header h2 {
@@ -36,7 +41,7 @@ footer {
   align-items: center;
   gap: 0.5rem;
   width: 4rem;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   padding: 12px;
   color: var(--color-texto);
   border: none;
@@ -44,6 +49,7 @@ footer {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 7rem;
 }
 
 .btn-atras:hover {
@@ -258,4 +264,29 @@ header {
 }
 .eventos-recomendados {
     animation-delay: 0.5s;
+}
+
+
+@media screen and (max-width: 900px) {
+  .content {
+    margin-left: 0rem; /* deja espacio para el menú */
+    padding-top: 4rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+  }
+
+  main{
+    padding: 1rem;
+  }
+
+  .cabezera{
+    margin-left: 0px; /* deja espacio para el menú */
+    padding: 0;
+    padding-top: 3rem;
+  }
+  
+  /* === Botón atrás === */
+  .btn-atras {
+    margin-top: 10rem;
+  }
 }

@@ -96,7 +96,6 @@ function setupMenuEvents() {
 
 
 
-
 // 🐸 Control de la ranita
 function setupRanitaEvents() {
   const ranitaImg = document.querySelector(".sidebar__icon_logo_ranita");
@@ -108,9 +107,11 @@ function setupRanitaEvents() {
     return;
   }
 
-  const originalSrc = ranitaImg.src;
-  const hoverSrc = "assets/sorprendido.png";
-  const dormidoSrc = "assets/Dormido.png";
+  const paths = {
+    original: ranitaImg.src,
+    hover: "assets/sorprendido.png",
+    dormido: "assets/Dormido.png"
+  };
 
   // 🎬 Crear overlay para el efecto crossfade
   const parent = ranitaImg.parentElement;
@@ -118,13 +119,18 @@ function setupRanitaEvents() {
 
   const overlayImg = ranitaImg.cloneNode(true);
   overlayImg.classList.add("ranita-overlay");
-  overlayImg.style.opacity = "0";
-  overlayImg.style.transition = "opacity 0.3s ease";
+  Object.assign(overlayImg.style, {
+    opacity: "0",
+    transition: "opacity 0.3s ease",
+    position: "absolute",
+    top: "0",
+    left: "0"
+  });
   parent.appendChild(overlayImg);
 
-  // 🎞️ Función de crossfade sin flash blanco
+  // 🎞️ Efecto de crossfade
   const crossfade = (nuevoSrc) => {
-    if (overlayImg.src === nuevoSrc || ranitaImg.src === nuevoSrc) return; // evita repeticiones
+    if ([overlayImg.src, ranitaImg.src].includes(nuevoSrc)) return;
     overlayImg.src = nuevoSrc;
     overlayImg.style.opacity = "1";
     setTimeout(() => {
@@ -133,46 +139,69 @@ function setupRanitaEvents() {
     }, 300);
   };
 
+  // 🐸 Handlers
+  const onHoverIn = () => crossfade(paths.hover);
+  const onHoverOut = () => crossfade(paths.original);
+
   // 🌙 Manejo de tema
-  let currentTheme = localStorage.getItem('theme') || 'light';
-
   const updateRanitaState = () => {
-    currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const isDark = currentTheme === 'dark';
 
-    if (currentTheme === 'dark') {
-      // En modo oscuro: dormida y sin eventos
-      crossfade(dormidoSrc);
-      elementosSidebar.forEach(el => {
-        el.removeEventListener("mouseenter", onHoverIn);
-        el.removeEventListener("mouseleave", onHoverOut);
-      });
-    } else {
-      // En modo claro: activa los eventos
-      crossfade(originalSrc);
-      elementosSidebar.forEach(el => {
+    crossfade(isDark ? paths.dormido : paths.original);
+
+    elementosSidebar.forEach(el => {
+      el.removeEventListener("mouseenter", onHoverIn);
+      el.removeEventListener("mouseleave", onHoverOut);
+      if (!isDark) {
         el.addEventListener("mouseenter", onHoverIn);
         el.addEventListener("mouseleave", onHoverOut);
-      });
-    }
+      }
+    });
   };
-
-  // 🐸 Handlers
-  const onHoverIn = () => crossfade(hoverSrc);
-  const onHoverOut = () => crossfade(originalSrc);
 
   // 🟢 Inicialización
   updateRanitaState();
 
-  // Escucha cuando el tema cambia
+  // 🔄 Escucha cambios de tema
   const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('change', () => {
-      setTimeout(updateRanitaState, 100);
-    });
-  }
+  themeToggle?.addEventListener('change', () => setTimeout(updateRanitaState, 100));
 
   console.log("✅ Ranita lista con comportamiento por tema");
 }
+
+/* 🧪 Tester de la ranita
+   Llama a esta función para verificar que todo funcione correctamente:
+   testRanita(); 
+*/
+function testRanita() {
+  console.log("🧪 Iniciando prueba de la ranita...");
+
+  const ranita = document.querySelector(".sidebar__icon_logo_ranita");
+  if (!ranita) return console.error("❌ No se encontró la ranita en el DOM");
+
+  // Simular hover
+  console.log("▶️ Simulando hover...");
+  ranita.dispatchEvent(new Event("mouseenter"));
+  setTimeout(() => {
+    console.log("⏹️ Simulando salida de hover...");
+    ranita.dispatchEvent(new Event("mouseleave"));
+  }, 1000);
+
+  // Simular cambio de tema
+  setTimeout(() => {
+    console.log("🌙 Probando cambio a modo oscuro...");
+    localStorage.setItem("theme", "dark");
+    document.getElementById('theme-toggle')?.dispatchEvent(new Event("change"));
+  }, 2000);
+
+  setTimeout(() => {
+    console.log("🌞 Volviendo a modo claro...");
+    localStorage.setItem("theme", "light");
+    document.getElementById('theme-toggle')?.dispatchEvent(new Event("change"));
+  }, 4000);
+}
+
 
 // 🚀 Carga el menú
 fetch("menu.html")

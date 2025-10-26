@@ -1,0 +1,187 @@
+body{
+    padding-bottom: 1.5rem;
+}
+
+.welcome-header {
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    padding: 1rem;
+    max-width: 800px;
+    color: var(--color-texto);
+    animation: fadeInDown 1s ease-out;
+}
+
+.welcome-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-header p {
+    font-size: 1.2rem;
+    color: var(--color-g1);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto; /* Aumentado el margen inferior */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--borde-carta);
+    box-shadow: var(--caja-sombra);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-title {
+    text-align: center;
+    color: var(--color-texto);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    animation: popIn 0.5s ease-out forwards;
+    opacity: 0;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.form-field:hover {
+    transform: scale(1.02);
+}
+
+.form-field.full-width {
+    grid-column: span 2;
+}
+
+.form-field label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto);
+    font-weight: bold;
+}
+
+.form-field .material-symbols-outlined {
+    margin-right: 0.5rem;
+    color: var(--color-primario);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    border: 1px solid var(--color-g3);
+    border-radius: var(--borde-radio-1);
+    background-color: var(--color-g4);
+    color: var(--color-texto);
+    transition: all 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 8px var(--color-primario);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--borde-radio-2);
+    background-color: var(--color-primario);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Staggered animation for form fields */
+.form-field:nth-child(1) { animation-delay: 0.1s; }
+.form-field:nth-child(2) { animation-delay: 0.2s; }
+.form-field:nth-child(3) { animation-delay: 0.3s; }
+.form-field:nth-child(4) { animation-delay: 0.4s; }
+.form-field:nth-child(5) { animation-delay: 0.5s; }
+.form-field:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animación de baile para los iconos */
+@keyframes dance {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-15deg) scale(1.2); }
+    50% { transform: rotate(0); }
+    75% { transform: rotate(15deg) scale(1.2); }
+}
+
+/* Aplica la animación al icono cuando el campo está enfocado */
+.form-field:focus-within .material-symbols-outlined {
+    animation: dance 0.6s ease-in-out infinite;
+}

@@ -1,21 +1,21 @@
-// Aplica el tema guardado
+// 🌙 Aplica el tema guardado
 function handleTheme() {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
-// Configura eventos después de cargar el menú
+// ⚙️ Configura eventos después de cargar el menú
 function setupMenuEvents() {
   const sidebar = document.querySelector(".sidebar");
   const overlay = document.querySelector(".overlay");
   const themeToggle = document.getElementById('theme-toggle');
 
   if (!sidebar || !overlay) {
-    console.warn("Faltan elementos del menú o del overlay");
+    console.warn("⚠️ Faltan elementos del menú o del overlay");
     return;
   }
 
-  // Tema
+  // 🌗 Tema
   const currentTheme = localStorage.getItem('theme') || 'light';
   if (themeToggle) {
     themeToggle.checked = currentTheme === 'dark';
@@ -26,31 +26,12 @@ function setupMenuEvents() {
     });
   }
 
-  // Overlay
+  // 🌫️ Overlay (solo se activa al pasar el mouse, sin detección inicial)
   sidebar.addEventListener("mouseenter", () => overlay.classList.add("active"));
   sidebar.addEventListener("mouseleave", () => overlay.classList.remove("active"));
-
-  // Detectar si el mouse ya está dentro al cargar
-  const rect = sidebar.getBoundingClientRect();
-  document.addEventListener("mousemove", function initialMove(e) {
-    if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
-      overlay.classList.add("active");
-    }
-    document.removeEventListener("mousemove", initialMove);
-  });
 }
 
-// Carga el menú
-// Carga el menú
-fetch("menu.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("menu").innerHTML = data;
-    handleTheme();
-    setupMenuEvents();
-    setupRanitaEvents(); // 👈 aquí llamamos la función que maneja la ranita
-  });
-
+// 🐸 Control de la ranita
 function setupRanitaEvents() {
   const ranitaImg = document.querySelector(".sidebar__icon_logo_ranita");
   const elementosSidebar = Array.from(document.querySelectorAll(".sidebar_element"))
@@ -65,18 +46,20 @@ function setupRanitaEvents() {
   const hoverSrc = "assets/sorprendido.png";
   const dormidoSrc = "assets/Dormido.png";
 
-  // Crear overlay para crossfade
+  // 🎬 Crear overlay para el efecto crossfade
   const parent = ranitaImg.parentElement;
   parent.style.position = "relative";
+
   const overlayImg = ranitaImg.cloneNode(true);
   overlayImg.classList.add("ranita-overlay");
   overlayImg.style.opacity = "0";
+  overlayImg.style.transition = "opacity 0.3s ease";
   parent.appendChild(overlayImg);
 
-  // Función de crossfade
+  // 🎞️ Función de crossfade sin flash blanco
   const crossfade = (nuevoSrc) => {
+    if (overlayImg.src === nuevoSrc || ranitaImg.src === nuevoSrc) return; // evita repeticiones
     overlayImg.src = nuevoSrc;
-    overlayImg.style.transition = "opacity 0.3s ease";
     overlayImg.style.opacity = "1";
     setTimeout(() => {
       ranitaImg.src = nuevoSrc;
@@ -84,21 +67,21 @@ function setupRanitaEvents() {
     }, 300);
   };
 
-  // Detectar tema actual
+  // 🌙 Manejo de tema
   let currentTheme = localStorage.getItem('theme') || 'light';
 
   const updateRanitaState = () => {
     currentTheme = localStorage.getItem('theme') || 'light';
 
-    // Si es oscuro → imagen dormida y desactiva eventos
     if (currentTheme === 'dark') {
+      // En modo oscuro: dormida y sin eventos
       crossfade(dormidoSrc);
       elementosSidebar.forEach(el => {
         el.removeEventListener("mouseenter", onHoverIn);
         el.removeEventListener("mouseleave", onHoverOut);
       });
     } else {
-      // Si es claro → activa eventos
+      // En modo claro: activa los eventos
       crossfade(originalSrc);
       elementosSidebar.forEach(el => {
         el.addEventListener("mouseenter", onHoverIn);
@@ -107,20 +90,31 @@ function setupRanitaEvents() {
     }
   };
 
-  // Handlers separados para fácil reactivación
+  // 🐸 Handlers
   const onHoverIn = () => crossfade(hoverSrc);
   const onHoverOut = () => crossfade(originalSrc);
 
-  // Tema inicial
+  // 🟢 Inicialización
   updateRanitaState();
 
   // Escucha cuando el tema cambia
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('change', () => {
-      setTimeout(updateRanitaState, 100); // Espera a que cambie el tema
+      setTimeout(updateRanitaState, 100);
     });
   }
 
   console.log("✅ Ranita lista con comportamiento por tema");
 }
+
+// 🚀 Carga el menú
+fetch("menu.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("menu").innerHTML = data;
+    handleTheme();
+    setupMenuEvents();
+    setupRanitaEvents();
+  })
+  .catch(err => console.error("❌ Error al cargar el menú:", err));

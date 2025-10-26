@@ -1,33 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- Configuración -->
-    <meta charset="UTF-8" />
-    <meta name="autor" content="Albert Mijael Garayar Munive" />
-    <title>Registrar Evento</title>
-
-
-    <!-- Fuente de iconos de Google (Material Symbols) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-
-
-    <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="css/estilo_calendario.css" />
-    <link rel="stylesheet" href="css/estilo_general.css" />
+    <meta charset="UTF-8">
+    <title>Registro de Evento</title>
+    <link rel="stylesheet" href="css/estilo_general.css">
+    <link rel="stylesheet" href="css/estilo_registro_evento.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
-
-<body class="bodyCalendar">
-    <!-- Menú lateral (se cargará con layout.js) -->
+<body class="dashboard">
     <div id="menu"></div>
     <div class="overlay"></div>
-
-    <!-- Contenido principal -->
-    <div class="content"></div>
-    
-    <!-- Script para cargar funcionalidades dinámicas -->
+    <div class="content">
+        <div class="welcome-header">
+            <h2>Bienvenido, Administrador</h2>
+            <p>Desde aquí puedes registrar nuevos eventos para la comunidad.</p>
+        </div>
+        <div class="form-container">
+            <h1 class="form-title">Registrar Nuevo Evento</h1>
+            <form id="evento-form">
+                <div class="form-grid">
+                    <div class="form-field full-width">
+                        <label for="nombre">
+                            <span class="material-symbols-outlined">event</span>
+                            Nombre del Evento
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="ubicacion">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Ubicación
+                        </label>
+                        <input type="text" id="ubicacion" name="ubicacion">
+                    </div>
+                    <div class="form-field">
+                        <label for="fecha">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            Fecha
+                        </label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+                    <div class="form-field">
+                        <label for="hora_inicio">
+                            <span class="material-symbols-outlined">schedule</span>
+                            Hora de Inicio
+                        </label>
+                        <input type="time" id="hora_inicio" name="hora_inicio">
+                    </div>
+                    <div class="form-field">
+                        <label for="hora_termino">
+                            <span class="material-symbols-outlined">hourglass_bottom</span>
+                            Hora de Término
+                        </label>
+                        <input type="time" id="hora_termino" name="hora_termino">
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="descripcion_corta">
+                            <span class="material-symbols-outlined">description</span>
+                            Descripción Corta
+                        </label>
+                        <textarea id="descripcion_corta" name="descripcion_corta" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <span class="material-symbols-outlined">save</span>
+                        Guardar Evento
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="layout.js"></script>
-    
 </body>
-
 </html>

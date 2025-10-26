@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
+  overflow-y: hidden;
 }
 
 /* 📅 Calendario mensual */
@@ -11,13 +12,8 @@
   position: absolute;
   top: 0;
   margin-left: 160px; /* deja espacio para el menú */
-  margin-top: 80px;
-  width: calc(100% - 300px);
+  width: calc(100% - 17.5%);
   height: 89%;
-  /*
-  background: linear-gradient(to right, var(--color-primario), var(--color-secundario));
-  border-radius: var(--borde-radio-3);
-  */
   padding: 40px;
   overflow-y: hidden;
   z-index: 0;
@@ -28,13 +24,11 @@
 /* 🔝 Barra superior */
 .parte_superior_del_Calendario {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
-  /*
-  background: linear-gradient(to right, var(--color-terciario), var(--color-quinto));
-  */
   background: var(--color-sexto);
   border-radius: var(--borde-radio-2);
+  margin-top: 3em;
   padding: 10px 12px;
   position: sticky;
   top: 0;
@@ -48,7 +42,7 @@
   background: linear-gradient(135deg, var(--color-secundario), var(--color-cuarto));
   */
   line-height: 10px;
-
+  width: 10vh;
   background: var(--color-g3);
   padding: 10px 20px;
   border-radius: var(--borde-radio-2);
@@ -59,6 +53,13 @@
   border: none;
   color: var(--color-texto);
   box-shadow: var(--caja-sombra);
+}
+
+.boton_meses{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .boton_meses:hover {
@@ -96,6 +97,8 @@
 .dias_semana {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
@@ -103,28 +106,43 @@
 
 .dias {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr)); /* garantiza 7 columnas estables */
   gap: 5px;
   margin-top: 10px;
+  width: 100%;
 }
 
+/* Cada día del calendario */
 .dia {
-  padding: 10px;
-  /*background: linear-gradient(to right, var(--color-sexto), var(--color-quinto));*/
-  aspect-ratio: 3.5/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 4 / 1.25; /* mantiene forma rectangular adaptable */
   background: var(--color-g4);
   border-radius: var(--borde-radio-1);
   text-align: center;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  font-size: 0.95rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.dia:hover { background: var(--color-g3); }
+.dia:hover {
+  background: var(--color-g3);
+  transform: scale(1.03);
+}
+
 .hoy {
   background: var(--color-g3);
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 0 12px var(--color-g3);
+  box-shadow: 0 0 10px var(--color-g3);
+}
+
+/* Días vacíos (mantienen estructura, pero invisibles) */
+.vacio {
+  visibility: hidden;
 }
 
 /* 📆 Vista semanal */
@@ -229,40 +247,99 @@
 }
 
 /* ====== RESPONSIVE ====== */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+  /* 📆 Vista semanal */
+  .calendario-semanal {
+    top: 0em;
+    left: 0em;
+    width: 90%;
+    padding: 60px 20px;
+    display: block;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width:auto;
+    -ms-overflow-style: auto;
+  }
+
+  .semana-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 60px;
+  }
+
+  #btnVolver {
+    top: 7.25rem;
+    left: 1em;
+  }
+
+  *{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .bodyCalendar{
+    overflow-y: none;
+    scrollbar-width: none;
+  }
+
   .meses {
     font-size: 1.5rem;
   }
 
-  .dias {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
   .pagina_Calendario {
+    top: 0;
+    margin-left: 0;
+    margin-top: 80px;
+    width: calc(100% - 7.5%);
+    height: 100%;
     padding: 15px;
+    overflow-y: auto;
+  }
+
+  .dias {
+    grid-template-columns: repeat(7, 1fr);
   }
 
   .parte_superior_del_Calendario {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    gap: 8px;
+    margin-top: 0em;
   }
 
   .boton_meses {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    aspect-ratio: 1/1;
   }
 
   .meses {
     font-size: 1.4rem;
+    text-wrap: nowrap;
   }
 
-  .dias_semana {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
+  /* 📅 Mantiene 7 columnas SIEMPRE */
+  .dias_semana,
   .dias {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, minmax(40px, 1fr));
+    gap: 10px;
+    overflow-x: hidden; /* permite desplazamiento si no caben */
+    overflow-y: hidden;
+  }
+
+  .dias{
+    scrollbar-width:auto;
+    -ms-overflow-style: auto;
+  }
+
+  .dias{
+    min-height: 20em;
+  }
+
+  .dia{
+    height: 6vh;
+    aspect-ratio: 1/1;
   }
 
   .boton_hoy,
@@ -273,23 +350,30 @@
 }
 
 @media (max-width: 400px) {
-  .dias_semana {
-    grid-template-columns: repeat(3, 1fr);
+  .meses {
+    font-size:smaller;
+    text-wrap: wrap;
   }
 
-  .dias {
-    grid-template-columns: repeat(3, 1fr);
+  .pagina_Calendario {
+    width: calc(100% - 7.5%);
+  }
+
+  .dia{
+    height: 5vh;
+    aspect-ratio: 1/1;
   }
 
   .meses {
     font-size: 1.2rem;
-  }
-}
+  } 
 
-/* 🔒 Desactiva el scroll del body */
-.no-scroll {
-  overflow: hidden;
-  height: 100vh;
+  .dias_semana,
+  .dias {
+    grid-template-columns: repeat(7, minmax(40px, 1fr));
+    gap: 4px;
+    overflow-x: auto; /* permite desplazamiento si no caben */
+  }
 }
 
 /* ────────────────────────────────────────────── */

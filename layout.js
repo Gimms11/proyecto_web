@@ -4,32 +4,98 @@ function handleTheme() {
   document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
-// ⚙️ Configura eventos después de cargar el menú
+// ⚙️ Configura menú lateral (responsive + desktop)
 function setupMenuEvents() {
   const sidebar = document.querySelector(".sidebar");
-  const overlay = document.querySelector(".overlay");
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggle = document.getElementById("theme-toggle");
+  const toggleBtn = document.getElementById("menu-toggle");
+  let overlay = document.querySelector(".overlay") || document.querySelector(".sidebar-overlay");
 
-  if (!sidebar || !overlay) {
-    console.warn("⚠️ Faltan elementos del menú o del overlay");
+  if (!sidebar) {
+    console.warn("⚠️ Sidebar no encontrado");
     return;
   }
 
+  // 🧱 Crear overlay si no existe
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    document.body.appendChild(overlay);
+  }
+
   // 🌗 Tema
-  const currentTheme = localStorage.getItem('theme') || 'light';
+  const currentTheme = localStorage.getItem("theme") || "light";
   if (themeToggle) {
-    themeToggle.checked = currentTheme === 'dark';
-    themeToggle.addEventListener('change', () => {
-      const newTheme = themeToggle.checked ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+    themeToggle.checked = currentTheme === "dark";
+    themeToggle.addEventListener("change", () => {
+      const newTheme = themeToggle.checked ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
     });
   }
 
-  // 🌫️ Overlay (solo se activa al pasar el mouse, sin detección inicial)
-  sidebar.addEventListener("mouseenter", () => overlay.classList.add("active"));
-  sidebar.addEventListener("mouseleave", () => overlay.classList.remove("active"));
+  // 💻 Detección de escritorio
+  const isDesktop = () => window.innerWidth > 768;
+  let isMenuOpen = false;
+
+  // 🔘 Abrir / cerrar menú (solo en móvil)
+  function toggleMenu(open) {
+    if (open) {
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+      isMenuOpen = true;
+      if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "true");
+    } else {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+      isMenuOpen = false;
+      if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  // 📱 Botón del menú
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => toggleMenu(!isMenuOpen));
+  }
+
+  // 📲 Cerrar al tocar overlay (móvil)
+  overlay.addEventListener("click", () => {
+    if (!isDesktop() && isMenuOpen) toggleMenu(false);
+  });
+
+  // 📎 Cerrar menú al hacer clic en un enlace (solo móvil)
+  const sidebarLinks = sidebar.querySelectorAll("a");
+  sidebarLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (!isDesktop()) toggleMenu(false);
+    });
+  });
+
+  // 🖱️ Hover oscurecido solo en escritorio
+  function handleMouseEnter() {
+    if (isDesktop()) overlay.classList.add("active");
+  }
+
+  function handleMouseLeave() {
+    if (isDesktop()) overlay.classList.remove("active");
+  }
+
+  sidebar.addEventListener("mouseenter", handleMouseEnter);
+  sidebar.addEventListener("mouseleave", handleMouseLeave);
+
+  // 🔄 Asegurar comportamiento correcto al redimensionar
+  window.addEventListener("resize", () => {
+    if (!isDesktop()) {
+      overlay.classList.remove("active");
+      sidebar.classList.remove("active");
+    }
+  });
+
+  console.log("✅ Menú y overlay configurados correctamente con hover en escritorio");
 }
+
+
+
 
 // 🐸 Control de la ranita
 function setupRanitaEvents() {

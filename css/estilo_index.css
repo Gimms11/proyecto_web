@@ -7,11 +7,17 @@
   display: block;
 }
 
+/* Contenedor principal responsive */
 .main-container {
   display: grid;
-  grid-template-columns: 1fr 300px; /* main content y panel derecho */
+  grid-template-columns: 1fr minmax(250px, 300px);
   gap: 2rem;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
+
 
 .Foto-perfil {
   width: 20%;
@@ -39,11 +45,14 @@
 /* 📊 TARJETAS DE RESUMEN */
 /* ────────────────────────────────────────────── */
 
+/* Las tarjetas se adaptan automáticamente */
 .dashboard main .cuadrs {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.6rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard main .cuadrs > div {
@@ -304,9 +313,41 @@
   margin-top: 2px;
 }
 
+/* Imágenes y tablas no deben romper el diseño */
+.Foto-perfil,
+.dashboard main .descripcion table {
+  max-width: 100%;
+  height: auto;
+  overflow-x: auto;
+}
+
 /* ────────────────────────────────────────────── */
 /* 🧠 MEDIA QUERIES RESPONSIVAS */
 /* ────────────────────────────────────────────── */
+
+/* Ajuste extra para pantallas medianas */
+@media screen and (max-width: 1200px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .derecha {
+    margin-top: 2rem;
+  }
+
+  body{
+    padding-bottom: 2rem;
+  }
+
+  .derecha .actualizaciones-recientes .actualizacion:hover {
+  transform: scale(1.05);
+  background: rgba(222, 234, 239, 0.5);
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  }
+}
 
 /* Laptops pequeñas */
 @media screen and (max-width: 992px) {
@@ -503,6 +544,10 @@
   .derecha .actualizaciones .update .info {
     flex: 1;
     font-size: 0.85rem;
+  }
+  
+  tr{
+    margin: 5px;
   }
 }
 

@@ -401,3 +401,87 @@
   75% { transform: rotate(5deg); }
   100% { transform: rotate(0deg); }
 }
+/* ───────────────────────────── */
+/* 📱 MENÚ RESPONSIVE */
+/* ───────────────────────────── */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-texto, #333);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 30;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -290px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-fondo, #fff);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 25;
+    grid-template-columns: 40px 1fr;
+  }
+
+  .sidebar .sidebar__icon_logo_ranita{
+  height: 120px;
+  animation: wobble 3s ease infinite;
+  }
+
+  .sidebar .sidebar_element {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .sidebar .sidebar__icon_logo_ranita{
+    height: 120px;
+    animation: wobble 3s ease infinite;
+  }
+
+  .sidebar .sidebar_hide {
+    margin-left: 2rem;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    display: none;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  .top-bar {
+    justify-content: space-between;
+  }
+
+  .top-perfil {
+    margin-left: auto;
+  }
+}

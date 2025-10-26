@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <!-- Configuración -->
   <meta charset="UTF-8" />
-  <meta name="autor" content="Anampa Vignolo Giancarlos" />
+  <meta name="author" content="Anampa Vignolo Giancarlos" />
   <title>Calendario</title>
 
+  <!-- Fuente de iconos -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
-    <!-- Fuente de iconos de Google (Material Symbols) -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    />
-    
-
-  <!-- Hojas de estilo -->
-  <link rel="stylesheet" href="css/estilo_calendario.css" />
+  <!-- Estilos -->
   <link rel="stylesheet" href="css/estilo_general.css" />
+  <link rel="stylesheet" href="css/estilo_calendario.css" />
 </head>
 
 <body class="bodyCalendar">
-  <!-- Menú lateral (se cargará con layout.js) -->
   <div id="menu"></div>
   <div class="overlay"></div>
 
-  <!-- Contenido principal -->
-  <div class="content"></div>
-    <main class="pagina_Calendario">
+  <main class="pagina_Calendario">
 
-      <!-- Encabezado del calendario -->
-      <header class="parte_superior_del_Calendario">
-        <button class="boton_meses" id="mes_anterior" aria-label="Mes anterior">‹</button>
-        <h1 class="meses" id="meses">Mes Año</h1>
-        <button class="boton_meses" id="mes_posterior" aria-label="Mes siguiente">›</button>
-      </header>
+    <!-- Encabezado -->
+    <header class="parte_superior_del_Calendario">
+      <button class="boton_meses" id="mes_anterior" aria-label="Mes anterior">‹</button>
+      <h1 class="meses" id="meses">Mes Año</h1>
+      <button class="boton_meses" id="mes_posterior" aria-label="Mes siguiente">›</button>
+    </header>
 
-      <!--Botones principales -->
-      <section class="calendario-regreso">
+    <!-- Botones principales -->
+    <section class="calendario-regreso">
       <button class="boton_hoy" id="boton_hoy">Hoy</button>
       <button class="boton_toggle" id="toggleVista">Ver vista semanal</button>
-      </section>
+    </section>
 
-      <!--Vista calendario -->
-<section id="vista-mensual" class="calendario-semana vista-animada">
-<div class="dias_semana">
-<span>Lu</span><span>Mar</span><span>Mié</span>
-<span>Jue</span><span>Vie</span><span>Sab</span>
-<span>Dom</span>
-</div>
-<div class="dias" id="dias-grid" role="grid"></div>
-</section>
-</section>
+    <!-- Vista mensual -->
+    <section id="vista-mensual" class="vista-animada activo">
+      <div class="dias_semana">
+        <span>Lu</span><span>Mar</span><span>Mié</span>
+        <span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+      </div>
+      <div class="dias" id="dias-grid" role="grid"></div>
+    </section>
 
-<!--Vista semanal-->
-<section id="vista-semanal" class="calendario-semanal vista-animada">
-<button id="btnVolver" class="boton_toggle">Volver al calendario</button>
-<h2 id="titulo-semana">Vista semanal</h2>
-<div id="semana-grid" class="semana-grid"></div>
-</section>
-</section>
+    <!-- Vista semanal -->
+    <section id="vista-semanal" class="calendario-semanal vista-animada">
+      <button id="btnVolver" class="boton_toggle">Volver al calendario</button>
+      <h2 id="titulo-semana">Vista semanal</h2>
+      <div id="semana-grid" class="semana-grid"></div>
+    </section>
 
-<!--Vista del dia Seleccionado -->
-<section id="seleccion_dia" class="seleccion_dia">
-Día seleccionado: Ninguno
-</section>
+    <!-- Día seleccionado -->
+    <section id="seleccion_dia" class="seleccion_dia">
+      Día seleccionado: Ninguno
+    </section>
 
-        <!-- Script del calendario -->
-        <script src="scripts/principal.js"></script> 
-    </main>
-    <!-- Script para cargar funcionalidades dinámicas -->
+  </main>
+
+  <!-- Scripts -->
+  <script src="scripts/principal.js"></script>
   <script src="layout.js"></script>
-</body>
 
+  <script>
+    const diasSemana = document.querySelector('.dias_semana');
+    const dias = document.querySelector('.dias');
+
+    if (diasSemana && dias) {
+      // Cuando se haga scroll en los días, mueve los días de la semana
+      dias.addEventListener('scroll', () => {
+        diasSemana.scrollLeft = dias.scrollLeft;
+      });
+
+      // Y viceversa, por si el usuario arrastra arriba
+      diasSemana.addEventListener('scroll', () => {
+        dias.scrollLeft = diasSemana.scrollLeft;
+      });
+    }
+  </script>
+</body>
 </html>

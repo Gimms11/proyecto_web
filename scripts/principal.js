@@ -2,10 +2,10 @@ const mesesNombres = [
   "Enero","Febrero","Marzo","Abril","Mayo","Junio",
   "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
+
 const eventos = [
   { fecha: '2025-09-29', titulo: 'Conferencia de Exitosos', hora: '10:00' },
-  { fecha: '2025-09-30', titulo: 'Entrega de viveres', hora: '15:00' },
-  { fecha: '2025-10-01', titulo: 'Clases de negocios', hora: '18:00' },
+  { fecha: '2025-09-30', titulo: 'Entrega de víveres', hora: '15:00' },
   { fecha: '2025-10-01', titulo: 'Clases de negocios', hora: '18:00' },
 ];
 
@@ -28,7 +28,7 @@ const btnVolver = document.getElementById("btnVolver");
 
 let diaSeleccionado = null;
 
-// ------------------ RENDER CALENDARIO -------------------
+// 📅 Renderizar calendario mensual
 function renderizarCalendario(mes, Año) {
   tituloMes.textContent = `${mesesNombres[mes]} ${Año}`;
   contenedorDias.innerHTML = "";
@@ -39,14 +39,14 @@ function renderizarCalendario(mes, Año) {
   let inicio = PrimerDia === 0 ? 6 : PrimerDia - 1;
 
   for (let i = 0; i < inicio; i++) {
-    const celda = document.createElement("div");    
+    const celda = document.createElement("div");
     celda.classList.add("vacio");
     contenedorDias.appendChild(celda);
   }
 
   for (let dia = 1; dia <= UltimoDia; dia++) {
     const celda = document.createElement("div");
-    celda.textContent = dia;   
+    celda.textContent = dia;
     celda.classList.add("dia");
 
     if (
@@ -57,7 +57,6 @@ function renderizarCalendario(mes, Año) {
       celda.classList.add("hoy");
     }
 
-    // Evento al hacer clic en un día
     celda.addEventListener("click", () => {
       seleccionDia.textContent = `Día seleccionado: ${dia} de ${mesesNombres[mes]} ${Año}`;
       diaSeleccionado = dia;
@@ -68,7 +67,7 @@ function renderizarCalendario(mes, Año) {
   }
 }
 
-// ------------------ RENDER SEMANA -------------------
+// 📆 Renderizar vista semanal
 function renderizarSemana(dia, mes, Año) {
   semanaGrid.innerHTML = "";
   const fecha = new Date(Año, mes, dia);
@@ -99,39 +98,32 @@ function renderizarSemana(dia, mes, Año) {
     semanaGrid.appendChild(contenedorDia);
   }
 
-  // Mostrar la vista semanal
+  // Mostrar vista semanal
   vistaMensual.classList.remove("activo");
   vistaSemanal.classList.add("activo");
   document.body.classList.add("no-scroll");
 }
 
-// ------------------ BOTONES -------------------
+// 🔘 Botones de navegación
 btnMesAnterior.addEventListener("click", () => {
   mes--;
-  if (mes < 0) {
-    mes = 11;
-    Año--;
-  }
+  if (mes < 0) { mes = 11; Año--; }
   renderizarCalendario(mes, Año);
 });
 
 btnMesPosterior.addEventListener("click", () => {
   mes++;
-  if (mes > 11) {
-    mes = 0;
-    Año++;
-  }  
-  renderizarCalendario(mes, Año);  
+  if (mes > 11) { mes = 0; Año++; }
+  renderizarCalendario(mes, Año);
 });
 
 boton_hoy.addEventListener("click", () => {
   FechaActual = new Date();
   mes = FechaActual.getMonth();
   Año = FechaActual.getFullYear();
-  renderizarCalendario(mes, Año);    
+  renderizarCalendario(mes, Año);
 });
 
-// Botón vista semanal (desde mensual)
 toggleVista.addEventListener("click", () => {
   if (diaSeleccionado) {
     renderizarSemana(diaSeleccionado, mes, Año);
@@ -140,14 +132,11 @@ toggleVista.addEventListener("click", () => {
   }
 });
 
-// Botón volver (en vista semanal)
 btnVolver.addEventListener("click", () => {
   vistaSemanal.classList.remove("activo");
   vistaMensual.classList.add("activo");
   document.body.classList.remove("no-scroll");
 });
 
-// ------------------ INICIALIZAR -------------------
+// 🔰 Inicialización
 renderizarCalendario(mes, Año);
-vistaMensual.classList.add("activo");
-vistaSemanal.classList.remove("activo");
